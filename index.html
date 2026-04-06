@@ -481,17 +481,25 @@ html{scroll-padding-top:78px}
   .contact-row{flex-direction:column;gap:48px;width:100%;padding:0 40px}
   .contact-info{width:100%}
   .contact-form{width:100%}
+  /* Nav etwas kompakter */
+  #nav{padding:0 24px;gap:8px}
+  .nav-links{padding:8px 24px;gap:16px}
+}
+
+/* ────────────────────────────────────────
+   NAV → Hamburger ab ≤ 960px
+──────────────────────────────────────── */
+@media(max-width:960px){
+  #nav{padding:0 20px;height:60px}
+  .nav-center,.nav-right{display:none}
+  .nav-burger{display:flex}
+  html{scroll-padding-top:68px}
 }
 
 /* ────────────────────────────────────────
    MOBILE  ≤ 768px
 ──────────────────────────────────────── */
 @media(max-width:768px){
-  /* NAV */
-  #nav{padding:0 20px;height:60px}
-  .nav-center,.nav-right{display:none}
-  .nav-burger{display:flex}
-  html{scroll-padding-top:68px}
 
   /* HERO */
   #hero{height:100svh;min-height:560px;padding-top:120px}
