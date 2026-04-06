@@ -92,12 +92,18 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 }
 .hero-bg{
   position:absolute;inset:0;z-index:0;
-  background:
-    linear-gradient(to bottom,rgba(0,0,0,.25) 0%,rgba(0,0,0,.65) 100%),
-    url('image/images/source/656711690_18576300511013412_5140793619973769633_n.jpg') center/cover no-repeat;
+  background:#000;
+}
+.hero-video{
+  position:absolute;inset:0;z-index:0;
+  width:100%;height:100%;object-fit:cover;
+}
+.hero-overlay{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(to bottom,rgba(0,0,0,.3) 0%,rgba(0,0,0,.7) 100%);
 }
 .hero-content{
-  position:relative;z-index:1;
+  position:relative;z-index:2;
   display:flex;flex-direction:column;gap:24px;align-items:center;
 }
 .hero-title{display:flex;flex-direction:column;align-items:center}
@@ -223,6 +229,9 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 
 .svc-preview{
   width:100%;height:700px;position:relative;overflow:hidden;
+}
+.svc-preview video{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
 }
 .svc-preview img{
   position:absolute;inset:0;width:100%;height:100%;
@@ -439,7 +448,13 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-bg"></div>
+  <div class="hero-bg">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="image/videos/cinematic.mp4" type="video/mp4">
+      <img src="image/images/source/656711690_18576300511013412_5140793619973769633_n.jpg" alt="">
+    </video>
+  </div>
+  <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-title">
       <span class="hero-complete">COMPLETE</span>
@@ -528,7 +543,12 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
     <button class="tab-btn" data-tab="strategie">Strategie</button>
   </div>
   <div class="svc-preview">
-    <img src="image/images/source/image.png" data-tab-img="social" alt="Social Media">
+    <!-- Video läuft immer als Hintergrund -->
+    <video autoplay muted loop playsinline>
+      <source src="image/cinematic-2.mp4" type="video/mp4">
+    </video>
+    <!-- Tab-Bilder überlagern das Video -->
+    <img src="image/images/source/image.png" data-tab-img="social" alt="Social Media" class="hidden">
     <img src="image/images/source/656711690_18576300511013412_5140793619973769633_n.jpg" data-tab-img="video" alt="Video Editing" class="hidden">
     <img src="image/images/source/image.png" data-tab-img="ki" alt="KI Content" class="hidden" style="filter:sepia(.15) hue-rotate(10deg)">
     <img src="image/images/source/656711690_18576300511013412_5140793619973769633_n.jpg" data-tab-img="strategie" alt="Strategie" class="hidden" style="filter:brightness(.75)">
