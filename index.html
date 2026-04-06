@@ -973,7 +973,7 @@ html{scroll-padding-top:78px}
 window.addEventListener('load', () => document.body.classList.add('loaded'));
 
 // ── SMOOTH SCROLL mit easeOutQuart (schnell → langsam)
-function scrollTo(target, duration) {
+function smoothScroll(target, duration) {
   const navH = document.getElementById('nav').offsetHeight;
   const from = window.scrollY;
   const to   = target.getBoundingClientRect().top + from - navH;
@@ -982,8 +982,7 @@ function scrollTo(target, duration) {
   const easeOutQuart = t => 1 - Math.pow(1 - t, 4);
   function step(ts) {
     if (!start) start = ts;
-    const elapsed = ts - start;
-    const progress = Math.min(elapsed / duration, 1);
+    const progress = Math.min((ts - start) / duration, 1);
     window.scrollTo(0, from + dist * easeOutQuart(progress));
     if (progress < 1) requestAnimationFrame(step);
   }
@@ -998,7 +997,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     e.preventDefault();
     const dist = Math.abs(target.getBoundingClientRect().top);
     const duration = Math.min(Math.max(dist * 0.4, 500), 1100);
-    scrollTo(target, duration);
+    smoothScroll(target, duration);
     history.pushState(null, '', '#' + id);
   });
 });
