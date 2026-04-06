@@ -623,16 +623,16 @@ html{scroll-padding-top:78px}
 <div id="cursor"></div>
 <div id="cursor-ring"></div>
 <nav id="nav">
-  <div class="nav-logo">
+  <a href="#hero" class="nav-logo" aria-label="Nach oben">
     <img src="image/icons/nav/nav/logo-icon.svg" alt="">
     <span>creativelab.de</span>
-  </div>
+  </a>
   <div class="nav-center">
     <div class="nav-links">
-      <a href="#services">Leistungen</a>
-      <a href="#portfolio">Projekte</a>
-      <a href="#pricing">Preise</a>
       <a href="#about">Über mich</a>
+      <a href="#portfolio">Projekte</a>
+      <a href="#services">Leistungen</a>
+      <a href="#pricing">Preise</a>
       <a href="#contact">Kontakt</a>
     </div>
   </div>
@@ -645,10 +645,10 @@ html{scroll-padding-top:78px}
 </nav>
 <!-- MOBILE MENU -->
 <div class="nav-mobile" id="mobile-menu">
-  <a href="#services" class="mobile-link">Leistungen</a>
-  <a href="#portfolio" class="mobile-link">Projekte</a>
-  <a href="#pricing" class="mobile-link">Preise</a>
   <a href="#about" class="mobile-link">Über mich</a>
+  <a href="#portfolio" class="mobile-link">Projekte</a>
+  <a href="#services" class="mobile-link">Leistungen</a>
+  <a href="#pricing" class="mobile-link">Preise</a>
   <a href="#contact" class="mobile-link">Kontakt</a>
   <a href="#contact" class="mobile-link" style="color:var(--g300);margin-top:8px">get in touch →</a>
 </div>
@@ -1061,7 +1061,7 @@ const counterObs = new IntersectionObserver((entries) => {
 document.querySelectorAll('.stat-num[data-count]').forEach(el => counterObs.observe(el));
 
 // ── SCROLL SPY
-const sections = ['services','portfolio','pricing','about','contact'];
+const sections = ['hero','about','portfolio','services','pricing','contact'];
 const navLinks = document.querySelectorAll('.nav-links a');
 const spyObs = new IntersectionObserver((entries) => {
   entries.forEach(e => {
