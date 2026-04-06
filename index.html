@@ -67,10 +67,12 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
   *{cursor:none!important}
   #cursor{position:fixed;width:8px;height:8px;border-radius:50%;
     background:var(--g400);pointer-events:none;z-index:9999;
-    transform:translate(-50%,-50%)}
+    transform:translate(-50%,-50%);opacity:0}
+  #cursor.visible{opacity:1}
   #cursor-ring{position:fixed;width:32px;height:32px;border-radius:50%;
     border:1px solid rgba(201,169,110,.45);pointer-events:none;z-index:9998;
-    transform:translate(-50%,-50%);transition:transform .32s ease,width .2s,height .2s,border-color .2s,opacity .2s}
+    transform:translate(-50%,-50%);transition:width .2s,height .2s,border-color .2s,opacity .2s;opacity:0}
+  #cursor-ring.visible{opacity:1}
   #cursor-ring.hovering{width:52px;height:52px;border-color:var(--g300)}
 }
 
@@ -541,6 +543,11 @@ html{scroll-padding-top:78px}
 ──────────────────────────────────────── */
 @media(max-width:768px){
 
+  /* FIXED-WIDTH ELEMENTE RESPONSIVE MACHEN */
+  .divider{width:calc(100% - 40px)!important;max-width:100%!important}
+  .sec-header{width:100%!important}
+  .stats-row{width:100%!important}
+
   /* HERO */
   #hero{height:100svh;min-height:560px;padding-top:120px}
   .hero-complete{font-size:52px;letter-spacing:10px}
@@ -812,7 +819,7 @@ html{scroll-padding-top:78px}
     <div class="stat-item reveal d2"><span class="stat-num">ESN</span><span class="stat-lbl">DE-Marktführer Supplements</span></div>
     <div class="stat-item reveal d3"><span class="stat-num" data-count="3" data-suffix="×">3×</span><span class="stat-lbl">Ø Engagement-Uplift</span></div>
   </div>
-  <div class="divider reveal" style="width:720px"></div>
+  <div class="divider reveal"></div>
   <div class="testi-row">
     <div class="testi-card reveal d1">
       <div class="testi-accent"></div>
@@ -991,7 +998,11 @@ const cur = document.getElementById('cursor');
 const ring = document.getElementById('cursor-ring');
 let mx = -100, my = -100, rx = -100, ry = -100;
 if (window.matchMedia('(hover:hover)').matches) {
-  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    cur.classList.add('visible');
+    ring.classList.add('visible');
+  });
   const hoverEls = 'a,button,.port-slot,.tab-btn,.price-card,.testi-card';
   document.querySelectorAll(hoverEls).forEach(el => {
     el.addEventListener('mouseenter', () => ring.classList.add('hovering'));
