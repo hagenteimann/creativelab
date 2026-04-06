@@ -35,7 +35,7 @@
 
 /* ── RESET ── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;overflow-x:hidden;width:100%}
+html{overflow-x:hidden;width:100%}
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--n100);width:100%;max-width:100vw;opacity:0;transition:opacity .5s ease}
 body.loaded{opacity:1}
 img{display:block}
@@ -972,16 +972,33 @@ html{scroll-padding-top:78px}
 // ── PAGE LOAD FADE IN
 window.addEventListener('load', () => document.body.classList.add('loaded'));
 
-// ── SMOOTH SCROLL (JS-Fallback, zuverlässig auf allen Browsern)
+// ── SMOOTH SCROLL mit easeOutQuart (schnell → langsam)
+function scrollTo(target, duration) {
+  const navH = document.getElementById('nav').offsetHeight;
+  const from = window.scrollY;
+  const to   = target.getBoundingClientRect().top + from - navH;
+  const dist  = to - from;
+  let start = null;
+  const easeOutQuart = t => 1 - Math.pow(1 - t, 4);
+  function step(ts) {
+    if (!start) start = ts;
+    const elapsed = ts - start;
+    const progress = Math.min(elapsed / duration, 1);
+    window.scrollTo(0, from + dist * easeOutQuart(progress));
+    if (progress < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     const id = a.getAttribute('href').slice(1);
     const target = document.getElementById(id);
     if (!target) return;
     e.preventDefault();
-    const navH = document.getElementById('nav').offsetHeight;
-    const top = target.getBoundingClientRect().top + scrollY - navH;
-    window.scrollTo({ top, behavior: 'smooth' });
+    const dist = Math.abs(target.getBoundingClientRect().top);
+    const duration = Math.min(Math.max(dist * 0.4, 500), 1100);
+    scrollTo(target, duration);
     history.pushState(null, '', '#' + id);
   });
 });
