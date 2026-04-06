@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>creativelab.de — Premium Content. Kein Overhead.</title>
+  <meta name="description" content="Senior Content Creator. Video Editor. KI-Content-Stratege. Premium Content für Fashion & Lifestyle Brands — ohne Agentur-Overhead." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+SC:wght@400&family=Playfair+Display+SC:wght@700&family=Sarpanch:wght@800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── RESET & BASE ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: #000;
+      color: #f5f5f0;
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── TOKENS ── */
+    :root {
+      --neutral-0:   #ffffff;
+      --neutral-100: #f5f5f0;
+      --neutral-200: #d4d4ce;
+      --neutral-300: #a8a8a0;
+      --neutral-400: #8a8a82;
+      --neutral-500: #5a5a55;
+      --neutral-600: #2a2a2a;
+      --neutral-700: #111111;
+      --gold-0:   #fdf8f0;
+      --gold-100: #f5ead5;
+      --gold-200: #edd9b5;
+      --gold-300: #e8c99a;
+      --gold-400: #d4a574;
+      --gold-500: #c9a96e;
+      --gold-600: #b8965a;
+      --gold-700: #8a6e3a;
+      --surface-0:   #2a2a2a;
+      --surface-100: #222222;
+      --surface-200: #1c1c1c;
+      --surface-300: #141414;
+      --surface-700: #000000;
+    }
+
+    /* ── LAYOUT ── */
+    .container { max-width: 1440px; margin: 0 auto; width: 100%; }
+    .section { padding: 80px 0; }
+    .section-inner { max-width: 1200px; margin: 0 auto; padding: 0 120px; }
+    .section-header { text-align: center; max-width: 640px; margin: 0 auto 40px; }
+    .divider { width: 768px; height: 1px; background: var(--neutral-600); margin: 0 auto; }
+
+    /* ── TYPOGRAPHY ── */
+    .overline {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      color: var(--gold-400);
+      text-transform: uppercase;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+    .overline--gold { color: var(--gold-300); }
+    h1, h2, h3 { line-height: 1.15; letter-spacing: -1px; }
+    h2 { font-size: 40px; font-weight: 700; color: var(--neutral-100); }
+    h3 { font-size: 24px; font-weight: 700; color: var(--neutral-100); }
+    p { line-height: 1.6; }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 14px 24px; border-radius: 8px;
+      font-size: 14px; font-weight: 600; cursor: pointer;
+      transition: opacity .2s, transform .15s;
+      border: none; white-space: nowrap;
+    }
+    .btn:hover { opacity: .85; transform: translateY(-1px); }
+    .btn-primary { background: var(--gold-0); color: #0d0d0d; }
+    .btn-secondary {
+      background: rgba(255,255,255,.1);
+      color: var(--neutral-100);
+      border: 1px solid var(--neutral-600);
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 65px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px;
+      background: rgba(0,0,0,.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; }
+    .nav-logo img { width: 38px; height: 24px; object-fit: contain; }
+    .nav-logo span { font-size: 15px; font-weight: 600; color: var(--neutral-100); }
+    .nav-links { display: flex; gap: 0; align-items: center; }
+    .nav-links a {
+      font-size: 14px; color: var(--neutral-300);
+      padding: 8px 18px; transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--neutral-100); }
+    .nav-cta .btn { padding: 10px 20px; font-size: 13px; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; overflow: hidden;
+      background: #000;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: url('https://www.figma.com/api/mcp/asset/8ccced1f-d73e-4d59-b925-6d0d3a469c58') center/cover no-repeat;
+      opacity: .45;
+    }
+    .hero-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,.3) 0%, rgba(0,0,0,.7) 100%);
+    }
+    .hero-content { position: relative; z-index: 1; padding: 0 80px; }
+    .hero-headline { display: flex; flex-direction: column; align-items: center; margin-bottom: 24px; }
+    .hero-complete {
+      font-family: 'Alumni Sans SC', sans-serif;
+      font-size: clamp(64px, 9.7vw, 140px);
+      font-weight: 400;
+      letter-spacing: .2em;
+      color: var(--gold-100);
+      line-height: 1;
+      text-shadow: 0 0 60px rgba(232,201,154,.25);
+    }
+    .hero-creative {
+      font-family: 'Playfair Display SC', serif;
+      font-size: clamp(52px, 5.9vw, 85px);
+      font-weight: 700;
+      letter-spacing: .2em;
+      color: var(--gold-200);
+      line-height: 1.05;
+    }
+    .hero-control {
+      font-family: 'Sarpanch', sans-serif;
+      font-size: clamp(44px, 4.7vw, 68px);
+      font-weight: 800;
+      letter-spacing: .2em;
+      color: var(--neutral-100);
+      line-height: 1.1;
+      text-shadow: 0 0 14px var(--gold-500);
+    }
+    .hero-sub {
+      font-size: 16px; color: var(--neutral-300);
+      max-width: 480px; margin: 0 auto 32px;
+      line-height: 1.6;
+    }
+    .hero-btns { display: flex; gap: 16px; justify-content: center; }
+
+    /* ── ABOUT / PROBLEM ── */
+    .about-row {
+      display: flex; gap: 40px; align-items: flex-start;
+      max-width: 868px; margin: 0 auto;
+    }
+    .about-img {
+      width: 192px; height: 192px; border-radius: 50%;
+      overflow: hidden; flex-shrink: 0;
+    }
+    .about-img img { width: 100%; height: 100%; object-fit: cover; }
+    .about-text { flex: 1; }
+    .about-role {
+      font-size: 14px; color: var(--gold-400);
+      font-weight: 500; letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+    .about-name {
+      font-size: 32px; font-weight: 700; letter-spacing: -1px;
+      color: var(--neutral-100); margin-bottom: 8px; line-height: 1.15;
+    }
+    .about-bio { font-size: 14px; color: var(--neutral-300); line-height: 1.7; margin-bottom: 16px; }
+    .about-cta-wrap { padding: 8px 0; }
+    .about-pill {
+      display: inline-flex; align-items: center;
+      background: var(--surface-300); border-radius: 100px;
+      padding: 8px 20px; font-size: 14px; color: #fff;
+      box-shadow: 0 0 10px rgba(201,169,110,.4);
+      cursor: pointer; transition: box-shadow .2s;
+    }
+    .about-pill:hover { box-shadow: 0 0 20px rgba(201,169,110,.6); }
+
+    /* Problem Cards */
+    .problem-cards {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 16px; max-width: 1200px; margin: 0 auto;
+    }
+    .problem-card {
+      background: rgba(255,255,255,.07);
+      border: 1px solid var(--neutral-600);
+      border-radius: 12px; padding: 20px;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .problem-card-title { font-size: 14px; font-weight: 600; color: var(--neutral-100); }
+    .problem-card-text { font-size: 13px; color: var(--neutral-300); line-height: 1.6; }
+
+    /* ── PORTFOLIO ── */
+    .portfolio-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 16px; padding: 0 48px;
+    }
+    .portfolio-item {
+      border-radius: 12px; overflow: hidden;
+      aspect-ratio: 4/5; position: relative;
+    }
+    .portfolio-item img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform .4s ease;
+    }
+    .portfolio-item:hover img { transform: scale(1.04); }
+
+    /* ── SERVICES ── */
+    .services-section { position: relative; overflow: hidden; }
+    .services-bg-icon {
+      position: absolute; left: -80px; top: 50%;
+      transform: translateY(-50%);
+      width: 500px; opacity: .04; pointer-events: none;
+    }
+    .tab-bar {
+      display: flex; gap: 8px; align-items: center;
+      background: #000; border-radius: 100px;
+      padding: 4px 8px; margin: 0 auto;
+    }
+    .tab-btn {
+      padding: 8px 16px; border-radius: 100px;
+      font-size: 12px; font-weight: 500; letter-spacing: 1px;
+      cursor: pointer; transition: background .2s, color .2s;
+      border: none; color: var(--neutral-300); background: transparent;
+      font-family: 'Inter', sans-serif;
+    }
+    .tab-btn.active {
+      background: rgba(255,255,255,.2);
+      border: 1px solid var(--neutral-600);
+      color: var(--neutral-100);
+    }
+    .tab-btn:hover:not(.active) { color: var(--neutral-100); }
+    .services-content {
+      display: flex; align-items: flex-start; gap: 80px;
+      max-width: 1000px; margin: 40px auto 0;
+      padding: 0 40px;
+    }
+    .services-preview {
+      flex: 1; background: rgba(255,255,255,.05);
+      border: 1px solid var(--neutral-600); border-radius: 12px;
+      aspect-ratio: 16/10; display: flex; align-items: center;
+      justify-content: center; color: var(--neutral-500); font-size: 13px;
+      min-width: 280px;
+    }
+    .services-detail { flex: 1; }
+    .services-detail h3 { font-size: 22px; margin-bottom: 16px; }
+    .services-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .services-list li { font-size: 14px; color: var(--neutral-300); line-height: 1.6; }
+
+    /* Tab panels */
+    .tab-panel { display: none; }
+    .tab-panel.active { display: flex; }
+
+    /* ── USE CASES ── */
+    .use-cases-section { background: rgba(255,255,255,.025); }
+    .use-cases-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 16px; max-width: 1200px; margin: 0 auto;
+    }
+    .use-case-card {
+      background: rgba(255,255,255,.07);
+      border: 1px solid var(--neutral-600);
+      border-radius: 12px; padding: 24px 16px;
+      display: flex; flex-direction: column;
+      justify-content: space-between; min-height: 200px;
+    }
+    .use-case-card-body { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+    .use-case-icon { font-size: 20px; margin-bottom: 8px; }
+    .use-case-title { font-size: 14px; font-weight: 600; color: var(--neutral-100); }
+    .use-case-text { font-size: 13px; color: var(--neutral-300); line-height: 1.6; }
+    .use-case-badge {
+      display: inline-flex; align-items: center;
+      background: #000; border: 1px solid var(--neutral-300);
+      border-radius: 100px; padding: 4px 12px;
+      font-size: 11px; font-weight: 500; color: var(--neutral-300);
+      letter-spacing: 1px; align-self: flex-start;
+    }
+
+    /* ── SOCIAL PROOF ── */
+    .stats-row {
+      display: flex; justify-content: center;
+      max-width: 900px; margin: 0 auto;
+    }
+    .stat { flex: 1; text-align: center; padding: 0 20px; }
+    .stat-number {
+      font-size: 56px; font-weight: 700; color: var(--neutral-100);
+      letter-spacing: -2px; line-height: 1.1;
+      display: block; margin-bottom: 4px;
+    }
+    .stat-label { font-size: 14px; color: var(--neutral-300); }
+    .testimonials-row {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 24px; max-width: 1200px; margin: 0 auto;
+    }
+    .testimonial {
+      background: rgba(255,255,255,.07);
+      border: 1px solid var(--neutral-600);
+      border-radius: 12px; overflow: hidden;
+      display: flex; align-items: stretch;
+    }
+    .testimonial-bar { width: 3px; background: rgba(201,169,110,.35); flex-shrink: 0; }
+    .testimonial-body {
+      padding: 24px; display: flex; flex-direction: column; gap: 10px;
+    }
+    .testimonial-quote { font-size: 24px; color: var(--gold-300); line-height: 1; }
+    .testimonial-text { font-size: 14px; color: var(--neutral-100); line-height: 1.6; }
+    .testimonial-stars { color: var(--gold-300); font-size: 13px; }
+    .testimonial-name { font-size: 14px; color: var(--neutral-100); font-weight: 600; }
+    .testimonial-role { font-size: 13px; color: var(--neutral-300); }
+
+    /* ── PRICING ── */
+    .pricing-section { background: rgba(255,255,255,.02); }
+    .pricing-grid {
+      display: flex; gap: 24px; justify-content: center;
+      align-items: stretch; flex-wrap: wrap;
+    }
+    .pricing-card {
+      background: rgba(255,255,255,.07);
+      border: 1px solid var(--neutral-600);
+      border-radius: 12px; padding: 24px;
+      width: 347px; display: flex; flex-direction: column; gap: 12px;
+    }
+    .pricing-card.popular {
+      border: 2px solid var(--gold-300);
+      background: rgba(232,201,154,.04);
+      transform: translateY(-14px);
+    }
+    .popular-badge {
+      display: inline-flex; align-items: center;
+      background: var(--surface-300); border: 1px solid var(--gold-700);
+      border-radius: 100px; padding: 4px 12px;
+      font-size: 12px; font-weight: 500; color: var(--gold-600);
+      letter-spacing: 3px; align-self: flex-start;
+    }
+    .pricing-title { font-size: 18px; font-weight: 500; color: var(--neutral-100); }
+    .pricing-title.dark { color: #000; }
+    .pricing-price {
+      display: flex; align-items: baseline; gap: 4px;
+    }
+    .pricing-amount {
+      font-size: 40px; font-weight: 700; color: var(--neutral-100);
+      letter-spacing: -1px; line-height: 1.15;
+    }
+    .pricing-amount.dark { color: #000; }
+    .pricing-period { font-size: 16px; color: var(--neutral-300); }
+    .pricing-period.dark { color: rgba(0,0,0,.6); }
+    .pricing-sub { font-size: 14px; color: var(--neutral-300); line-height: 1.6; }
+    .pricing-sub.dark { color: rgba(0,0,0,.65); }
+    .pricing-features { list-style: none; display: flex; flex-direction: column; gap: 4px; flex: 1; }
+    .pricing-features li { font-size: 14px; color: var(--neutral-100); line-height: 1.6; }
+    .pricing-features li.dark { color: #000; }
+    .pricing-custom-desc { font-size: 14px; color: var(--neutral-300); line-height: 1.6; flex: 1; }
+    .pricing-cta {
+      display: flex; align-items: center; justify-content: center;
+      padding: 10px 24px; border-radius: 8px;
+      font-size: 14px; font-weight: 500; cursor: pointer;
+      transition: opacity .2s; border: 1px solid var(--neutral-600);
+      background: #000; color: var(--neutral-100);
+      font-family: 'Inter', sans-serif; width: 100%;
+      margin-top: auto;
+    }
+    .pricing-cta:hover { opacity: .8; }
+    .pricing-cta.gold {
+      border-color: var(--gold-700); color: var(--gold-0);
+    }
+
+    /* ── FINAL CTA ── */
+    .final-cta { text-align: center; }
+    .cta-badge {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--surface-200); border: 1px solid var(--neutral-600);
+      border-radius: 8px; padding: 7px 16px; margin-bottom: 24px;
+      font-size: 12px; font-weight: 500; color: var(--gold-100);
+      letter-spacing: 1px;
+    }
+    .cta-headline {
+      font-size: clamp(28px, 3vw, 40px);
+      font-weight: 700; color: var(--neutral-100);
+      letter-spacing: -1px; line-height: 1.15; margin-bottom: 16px;
+    }
+    .cta-sub { font-size: 16px; color: var(--neutral-300); margin-bottom: 32px; }
+    .cta-btns { display: flex; gap: 16px; justify-content: center; margin-bottom: 20px; }
+    .cta-fine { font-size: 14px; color: var(--neutral-500); }
+
+    /* ── CONTACT ── */
+    .contact-row {
+      display: flex; gap: 90px; align-items: flex-start;
+      max-width: 1234px; margin: 0 auto; padding: 24px 0;
+    }
+    .contact-info { width: 480px; flex-shrink: 0; }
+    .contact-desc { font-size: 14px; color: var(--neutral-400); line-height: 1.6; margin-bottom: 28px; }
+    .contact-item {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 16px;
+    }
+    .contact-icon {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: var(--neutral-700); border: 1px solid var(--surface-100);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; flex-shrink: 0;
+    }
+    .contact-item-text { font-size: 15px; color: var(--neutral-100); }
+    .contact-form { flex: 1; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group label { font-size: 13px; color: var(--neutral-300); font-weight: 500; }
+    .form-group input, .form-group textarea {
+      background: rgba(255,255,255,.05); border: 1px solid var(--neutral-600);
+      border-radius: 8px; padding: 12px 14px;
+      font-size: 14px; color: var(--neutral-100);
+      font-family: 'Inter', sans-serif;
+      transition: border-color .2s;
+      outline: none; width: 100%;
+    }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: var(--neutral-500); }
+    .form-group input:focus, .form-group textarea:focus { border-color: var(--gold-500); }
+    .form-group textarea { resize: vertical; min-height: 140px; }
+    .form-submit {
+      width: 100%; padding: 14px; border-radius: 8px;
+      background: var(--gold-300); color: #000;
+      font-size: 15px; font-weight: 600; border: none;
+      cursor: pointer; font-family: 'Inter', sans-serif;
+      transition: background .2s, transform .15s;
+      margin-top: 8px;
+    }
+    .form-submit:hover { background: var(--gold-200); transform: translateY(-1px); }
+    .form-privacy { font-size: 12px; color: var(--neutral-500); text-align: center; margin-top: 10px; }
+
+    /* ── FOOTER ── */
+    .footer {
+      padding: 48px 150px 40px;
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+    .footer-top {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 32px;
+    }
+    .footer-logo { display: flex; align-items: center; gap: 10px; }
+    .footer-logo img { width: 38px; object-fit: contain; }
+    .footer-logo span { font-size: 15px; font-weight: 600; color: var(--neutral-100); }
+    .footer-nav { display: flex; gap: 80px; margin-bottom: 40px; }
+    .footer-col h4 { font-size: 14px; font-weight: 600; color: var(--neutral-100); margin-bottom: 14px; }
+    .footer-col a {
+      display: block; font-size: 14px; color: var(--neutral-400);
+      margin-bottom: 12px; transition: color .2s;
+    }
+    .footer-col a:hover { color: var(--neutral-100); }
+    .footer-copy { font-size: 13px; color: var(--neutral-500); }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .problem-cards, .use-cases-grid { grid-template-columns: repeat(2, 1fr); }
+      .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+      .pricing-card.popular { transform: none; }
+      .contact-row { flex-direction: column; gap: 40px; }
+      .contact-info { width: 100%; }
+      .section-inner { padding: 0 40px; }
+    }
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .testimonials-row { grid-template-columns: 1fr; }
+      .stats-row { flex-direction: column; gap: 24px; }
+      .pricing-grid { flex-direction: column; align-items: center; }
+      .about-row { flex-direction: column; align-items: center; text-align: center; }
+      .footer-nav { flex-direction: column; gap: 32px; }
+      .footer { padding: 40px 24px; }
+      .hero-complete { font-size: 56px; }
+      .hero-creative { font-size: 44px; }
+      .hero-control { font-size: 36px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav class="nav">
+    <a href="#" class="nav-logo">
+      <img src="image/LOGO_C.svg" alt="creativelab" />
+      <span>creativelab.de</span>
+    </a>
+    <div class="nav-links">
+      <a href="#leistungen">Leistungen</a>
+      <a href="#projekte">Projekte</a>
+      <a href="#preise">Preise</a>
+      <a href="#about">Über mich</a>
+      <a href="#contact">Kontakt</a>
+    </div>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-primary">Jetzt anfragen</a>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-headline">
+        <span class="hero-complete">COMPLETE</span>
+        <span class="hero-creative">Creative</span>
+        <span class="hero-control">Control</span>
+      </div>
+      <p class="hero-sub">
+        Senior Content Creator. Video Editor. KI-Content-Stratege.<br>
+        Premium Content — ohne Agentur-Overhead.
+      </p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn btn-primary">Jetzt anfragen</a>
+        <a href="#projekte" class="btn btn-secondary">Portfolio ansehen →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ABOUT & PROBLEM ── -->
+  <section class="section" id="about">
+    <div style="padding: 0 120px;">
+      <div class="about-row reveal">
+        <div class="about-img">
+          <img src="https://www.figma.com/api/mcp/asset/8ccced1f-d73e-4d59-b925-6d0d3a469c58" alt="Danilo" />
+        </div>
+        <div class="about-text">
+          <p class="about-role">The Director</p>
+          <h2 class="about-name">Who I Am</h2>
+          <p class="about-bio">
+            Ich bin Danilo — Content Creator, Video Editor und Kreativstratege mit 5+ Jahren Erfahrung.
+            Als Senior Content Creator bei ESN, Deutschlands #1 Supplements-Brand, habe ich gelernt,
+            was Content wirklich bewegt. Heute helfe ich Fashion- und Lifestyle-Brands, online zu wachsen.
+          </p>
+          <div class="about-cta-wrap">
+            <a href="#contact" class="about-pill">get in touch</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider" style="margin: 32px auto;"></div>
+
+      <div class="problem-cards reveal">
+        <div class="problem-card">
+          <p class="problem-card-title">Kein roter Faden</p>
+          <p class="problem-card-text">Ohne Strategie wirkt dein Auftritt beliebig — und Follower merken das sofort.</p>
+        </div>
+        <div class="problem-card">
+          <p class="problem-card-title">Schwache Produktion</p>
+          <p class="problem-card-text">Schlechte Bildqualität und lausige Schnitte zerstören Vertrauen, bevor ein Wort gelesen wird.</p>
+        </div>
+        <div class="problem-card">
+          <p class="problem-card-title">Kein Wachstum</p>
+          <p class="problem-card-text">Zu posten reicht nicht. Ohne Algorithmus-Kenntnis verpuffen Budget und Aufwand.</p>
+        </div>
+        <div class="problem-card">
+          <p class="problem-card-title">Verlorene Zeit</p>
+          <p class="problem-card-text">Content-Produktion, Planung und Posting selbst zu machen kostet Stunden, die du nicht hast.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PORTFOLIO ── -->
+  <section class="section" id="projekte" style="padding-top: 48px;">
+    <div class="divider reveal"></div>
+    <div class="section-header reveal" style="margin-top: 36px;">
+      <p class="overline">SELECTED WORK</p>
+      <h2>Ausgewählte Projekte</h2>
+    </div>
+    <div class="portfolio-grid reveal">
+      <div class="portfolio-item">
+        <img src="https://www.figma.com/api/mcp/asset/4dc042d2-8446-4ba9-a447-dba5233f5e68" alt="Portfolio 1" />
+      </div>
+      <div class="portfolio-item">
+        <img src="https://www.figma.com/api/mcp/asset/2c5e0c58-67df-43c6-9f62-6af9b1cc90e0" alt="Portfolio 2" />
+      </div>
+      <div class="portfolio-item">
+        <img src="https://www.figma.com/api/mcp/asset/e6def17a-20dd-4ad3-aa2d-0fac3f53be89" alt="Portfolio 3" />
+      </div>
+      <div class="portfolio-item">
+        <img src="https://www.figma.com/api/mcp/asset/d22645b1-67a2-496b-8b62-9f54dbb70520" alt="Portfolio 4" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SERVICES ── -->
+  <section class="section services-section" id="leistungen">
+    <div class="divider reveal"></div>
+    <div class="section-header reveal" style="margin-top: 36px;">
+      <p class="overline">LEISTUNGEN</p>
+      <h2>Was ich mache</h2>
+    </div>
+
+    <div style="display:flex; justify-content:center; margin-bottom: 0;">
+      <div class="tab-bar" id="tabBar">
+        <button class="tab-btn active" data-tab="social">Social Media</button>
+        <button class="tab-btn" data-tab="video">Video Editing</button>
+        <button class="tab-btn" data-tab="ki">KI-Content</button>
+        <button class="tab-btn" data-tab="strategy">Strategie</button>
+      </div>
+    </div>
+
+    <div class="services-content">
+      <!-- Social Media -->
+      <div class="tab-panel active services-content" id="tab-social" style="width:100%; display:flex; gap:80px; align-items:flex-start; padding: 0;">
+        <div class="services-preview">[ Visual — Social Media Content ]</div>
+        <div class="services-detail">
+          <h3>Social Media Management</h3>
+          <ul class="services-list">
+            <li>✓&nbsp; Strategie, Planung &amp; tägliche Content-Produktion</li>
+            <li>✓&nbsp; Plattform-native Formate: Reels, Stories, TikToks</li>
+            <li>✓&nbsp; Community Management &amp; datenbasiertes Wachstum</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tab-panel" id="tab-video" style="width:100%; display:flex; gap:80px; align-items:flex-start; padding: 0;">
+        <div class="services-preview">[ Visual — Video Editing ]</div>
+        <div class="services-detail">
+          <h3>Video Editing &amp; Cutting</h3>
+          <ul class="services-list">
+            <li>✓&nbsp; Professioneller Schnitt für Reels, YouTube &amp; Ads</li>
+            <li>✓&nbsp; Color Grading, Captions &amp; Motion Graphics</li>
+            <li>✓&nbsp; Schnelle Turnaround-Zeiten, revisionsfähig</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tab-panel" id="tab-ki" style="width:100%; display:flex; gap:80px; align-items:flex-start; padding: 0;">
+        <div class="services-preview">[ Visual — KI Content ]</div>
+        <div class="services-detail">
+          <h3>KI-getriebener Content</h3>
+          <ul class="services-list">
+            <li>✓&nbsp; Skalierbare Content-Produktion mit KI-Tools</li>
+            <li>✓&nbsp; Individuelle Brand Voice bleibt erhalten</li>
+            <li>✓&nbsp; Texte, Captions &amp; Hooks in Serie</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tab-panel" id="tab-strategy" style="width:100%; display:flex; gap:80px; align-items:flex-start; padding: 0;">
+        <div class="services-preview">[ Visual — Strategie ]</div>
+        <div class="services-detail">
+          <h3>Content-Strategie</h3>
+          <ul class="services-list">
+            <li>✓&nbsp; Zielgruppenanalyse &amp; Positionierung</li>
+            <li>✓&nbsp; Redaktionsplanung &amp; Themenentwicklung</li>
+            <li>✓&nbsp; Performance-Tracking &amp; Optimierung</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── USE CASES ── -->
+  <section class="section use-cases-section" id="use-cases">
+    <div class="divider reveal"></div>
+    <div class="section-header reveal" style="margin-top: 36px;">
+      <p class="overline">FÜR WEN</p>
+      <h2>Für wen ich arbeite</h2>
+    </div>
+    <div class="use-cases-grid reveal" style="padding: 0 120px;">
+      <div class="use-case-card">
+        <div class="use-case-card-body">
+          <div class="use-case-icon">👗</div>
+          <p class="use-case-title">Fashion &amp; Lifestyle</p>
+          <p class="use-case-text">Premium Content, der deine Brand in die erste Reihe bringt.</p>
+        </div>
+        <span class="use-case-badge">Fashion Labels</span>
+      </div>
+      <div class="use-case-card">
+        <div class="use-case-card-body">
+          <div class="use-case-icon">🛍️</div>
+          <p class="use-case-title">E-Commerce Brands</p>
+          <p class="use-case-text">Content, der klickt, überzeugt und konvertiert — kein Spielraum für Mittelmäßigkeit.</p>
+        </div>
+        <span class="use-case-badge">Online Shops</span>
+      </div>
+      <div class="use-case-card">
+        <div class="use-case-card-body">
+          <div class="use-case-icon">✨</div>
+          <p class="use-case-title">Personal Brands</p>
+          <p class="use-case-text">Aufbau einer Präsenz, der Menschen langfristig folgen.</p>
+        </div>
+        <span class="use-case-badge">Creator &amp; Coaches</span>
+      </div>
+      <div class="use-case-card">
+        <div class="use-case-card-body">
+          <div class="use-case-icon">🚀</div>
+          <p class="use-case-title">KMUs &amp; Startups</p>
+          <p class="use-case-text">Schlankes Team. Großer Auftritt. Content, der mehr leistet als er kostet.</p>
+        </div>
+        <span class="use-case-badge">Wachsende Brands</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SOCIAL PROOF ── -->
+  <section class="section" id="results">
+    <div class="divider reveal"></div>
+    <div class="section-header reveal" style="margin-top: 36px;">
+      <p class="overline overline--gold">ZAHLEN &amp; FAKTEN</p>
+      <h2>Ergebnisse, die sprechen</h2>
+    </div>
+    <div class="stats-row reveal">
+      <div class="stat">
+        <span class="stat-number">5+</span>
+        <span class="stat-label">Jahre Erfahrung</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">ESN</span>
+        <span class="stat-label">DE-Marktführer Supplements</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">3×</span>
+        <span class="stat-label">Ø Engagement-Uplift</span>
+      </div>
+    </div>
+    <div class="divider reveal" style="margin: 32px auto;"></div>
+    <div class="testimonials-row reveal" style="padding: 0 120px;">
+      <div class="testimonial">
+        <div class="testimonial-bar"></div>
+        <div class="testimonial-body">
+          <p class="testimonial-quote">❝</p>
+          <p class="testimonial-text">Danilo versteht, was auf Instagram wirklich funktioniert. Saubere Ästhetik, schnelle Umsetzung — die Ergebnisse haben überzeugt.</p>
+          <p class="testimonial-stars">★★★★★</p>
+          <p class="testimonial-name">Sarah M.</p>
+          <p class="testimonial-role">Marketing Lead, Fashion Brand</p>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="testimonial-bar"></div>
+        <div class="testimonial-body">
+          <p class="testimonial-quote">❝</p>
+          <p class="testimonial-text">High-End-Qualität, null Aufwand auf unserer Seite. Er kennt unsere Zielgruppe besser als wir selbst.</p>
+          <p class="testimonial-stars">★★★★★</p>
+          <p class="testimonial-name">Thomas K.</p>
+          <p class="testimonial-role">Founder, Lifestyle Brand</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PRICING ── -->
+  <section class="section pricing-section" id="preise">
+    <div class="divider reveal"></div>
+    <div class="section-header reveal" style="margin-top: 36px;">
+      <p class="overline overline--gold">PRICING</p>
+      <h2>Transparent. Keine Überraschungen.</h2>
+    </div>
+    <div class="pricing-grid reveal" style="padding: 0 80px; align-items: flex-end;">
+      <!-- Essentials -->
+      <div class="pricing-card">
+        <p class="pricing-title">Essentials</p>
+        <div class="pricing-price">
+          <span class="pricing-amount">$29</span>
+          <span class="pricing-period">/mo</span>
+        </div>
+        <p class="pricing-sub">Für Brands, die starten</p>
+        <ul class="pricing-features">
+          <li>✓&nbsp; 3 Plattformen (Instagram, TikTok, LinkedIn)</li>
+          <li>✓&nbsp; 12 Posts/Monat inkl. Texte</li>
+          <li>✓&nbsp; Monatliches Reporting</li>
+          <li>✓&nbsp; E-Mail-Support</li>
+        </ul>
+        <a href="#contact" class="pricing-cta">Jetzt starten</a>
+      </div>
+      <!-- Growth (Popular) -->
+      <div class="pricing-card popular">
+        <span class="popular-badge">POPULAR</span>
+        <p class="pricing-title" style="color: var(--neutral-100);">Growth</p>
+        <div class="pricing-price">
+          <span class="pricing-amount">$79</span>
+          <span class="pricing-period">/mo</span>
+        </div>
+        <p class="pricing-sub">Für Brands, die skalieren</p>
+        <ul class="pricing-features">
+          <li>✓&nbsp; Alle Plattformen</li>
+          <li>✓&nbsp; 30 Posts/Monat + Reels</li>
+          <li>✓&nbsp; Video Editing inklusive</li>
+          <li>✓&nbsp; Strategie-Call monatlich</li>
+          <li>✓&nbsp; KI-Content auf Anfrage</li>
+        </ul>
+        <a href="#contact" class="pricing-cta gold">Jetzt wachsen</a>
+      </div>
+      <!-- Custom -->
+      <div class="pricing-card">
+        <p class="pricing-title">Custom</p>
+        <p style="font-size:16px; color: var(--gold-300); font-weight:500;">Individuelles Angebot</p>
+        <p class="pricing-custom-desc">Komplexere Projekte, Kampagnen oder dauerhafte Zusammenarbeit — ich erstelle dir ein Angebot, das passt.</p>
+        <a href="#contact" class="pricing-cta" style="margin-top: auto;">Anfrage stellen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FINAL CTA ── -->
+  <section class="section final-cta">
+    <div class="divider reveal"></div>
+    <div style="margin-top: 36px;" class="reveal">
+      <div class="cta-badge">Erstgespräch kostenlos</div>
+      <h2 class="cta-headline">Bereit, deinen Content auf das nächste Level zu bringen?</h2>
+      <p class="cta-sub">Für Brands, die Content nicht als Aufgabe sehen — sondern als Wachstumshebel.</p>
+      <div class="cta-btns">
+        <a href="#contact" class="btn btn-primary">Jetzt anfragen</a>
+        <a href="#projekte" class="btn btn-secondary">Portfolio ansehen</a>
+      </div>
+      <p class="cta-fine">Kein Commitment. Kein Bullshit. Nur Ergebnisse.</p>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section class="section" id="contact">
+    <div class="divider reveal"></div>
+    <div class="section-header reveal" style="margin-top: 36px;">
+      <p class="overline overline--gold">CONTACT</p>
+      <h2>Lass uns arbeiten.</h2>
+    </div>
+    <div class="contact-row reveal">
+      <div class="contact-info">
+        <p class="contact-desc">
+          Pricing-Fragen, individuelles Angebot oder du willst einfach schauen,
+          ob wir zusammenpassen? Meld dich — ich antworte innerhalb von 24 Stunden.
+        </p>
+        <div class="contact-item">
+          <div class="contact-icon">✉</div>
+          <span class="contact-item-text">hello@creativelab.de</span>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">💬</div>
+          <span class="contact-item-text">Live Chat · Mo–Fr, 9–18 Uhr</span>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <span class="contact-item-text">+49 (0) 800 123 456</span>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" placeholder="Dein Name" required />
+          </div>
+          <div class="form-group">
+            <label>E-Mail</label>
+            <input type="email" placeholder="deine@email.de" required />
+          </div>
+        </div>
+        <div class="form-group" style="margin-bottom: 16px;">
+          <label>Betreff</label>
+          <input type="text" placeholder="Worum geht es?" />
+        </div>
+        <div class="form-group" style="margin-bottom: 16px;">
+          <label>Nachricht</label>
+          <textarea placeholder="Erzähl mir von deinem Projekt ..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Nachricht senden</button>
+        <p class="form-privacy">Mit dem Absenden stimmst du unserer Datenschutzerklärung zu.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="footer-logo footer-top">
+      <img src="image/LOGO_C.svg" alt="creativelab" />
+      <span>creativelab.de</span>
+    </div>
+    <div class="footer-nav">
+      <div class="footer-col">
+        <h4>Leistungen</h4>
+        <a href="#leistungen">Social Media</a>
+        <a href="#leistungen">Video Editing</a>
+        <a href="#leistungen">KI-Content</a>
+        <a href="#leistungen">Strategie</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="#about">About</a>
+        <a href="https://instagram.com" target="_blank">Instagram</a>
+        <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+        <a href="#contact">Kontakt</a>
+      </div>
+    </div>
+    <p class="footer-copy">© 2025 Danilo · creativelab.de</p>
+  </footer>
+
+  <script>
+    // ── Scroll Reveal ──
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ── Tab Switcher ──
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+        document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+      });
+    });
+
+    // ── Nav: Active link on scroll ──
+    const sections = document.querySelectorAll('section[id]');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 100) current = s.id;
+      });
+      document.querySelectorAll('.nav-links a').forEach(a => {
+        a.style.color = a.getAttribute('href') === '#' + current ? '#f5f5f0' : '';
+      });
+    });
+
+    // ── Contact Form ──
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('.form-submit');
+      btn.textContent = '✓ Gesendet!';
+      btn.style.background = '#4ADE80';
+      btn.style.color = '#000';
+      setTimeout(() => {
+        btn.textContent = 'Nachricht senden';
+        btn.style.background = '';
+        btn.style.color = '';
+        e.target.reset();
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
