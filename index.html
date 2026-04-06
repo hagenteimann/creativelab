@@ -36,7 +36,8 @@
 /* ── RESET ── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--n100);overflow-x:hidden}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--n100);overflow-x:hidden;opacity:0;transition:opacity .5s ease}
+body.loaded{opacity:1}
 img{display:block}
 a{text-decoration:none;color:inherit}
 button{cursor:pointer;border:none;background:none;font-family:inherit}
@@ -55,6 +56,44 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 .overline{font-size:12px;font-weight:500;letter-spacing:3px;color:var(--g300);text-transform:uppercase;text-align:center;line-height:1.3}
 .sec-heading{font-size:40px;font-weight:700;letter-spacing:-1px;line-height:1.15;color:var(--n100);text-align:center}
 .sec-header{display:flex;flex-direction:column;gap:8px;align-items:center;width:640px}
+
+/* ── PROGRESS BAR ── */
+#progress-bar{position:fixed;top:0;left:0;height:2px;width:0%;z-index:201;
+  background:linear-gradient(90deg,var(--g700),var(--g500),var(--g300));
+  pointer-events:none;transition:width .08s linear}
+
+/* ── CUSTOM CURSOR (desktop) ── */
+@media(hover:hover){
+  *{cursor:none!important}
+  #cursor{position:fixed;width:8px;height:8px;border-radius:50%;
+    background:var(--g400);pointer-events:none;z-index:9999;
+    transform:translate(-50%,-50%)}
+  #cursor-ring{position:fixed;width:32px;height:32px;border-radius:50%;
+    border:1px solid rgba(201,169,110,.45);pointer-events:none;z-index:9998;
+    transform:translate(-50%,-50%);transition:transform .32s ease,width .2s,height .2s,border-color .2s,opacity .2s}
+  #cursor-ring.hovering{width:52px;height:52px;border-color:var(--g300)}
+}
+
+/* ── NAV SCROLL SPY ── */
+.nav-links a.active{color:var(--g300)}
+
+/* ── PORT OVERLAY ── */
+.port-overlay{position:absolute;inset:0;display:flex;align-items:center;
+  justify-content:center;background:rgba(201,169,110,.1);
+  opacity:0;transition:opacity .3s ease;
+  font-size:13px;letter-spacing:2px;color:var(--g100);font-weight:500}
+.port-slot:hover .port-overlay{opacity:1}
+
+/* ── FORM SUCCESS ── */
+@keyframes checkDraw{from{stroke-dashoffset:50}to{stroke-dashoffset:0}}
+@keyframes circleFade{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:scale(1)}}
+.form-success-state{display:flex;flex-direction:column;align-items:center;
+  gap:16px;padding:48px;text-align:center;animation:fadeUp .4s ease forwards}
+.form-success-state svg{animation:circleFade .4s ease forwards}
+.form-success-state svg path{stroke-dasharray:50;stroke-dashoffset:50;
+  animation:checkDraw .5s .35s ease forwards}
+.form-success-state .success-title{font-size:18px;color:var(--g300);font-weight:600}
+.form-success-state .success-sub{font-size:14px;color:var(--n400);line-height:1.6}
 
 /* ── NAV ── */
 #nav{
@@ -572,6 +611,9 @@ html{scroll-padding-top:78px}
 <body>
 
 <!-- NAV -->
+<div id="progress-bar"></div>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
 <nav id="nav">
   <div class="nav-logo">
     <img src="image/icons/nav/nav/logo-icon.svg" alt="">
@@ -677,10 +719,10 @@ html{scroll-padding-top:78px}
     <h2 class="sec-heading">Ausgewählte Projekte</h2>
   </div>
   <div class="port-grid">
-    <div class="port-slot reveal d1"><img src="image/images/portfolio/portfolio/portfolio/portfolio/image-thumb-1.png" alt="Projekt 1"></div>
-    <div class="port-slot reveal d2"><img src="image/images/portfolio/portfolio/portfolio/portfolio/image-thumb-2.png" alt="Projekt 2"></div>
-    <div class="port-slot reveal d3"><img src="image/images/portfolio/portfolio/portfolio/portfolio/image-thumb-3.png" alt="Projekt 3"></div>
-    <div class="port-slot reveal d4"><img src="image/images/portfolio/portfolio/portfolio/portfolio/image-thumb-4.png" alt="Projekt 4"></div>
+    <div class="port-slot reveal d1"><img src="image/images/portfolio/portfolio/portfolio/portfolio/image-thumb-1.png" alt="Projekt 1"><div class="port-overlay">ANSEHEN →</div></div>
+    <div class="port-slot reveal d2"><img src="image/images/portfolio/portfolio/portfolio/portfolio/image-thumb-2.png" alt="Projekt 2"><div class="port-overlay">ANSEHEN →</div></div>
+    <div class="port-slot reveal d3"><img src="image/images/portfolio/portfolio/portfolio/portfolio/image-thumb-3.png" alt="Projekt 3"><div class="port-overlay">ANSEHEN →</div></div>
+    <div class="port-slot reveal d4"><img src="image/images/portfolio/portfolio/portfolio/portfolio/image-thumb-4.png" alt="Projekt 4"><div class="port-overlay">ANSEHEN →</div></div>
   </div>
 </section>
 
@@ -765,9 +807,9 @@ html{scroll-padding-top:78px}
     <h2 class="sec-heading">Ergebnisse, die sprechen</h2>
   </div>
   <div class="stats-row">
-    <div class="stat-item reveal d1"><span class="stat-num">5+</span><span class="stat-lbl">Jahre Erfahrung</span></div>
+    <div class="stat-item reveal d1"><span class="stat-num" data-count="5" data-suffix="+">5+</span><span class="stat-lbl">Jahre Erfahrung</span></div>
     <div class="stat-item reveal d2"><span class="stat-num">ESN</span><span class="stat-lbl">DE-Marktführer Supplements</span></div>
-    <div class="stat-item reveal d3"><span class="stat-num">3×</span><span class="stat-lbl">Ø Engagement-Uplift</span></div>
+    <div class="stat-item reveal d3"><span class="stat-num" data-count="3" data-suffix="×">3×</span><span class="stat-lbl">Ø Engagement-Uplift</span></div>
   </div>
   <div class="divider reveal" style="width:720px"></div>
   <div class="testi-row">
@@ -919,6 +961,35 @@ html{scroll-padding-top:78px}
 </footer>
 
 <script>
+// ── PAGE LOAD FADE IN
+window.addEventListener('load', () => document.body.classList.add('loaded'));
+
+// ── PROGRESS BAR
+const progressBar = document.getElementById('progress-bar');
+window.addEventListener('scroll', () => {
+  const pct = scrollY / (document.body.scrollHeight - innerHeight) * 100;
+  progressBar.style.width = Math.min(pct, 100) + '%';
+}, { passive: true });
+
+// ── CUSTOM CURSOR
+const cur = document.getElementById('cursor');
+const ring = document.getElementById('cursor-ring');
+let mx = -100, my = -100, rx = -100, ry = -100;
+if (window.matchMedia('(hover:hover)').matches) {
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+  const hoverEls = 'a,button,.port-slot,.tab-btn,.price-card,.testi-card';
+  document.querySelectorAll(hoverEls).forEach(el => {
+    el.addEventListener('mouseenter', () => ring.classList.add('hovering'));
+    el.addEventListener('mouseleave', () => ring.classList.remove('hovering'));
+  });
+  (function animCursor() {
+    cur.style.left = mx + 'px'; cur.style.top = my + 'px';
+    rx += (mx - rx) * .12; ry += (my - ry) * .12;
+    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+    requestAnimationFrame(animCursor);
+  })();
+}
+
 // ── SCROLL REVEAL
 const io = new IntersectionObserver((entries) => {
   entries.forEach(e => {
@@ -926,6 +997,40 @@ const io = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// ── COUNTER ANIMATION
+const counterObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target;
+    const target = +el.dataset.count;
+    const suffix = el.dataset.suffix || '';
+    let start = 0;
+    const step = target / 40;
+    const tick = () => {
+      start = Math.min(start + step, target);
+      el.textContent = Math.floor(start) + suffix;
+      if (start < target) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+    counterObs.unobserve(el);
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.stat-num[data-count]').forEach(el => counterObs.observe(el));
+
+// ── SCROLL SPY
+const sections = ['services','portfolio','pricing','about','contact'];
+const navLinks = document.querySelectorAll('.nav-links a');
+const spyObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navLinks.forEach(a => a.classList.remove('active'));
+      const active = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, { threshold: 0.35 });
+sections.forEach(id => { const s = document.getElementById(id); if (s) spyObs.observe(s); });
 
 // ── NAV BORDER ON SCROLL
 window.addEventListener('scroll', () => {
@@ -1008,14 +1113,19 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
 // ── CONTACT FORM
 function handleForm(e) {
   e.preventDefault();
-  const btn = e.target.querySelector('.form-submit');
-  btn.textContent = 'Gesendet ✓';
-  btn.style.background = 'rgba(201,169,110,.3)';
-  setTimeout(() => {
-    btn.textContent = 'Nachricht senden';
-    btn.style.background = '';
-    e.target.reset();
-  }, 3000);
+  const form = e.target;
+  form.innerHTML = `
+    <div class="form-success-state">
+      <svg width="64" height="64" viewBox="0 0 64 64">
+        <circle cx="32" cy="32" r="28" stroke="var(--g500)" stroke-width="2" fill="none" opacity=".3"/>
+        <path d="M20 32 l9 9 l15-18" stroke="var(--g400)" stroke-width="2.5" fill="none"
+          stroke-linecap="round" stroke-linejoin="round"
+          stroke-dasharray="50" stroke-dashoffset="50"
+          style="animation:checkDraw .5s .3s ease forwards"/>
+      </svg>
+      <p class="success-title">Nachricht gesendet!</p>
+      <span class="success-sub">Ich melde mich in der Regel innerhalb von 24 Stunden.<br>Bis bald.</span>
+    </div>`;
 }
 </script>
 </body>
