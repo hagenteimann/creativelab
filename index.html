@@ -76,7 +76,8 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
   pointer-events:none;transition:width .08s linear}
 
 /* ── SPARKS ── */
-#sparks{position:fixed;inset:0;pointer-events:none;z-index:9997;opacity:.6}
+#sparks{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:1}
+#hero,#about,#portfolio,#services,#use-cases,#social-proof,#pricing,#cta,#contact,#footer{position:relative;z-index:1}
 
 /* ── CUSTOM CURSOR (desktop) ── */
 @media(hover:hover){
@@ -1185,37 +1186,32 @@ function handleForm(e) {
   window.addEventListener('resize',resize);
 
   function spawn(){
-    for(var i=0;i<2;i++){
-      particles.push({
-        x:Math.random()*window.innerWidth,
-        y:Math.random()*window.innerHeight,
-        r:1.5+Math.random(),
-        vy:-(0.4+Math.random()*0.4),
-        a:0.5+Math.random()*0.2
-      });
-    }
-    if(particles.length>40)particles=particles.slice(-40);
+    // Tiefe: zufällig — manche weit (klein, sehr transparent) manche nah (größer, sichtbarer)
+    var depth=Math.random(); // 0=weit, 1=nah
+    particles.push({
+      x:Math.random()*window.innerWidth,
+      y:window.innerHeight+10,           // starten unten, steigen auf
+      r:0.8+depth*2.2,                   // 0.8–3px je nach Tiefe
+      vy:-(0.15+depth*0.25),             // 0.15–0.4px/frame (langsam)
+      a:(0.06+depth*0.35)                // 0.06–0.41 alpha (tiefe = blass)
+    });
+    if(particles.length>60)particles=particles.slice(-60);
   }
 
-  var ticking=false;
-  window.addEventListener('scroll',function(){
-    if(!ticking){
-      requestAnimationFrame(function(){spawn();ticking=false;});
-      ticking=true;
-    }
-  });
+  // Alle 600ms ein neues Partikel spawnen
+  setInterval(spawn,600);
 
   function draw(){
     ctx.clearRect(0,0,canvas.width,canvas.height);
-    particles=particles.filter(function(p){return p.a>0;});
+    particles=particles.filter(function(p){return p.a>0&&p.y>-10;});
     for(var i=0;i<particles.length;i++){
       var p=particles[i];
       ctx.beginPath();
       ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-      ctx.fillStyle='rgba(201,169,110,'+p.a+')';
+      ctx.fillStyle='rgba(201,169,110,'+p.a.toFixed(3)+')';
       ctx.fill();
       p.y+=p.vy;
-      p.a-=0.008;
+      p.a-=0.0005; // sehr langsam verblassen — Lebensdauer ~120s bei kleinstem a
     }
     requestAnimationFrame(draw);
   }
