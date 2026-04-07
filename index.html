@@ -176,27 +176,23 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 }
 .hero-sub p{font-size:16px;color:var(--n300);line-height:1.6;text-align:center}
 .hero-btns{display:flex;gap:16px;margin-top:8px}
-.btn-primary{
-  background:var(--n100);color:var(--s500);
+/* ── BUTTONS ── */
+.btn{
   padding:14px 24px;border-radius:var(--r-sm);
   font-size:14px;line-height:1.6;
-  transition:background .2s,transform .2s;display:inline-block;
+  display:inline-block;transition:background .2s,transform .2s;
 }
+.btn-primary{background:var(--n100);color:var(--s500)}
 .btn-primary:hover{background:var(--g100);transform:translateY(-2px)}
 .btn-ghost{
   background:rgba(255,255,255,.10);color:var(--n100);
-  padding:14px 24px;border-radius:var(--r-sm);
-  font-size:14px;line-height:1.6;
   border:1px solid rgba(255,255,255,.12);
-  transition:background .2s,transform .2s;display:inline-block;
 }
 .btn-ghost:hover{background:rgba(255,255,255,.16);transform:translateY(-2px)}
 .btn-outline{
   background:transparent;color:var(--n100);
-  padding:14px 24px;border-radius:var(--r-sm);
-  font-size:14px;line-height:1.6;
   border:1px solid var(--s0);
-  transition:border-color .2s,color .2s,transform .2s;display:inline-block;
+  transition:border-color .2s,color .2s,transform .2s;
 }
 .btn-outline:hover{border-color:var(--n100);color:var(--n100);transform:translateY(-2px)}
 .btn-glow{
@@ -675,8 +671,8 @@ html{scroll-padding-top:78px}
       <p>Premium Content — ohne Agentur-Overhead.</p>
     </div>
     <div class="hero-btns">
-      <a href="#contact" class="btn-primary">Jetzt anfragen</a>
-      <a href="#portfolio" class="btn-ghost">Portfolio ansehen →</a>
+      <a href="#contact" class="btn btn-primary">Jetzt anfragen</a>
+      <a href="#portfolio" class="btn btn-ghost">Portfolio ansehen →</a>
     </div>
   </div>
 </section>
@@ -905,8 +901,8 @@ html{scroll-padding-top:78px}
   <h2 class="cta-h reveal">Bereit, deinen Content auf das nächste Level zu bringen?</h2>
   <p class="cta-sub reveal">Für Brands, die Content nicht als Aufgabe sehen — sondern als Wachstumshebel.</p>
   <div class="cta-btns reveal">
-    <a href="#contact" class="btn-primary">Jetzt anfragen</a>
-    <a href="#portfolio" class="btn-outline">Portfolio ansehen</a>
+    <a href="#contact" class="btn btn-primary">Jetzt anfragen</a>
+    <a href="#portfolio" class="btn btn-outline">Portfolio ansehen</a>
   </div>
   <p class="cta-note reveal">Kein Commitment. Kein Bullshit. Nur Ergebnisse.</p>
 </section>
