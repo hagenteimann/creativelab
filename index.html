@@ -61,6 +61,14 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 .sec-heading{font-size:40px;font-weight:700;letter-spacing:-1px;line-height:1.15;color:var(--n100);text-align:center}
 .sec-header{display:flex;flex-direction:column;gap:8px;align-items:center;width:640px}
 
+/* ── GLASS ── */
+.glass{
+  background:rgba(255,255,255,.08);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--r-md);
+}
+
 /* ── PROGRESS BAR ── */
 #progress-bar{position:fixed;top:0;left:0;height:2px;width:0%;z-index:201;
   background:linear-gradient(90deg,var(--g700),var(--g500),var(--g300));
@@ -118,7 +126,6 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 .nav-links{
   display:flex;gap:24px;align-items:center;
   padding:8px 48px;border-radius:var(--r-pill);
-  background:linear-gradient(90deg,rgba(68,68,68,.3),rgba(102,136,170,.3));
 }
 .nav-links a{font-size:14px;color:#fff;line-height:1.6;white-space:nowrap;transition:color .2s}
 .nav-links a:hover{color:var(--g300)}
@@ -219,8 +226,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 .work-label{font-size:12px;font-weight:500;letter-spacing:3px;color:var(--g400);text-align:center;line-height:1.3}
 .work-cards{display:flex;gap:16px;align-items:stretch}
 .work-card{
-  width:265px;background:rgba(255,255,255,.10);
-  backdrop-filter:blur(2px);border-radius:var(--r-md);
+  width:265px;
   padding:20px;display:flex;flex-direction:column;gap:8px;
   transition:background .25s,transform .25s;
 }
@@ -299,7 +305,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 }
 .uc-grid{display:flex;gap:16px;width:1200px}
 .uc-card{
-  flex:1;background:rgba(255,255,255,.10);border-radius:var(--r-md);
+  flex:1;
   padding:24px 16px;display:flex;flex-direction:column;
   justify-content:space-between;min-height:200px;
   transition:background .25s,transform .25s;
@@ -330,8 +336,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 .stat-lbl{font-size:14px;color:var(--n300);line-height:1.6}
 .testi-row{display:flex;gap:24px;width:1200px}
 .testi-card{
-  flex:1;background:rgba(255,255,255,.10);
-  border:1px solid var(--s0);border-radius:var(--r-md);
+  flex:1;
   overflow:hidden;display:flex;gap:17px;align-items:center;
   transition:transform .25s;
 }
@@ -352,8 +357,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 }
 .price-cards{display:flex;gap:24px;align-items:stretch}
 .price-card{
-  width:346px;background:rgba(255,255,255,.10);
-  border:1px solid var(--s0);border-radius:var(--r-md);
+  width:346px;
   padding:24px;display:flex;flex-direction:column;gap:12px;
   transition:transform .25s;
 }
@@ -427,8 +431,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 }
 .contact-info-text{font-size:14px;color:var(--n400);line-height:1.6}
 .contact-form{
-  width:664px;background:rgba(255,255,255,.10);
-  border:1px solid var(--s100);border-radius:var(--r-md);
+  width:664px;
   padding:48px 24px;display:flex;flex-direction:column;gap:10px;
 }
 .form-row{display:flex;gap:8px}
@@ -446,7 +449,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 .field input:focus,.field textarea:focus{border-color:var(--g300)}
 .form-submit{
   width:100%;padding:14px 24px;border-radius:var(--r-sm);
-  background:linear-gradient(90deg,rgba(68,68,68,.3),rgba(102,136,170,.3));
+  background:rgba(255,255,255,.08);
   font-size:14px;color:#fff;line-height:1.6;text-align:center;
   cursor:pointer;border:none;font-family:inherit;
   transition:opacity .2s,transform .2s;
@@ -632,7 +635,7 @@ html{scroll-padding-top:78px}
     <span>creativelab.de</span>
   </a>
   <div class="nav-center">
-    <div class="nav-links">
+    <div class="nav-links glass">
       <a href="#about">Über mich</a>
       <a href="#portfolio">Projekte</a>
       <a href="#services">Leistungen</a>
@@ -703,19 +706,19 @@ html{scroll-padding-top:78px}
   <div style="display:flex;flex-direction:column;gap:10px;align-items:center">
     <p class="work-label reveal">Wie ich arbeite</p>
     <div class="work-cards">
-      <div class="work-card reveal d1">
+      <div class="work-card glass reveal d1">
         <div class="work-card-hd"><span>Vision</span><img src="image/icons/check-square.svg" alt=""></div>
         <p>Die Vision eines Unternehmens verstehen, bevor man kommuniziert. Ist die Grundlage erfolgreichen Marketings.</p>
       </div>
-      <div class="work-card reveal d2">
+      <div class="work-card glass reveal d2">
         <div class="work-card-hd"><span>Mission</span><img src="image/icons/check-square.svg" alt=""></div>
         <p>Aus der Mission ergeben sich die kommunikativen Ziele, die vermittelt werden sollen.</p>
       </div>
-      <div class="work-card reveal d3">
+      <div class="work-card glass reveal d3">
         <div class="work-card-hd"><span>Strategie</span><img src="image/icons/check-square.svg" alt=""></div>
         <p>Die Strategie bestimmt, ob die Zielgruppe die Vision des Unternehmens annimmt. Sprechen Unternehmen und Kunden nicht die gleiche Sprache, ist das Projekt zum Scheitern verurteilt.</p>
       </div>
-      <div class="work-card reveal d4">
+      <div class="work-card glass reveal d4">
         <div class="work-card-hd"><span>Skalierung</span><img src="image/icons/check-square.svg" alt=""></div>
         <p>Ist die Vision erfolgreich kommuniziert, wird die Content-Frequenz zum Erfolgshebel im digitalen Zeitalter.</p>
       </div>
@@ -780,28 +783,28 @@ html{scroll-padding-top:78px}
     <h2 class="sec-heading">Für wen ich arbeite</h2>
   </div>
   <div class="uc-grid">
-    <div class="uc-card reveal d1">
+    <div class="uc-card glass reveal d1">
       <div class="uc-card-top">
         <h4>Fashion &amp; Lifestyle</h4>
         <p>Premium Content, der deine Brand in die erste Reihe bringt.</p>
       </div>
       <span class="uc-badge">Fashion Labels</span>
     </div>
-    <div class="uc-card reveal d2">
+    <div class="uc-card glass reveal d2">
       <div class="uc-card-top">
         <h4>E-Commerce Brands</h4>
         <p>Content, der klickt, überzeugt und konvertiert — kein Spielraum für Mittelmäßigkeit.</p>
       </div>
       <span class="uc-badge">Online Shops</span>
     </div>
-    <div class="uc-card reveal d3">
+    <div class="uc-card glass reveal d3">
       <div class="uc-card-top">
         <h4>Personal Brands</h4>
         <p>Aufbau einer Präsenz, der Menschen langfristig folgen.</p>
       </div>
       <span class="uc-badge">Creator &amp; Coaches</span>
     </div>
-    <div class="uc-card reveal d4">
+    <div class="uc-card glass reveal d4">
       <div class="uc-card-top">
         <h4>KMUs &amp; Startups</h4>
         <p>Schlankes Team. Großer Auftritt. Content, der mehr leistet als er kostet.</p>
@@ -825,7 +828,7 @@ html{scroll-padding-top:78px}
   </div>
   <div class="divider reveal"></div>
   <div class="testi-row">
-    <div class="testi-card reveal d1">
+    <div class="testi-card glass reveal d1">
       <div class="testi-accent"></div>
       <div class="testi-body">
         <p class="testi-q">❝</p>
@@ -835,7 +838,7 @@ html{scroll-padding-top:78px}
         <p class="testi-name">Thomas K.</p>
       </div>
     </div>
-    <div class="testi-card reveal d2">
+    <div class="testi-card glass reveal d2">
       <div class="testi-accent"></div>
       <div class="testi-body">
         <p class="testi-q">❝</p>
@@ -857,7 +860,7 @@ html{scroll-padding-top:78px}
     <h2 class="sec-heading">Transparent. Keine Überraschungen.</h2>
   </div>
   <div class="price-cards">
-    <div class="price-card reveal d1">
+    <div class="price-card glass reveal d1">
       <p class="price-name">Essentials</p>
       <div class="price-amount-row">
         <span class="price-num">€490</span><span class="price-per">/mo</span>
@@ -889,7 +892,7 @@ html{scroll-padding-top:78px}
         <a href="#contact" class="price-btn price-btn-gold">Jetzt wachsen</a>
       </div>
     </div>
-    <div class="price-card reveal d3">
+    <div class="price-card glass reveal d3">
       <p class="price-name">Premium</p>
       <p class="price-custom-lbl">Ab €2.490 / Monat</p>
       <p class="price-custom-desc">Vollständige Content-Betreuung, Shooting vor Ort, individuelle Kampagnen und langfristige Markenstrategie — maßgeschneidert für dein Business.</p>
@@ -934,7 +937,7 @@ html{scroll-padding-top:78px}
         <span class="contact-info-text">+49 (0) 800 123 456</span>
       </div>
     </div>
-    <form class="contact-form reveal d1" onsubmit="handleForm(event)">
+    <form class="contact-form glass reveal d1" onsubmit="handleForm(event)">
       <div class="form-row">
         <div class="field"><label>Name</label><input type="text" placeholder="Dein Name" required></div>
         <div class="field"><label>E-Mail</label><input type="email" placeholder="deine@email.de" required></div>
