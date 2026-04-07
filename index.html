@@ -75,6 +75,9 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
   background:linear-gradient(90deg,var(--g700),var(--g500),var(--g300));
   pointer-events:none;transition:width .08s linear}
 
+/* ── SPARKS ── */
+#sparks{position:fixed;inset:0;pointer-events:none;z-index:9997;opacity:.6}
+
 /* ── CUSTOM CURSOR (desktop) ── */
 @media(hover:hover){
   *{cursor:none!important}
@@ -616,6 +619,7 @@ html{scroll-padding-top:78px}
   </style>
 </head>
 <body>
+<canvas id="sparks"></canvas>
 
 <!-- NAV -->
 <div id="progress-bar"></div>
@@ -1168,6 +1172,55 @@ function handleForm(e) {
       <span class="success-sub">Ich melde mich in der Regel innerhalb von 24 Stunden.<br>Bis bald.</span>
     </div>`;
 }
+
+/* ── SPARKS ── */
+(function(){
+  var canvas=document.getElementById('sparks');
+  if(!canvas)return;
+  var ctx=canvas.getContext('2d');
+  var particles=[];
+
+  function resize(){canvas.width=window.innerWidth;canvas.height=window.innerHeight}
+  resize();
+  window.addEventListener('resize',resize);
+
+  function spawn(){
+    for(var i=0;i<2;i++){
+      particles.push({
+        x:Math.random()*window.innerWidth,
+        y:Math.random()*window.innerHeight,
+        r:1.5+Math.random(),
+        vy:-(0.4+Math.random()*0.4),
+        a:0.5+Math.random()*0.2
+      });
+    }
+    if(particles.length>40)particles=particles.slice(-40);
+  }
+
+  var ticking=false;
+  window.addEventListener('scroll',function(){
+    if(!ticking){
+      requestAnimationFrame(function(){spawn();ticking=false;});
+      ticking=true;
+    }
+  });
+
+  function draw(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    particles=particles.filter(function(p){return p.a>0;});
+    for(var i=0;i<particles.length;i++){
+      var p=particles[i];
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle='rgba(201,169,110,'+p.a+')';
+      ctx.fill();
+      p.y+=p.vy;
+      p.a-=0.008;
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
 </script>
 </body>
 </html>
