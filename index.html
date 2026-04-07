@@ -374,7 +374,14 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 .price-num{font-size:40px;font-weight:700;letter-spacing:-1px;line-height:1.15;color:var(--n100)}
 .price-per{font-size:16px;color:var(--n300);line-height:1.6;margin-left:3px}
 .price-tag{font-size:14px;color:var(--n300);line-height:1.6}
-.price-feat{font-size:14px;color:var(--n100);line-height:1.6}
+.price-feat{
+  font-size:14px;color:var(--n100);line-height:1.6;
+  display:flex;gap:8px;align-items:flex-start;
+}
+.price-feat::before{
+  content:'✓';flex-shrink:0;
+  color:var(--g400);margin-top:1px;
+}
 .price-custom-lbl{font-size:16px;color:var(--n100);line-height:1.6}
 .price-custom-desc{font-size:14px;color:var(--n300);line-height:1.6;flex:1}
 .price-cta-wrap{flex:1;display:flex;flex-direction:column;justify-content:flex-end;margin-top:8px}
@@ -758,9 +765,9 @@ html{scroll-padding-top:78px}
   </div>
   <div class="svc-detail reveal" id="svc-detail">
     <h3 id="svc-title">Social Media Management</h3>
-    <p>✓&nbsp;&nbsp;Strategie, Planung &amp; tägliche Content-Produktion</p>
-    <p>✓&nbsp;&nbsp;Plattform-native Formate: Reels, Stories, TikToks</p>
-    <p>✓&nbsp;&nbsp;Community Management &amp; datenbasiertes Wachstum</p>
+    <p>Strategie, Planung &amp; tägliche Content-Produktion</p>
+    <p>Plattform-native Formate: Reels, Stories, TikToks</p>
+    <p>Community Management &amp; datenbasiertes Wachstum</p>
   </div>
 </section>
 
@@ -855,11 +862,11 @@ html{scroll-padding-top:78px}
         <span class="price-num">€990</span><span class="price-per">/mo</span>
       </div>
       <p class="price-tag">Für Brands, die sichtbar werden</p>
-      <p class="price-feat">✓&nbsp;&nbsp;2 Plattformen (Instagram + TikTok)</p>
-      <p class="price-feat">✓&nbsp;&nbsp;12 Beiträge/Monat inkl. Captions</p>
-      <p class="price-feat">✓&nbsp;&nbsp;Professionelle Bildbearbeitung</p>
-      <p class="price-feat">✓&nbsp;&nbsp;Monatliches Performance-Reporting</p>
-      <p class="price-feat">✓&nbsp;&nbsp;E-Mail-Support</p>
+      <p class="price-feat">2 Plattformen (Instagram + TikTok)</p>
+      <p class="price-feat">12 Beiträge/Monat inkl. Captions</p>
+      <p class="price-feat">Professionelle Bildbearbeitung</p>
+      <p class="price-feat">Monatliches Performance-Reporting</p>
+      <p class="price-feat">E-Mail-Support</p>
       <div class="price-cta-wrap">
         <a href="#contact" class="price-btn price-btn-dark">Jetzt starten</a>
       </div>
@@ -871,12 +878,12 @@ html{scroll-padding-top:78px}
         <span class="price-num">€2.490</span><span class="price-per">/mo</span>
       </div>
       <p class="price-tag">Für Brands, die skalieren</p>
-      <p class="price-feat">✓&nbsp;&nbsp;Alle Plattformen (auch YouTube & LinkedIn)</p>
-      <p class="price-feat">✓&nbsp;&nbsp;30 Beiträge/Monat + Reels & Short-Videos</p>
-      <p class="price-feat">✓&nbsp;&nbsp;Professionelles Video Editing</p>
-      <p class="price-feat">✓&nbsp;&nbsp;Monatlicher Strategie-Call (60 Min.)</p>
-      <p class="price-feat">✓&nbsp;&nbsp;KI-gestützte Content-Planung</p>
-      <p class="price-feat">✓&nbsp;&nbsp;Priority Support</p>
+      <p class="price-feat">Alle Plattformen (auch YouTube & LinkedIn)</p>
+      <p class="price-feat">30 Beiträge/Monat + Reels & Short-Videos</p>
+      <p class="price-feat">Professionelles Video Editing</p>
+      <p class="price-feat">Monatlicher Strategie-Call (60 Min.)</p>
+      <p class="price-feat">KI-gestützte Content-Planung</p>
+      <p class="price-feat">Priority Support</p>
       <div class="price-cta-wrap">
         <a href="#contact" class="price-btn price-btn-gold">Jetzt wachsen</a>
       </div>
@@ -1099,33 +1106,33 @@ const tabData = {
   social: {
     title: 'Social Media Management',
     items: [
-      '✓&nbsp;&nbsp;Strategie, Planung &amp; tägliche Content-Produktion',
-      '✓&nbsp;&nbsp;Plattform-native Formate: Reels, Stories, TikToks',
-      '✓&nbsp;&nbsp;Community Management &amp; datenbasiertes Wachstum'
+      'Strategie, Planung &amp; tägliche Content-Produktion',
+      'Plattform-native Formate: Reels, Stories, TikToks',
+      'Community Management &amp; datenbasiertes Wachstum'
     ]
   },
   video: {
     title: 'Video Editing',
     items: [
-      '✓&nbsp;&nbsp;Cinematic Reels &amp; hochwertige Produktionsschnitte',
-      '✓&nbsp;&nbsp;Color Grading, Motion Graphics &amp; Sound Design',
-      '✓&nbsp;&nbsp;Schnelle Turnaround-Zeit für Social-First-Formate'
+      'Cinematic Reels &amp; hochwertige Produktionsschnitte',
+      'Color Grading, Motion Graphics &amp; Sound Design',
+      'Schnelle Turnaround-Zeit für Social-First-Formate'
     ]
   },
   ki: {
     title: 'KI-Content',
     items: [
-      '✓&nbsp;&nbsp;AI-gestütztes Scripting &amp; Textoptimierung',
-      '✓&nbsp;&nbsp;KI-Bildgenerierung &amp; visuelle Konzepte',
-      '✓&nbsp;&nbsp;Automatisierte Content-Workflows für maximale Effizienz'
+      'AI-gestütztes Scripting &amp; Textoptimierung',
+      'KI-Bildgenerierung &amp; visuelle Konzepte',
+      'Automatisierte Content-Workflows für maximale Effizienz'
     ]
   },
   strategie: {
     title: 'Content-Strategie',
     items: [
-      '✓&nbsp;&nbsp;Plattform-Analyse &amp; Zielgruppen-Research',
-      '✓&nbsp;&nbsp;Redaktionsplan &amp; Content-Kalender',
-      '✓&nbsp;&nbsp;KPI-Tracking &amp; monatliche Strategie-Calls'
+      'Plattform-Analyse &amp; Zielgruppen-Research',
+      'Redaktionsplan &amp; Content-Kalender',
+      'KPI-Tracking &amp; monatliche Strategie-Calls'
     ]
   }
 };
