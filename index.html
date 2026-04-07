@@ -680,7 +680,7 @@ html{scroll-padding-top:78px}
   <div class="divider reveal"></div>
   <div class="about-row reveal">
     <div class="about-avatar">
-      <img src="image/images/about/about/about/profile-image.png" alt="Danilo">
+      <img src="image/images/about/about/about/profile-image.png" alt="Danilo" width="206" height="206">
     </div>
     <div class="about-text">
       <p class="about-role">The Director</p>
@@ -723,10 +723,10 @@ html{scroll-padding-top:78px}
     <h2 class="sec-heading">Ausgewählte Projekte</h2>
   </div>
   <div class="port-grid">
-    <div class="port-slot reveal d1"><img src="image/images/portfolio/portfolio/portfolio/portfolio/image-thumb-1.png" alt="Projekt 1"><div class="port-overlay">ANSEHEN →</div></div>
-    <div class="port-slot reveal d2"><img src="image/images/portfolio/portfolio/portfolio/portfolio/image-thumb-2.png" alt="Projekt 2"><div class="port-overlay">ANSEHEN →</div></div>
-    <div class="port-slot reveal d3"><img src="image/images/portfolio/portfolio/portfolio/portfolio/image-thumb-3.png" alt="Projekt 3"><div class="port-overlay">ANSEHEN →</div></div>
-    <div class="port-slot reveal d4"><img src="image/images/portfolio/portfolio/portfolio/portfolio/image-thumb-4.png" alt="Projekt 4"><div class="port-overlay">ANSEHEN →</div></div>
+    <div class="port-slot reveal d1"><img src="image/images/portfolio/portfolio/portfolio/portfolio/image-thumb-1.png" alt="Projekt 1" loading="lazy" width="307" height="384"><div class="port-overlay">ANSEHEN →</div></div>
+    <div class="port-slot reveal d2"><img src="image/images/portfolio/portfolio/portfolio/portfolio/image-thumb-2.png" alt="Projekt 2" loading="lazy" width="307" height="384"><div class="port-overlay">ANSEHEN →</div></div>
+    <div class="port-slot reveal d3"><img src="image/images/portfolio/portfolio/portfolio/portfolio/image-thumb-3.png" alt="Projekt 3" loading="lazy" width="307" height="384"><div class="port-overlay">ANSEHEN →</div></div>
+    <div class="port-slot reveal d4"><img src="image/images/portfolio/portfolio/portfolio/portfolio/image-thumb-4.png" alt="Projekt 4" loading="lazy" width="307" height="384"><div class="port-overlay">ANSEHEN →</div></div>
   </div>
 </section>
 
@@ -747,7 +747,7 @@ html{scroll-padding-top:78px}
   </div>
   <div class="svc-preview">
     <!-- Video läuft immer als Hintergrund -->
-    <video autoplay muted loop playsinline>
+    <video autoplay muted loop playsinline preload="none">
       <source src="image/cinematic-2.mp4" type="video/mp4">
     </video>
     <!-- Tab-Bilder überlagern das Video -->
@@ -928,11 +928,11 @@ html{scroll-padding-top:78px}
     </div>
     <form class="contact-form glass reveal d1" onsubmit="handleForm(event)">
       <div class="form-row">
-        <div class="field"><label>Name</label><input type="text" placeholder="Dein Name" required></div>
-        <div class="field"><label>E-Mail</label><input type="email" placeholder="deine@email.de" required></div>
+        <div class="field"><label>Name</label><input type="text" name="name" placeholder="Dein Name" required></div>
+        <div class="field"><label>E-Mail</label><input type="email" name="email" placeholder="deine@email.de" required></div>
       </div>
-      <div class="field"><label>Betreff</label><input type="text" placeholder="Worum geht es?"></div>
-      <div class="field"><label>Nachricht</label><textarea placeholder="Erzähl mir von deinem Projekt ..."></textarea></div>
+      <div class="field"><label>Betreff</label><input type="text" name="subject" placeholder="Worum geht es?"></div>
+      <div class="field"><label>Nachricht</label><textarea name="message" placeholder="Erzähl mir von deinem Projekt ..."></textarea></div>
       <button type="submit" class="form-submit">Nachricht senden</button>
       <p class="form-legal">Mit dem Absenden stimmst du unserer Datenschutzerklärung zu.</p>
     </form>
@@ -1021,9 +1021,11 @@ if (window.matchMedia('(hover:hover)').matches) {
     el.addEventListener('mouseleave', () => ring.classList.remove('hovering'));
   });
   (function animCursor() {
-    cur.style.left = mx + 'px'; cur.style.top = my + 'px';
-    rx += (mx - rx) * .12; ry += (my - ry) * .12;
-    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+    if (!document.hidden) {
+      cur.style.left = mx + 'px'; cur.style.top = my + 'px';
+      rx += (mx - rx) * .12; ry += (my - ry) * .12;
+      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+    }
     requestAnimationFrame(animCursor);
   })();
 }
@@ -1057,7 +1059,7 @@ const counterObs = new IntersectionObserver((entries) => {
 document.querySelectorAll('.stat-num[data-count]').forEach(el => counterObs.observe(el));
 
 // ── SCROLL SPY
-const sections = ['hero','about','portfolio','services','pricing','contact'];
+const sections = ['hero','about','portfolio','services','use-cases','social-proof','pricing','cta','contact'];
 const navLinks = document.querySelectorAll('.nav-links a');
 const spyObs = new IntersectionObserver((entries) => {
   entries.forEach(e => {
@@ -1149,9 +1151,10 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
 });
 
 // ── CONTACT FORM
-function handleForm(e) {
-  e.preventDefault();
-  const form = e.target;
+// Formspree: Konto auf formspree.io anlegen → neue Form erstellen → ID hier eintragen
+const FORMSPREE_ID = 'DEINE_FORM_ID';
+
+function showFormSuccess(form) {
   form.innerHTML = `
     <div class="form-success-state">
       <svg width="64" height="64" viewBox="0 0 64 64">
@@ -1164,6 +1167,32 @@ function handleForm(e) {
       <p class="success-title">Nachricht gesendet!</p>
       <span class="success-sub">Ich melde mich in der Regel innerhalb von 24 Stunden.<br>Bis bald.</span>
     </div>`;
+}
+
+async function handleForm(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('button[type="submit"]');
+  btn.disabled = true;
+  btn.textContent = 'Wird gesendet…';
+  try {
+    const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(form)
+    });
+    if (res.ok) {
+      showFormSuccess(form);
+    } else {
+      btn.disabled = false;
+      btn.textContent = 'Nachricht senden';
+      alert('Fehler beim Senden. Bitte versuche es erneut.');
+    }
+  } catch {
+    btn.disabled = false;
+    btn.textContent = 'Nachricht senden';
+    alert('Netzwerkfehler. Bitte versuche es erneut.');
+  }
 }
 
 /* ── SPARKS ── */
@@ -1190,20 +1219,25 @@ function handleForm(e) {
     if(particles.length>60)particles=particles.slice(-60);
   }
 
+  var paused=false;
+  document.addEventListener('visibilitychange',function(){paused=document.hidden;});
+
   // Alle 600ms ein neues Partikel spawnen
-  setInterval(spawn,600);
+  var spawnInterval=setInterval(function(){if(!paused)spawn();},600);
 
   function draw(){
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    particles=particles.filter(function(p){return p.a>0&&p.y>-10;});
-    for(var i=0;i<particles.length;i++){
-      var p=particles[i];
-      ctx.beginPath();
-      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-      ctx.fillStyle='rgba(201,169,110,'+p.a.toFixed(3)+')';
-      ctx.fill();
-      p.y+=p.vy;
-      p.a-=0.0005; // sehr langsam verblassen — Lebensdauer ~120s bei kleinstem a
+    if(!paused){
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      particles=particles.filter(function(p){return p.a>0&&p.y>-10;});
+      for(var i=0;i<particles.length;i++){
+        var p=particles[i];
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+        ctx.fillStyle='rgba(201,169,110,'+p.a.toFixed(3)+')';
+        ctx.fill();
+        p.y+=p.vy;
+        p.a-=0.0005;
+      }
     }
     requestAnimationFrame(draw);
   }
