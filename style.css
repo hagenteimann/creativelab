@@ -76,23 +76,21 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .card-premium {
   transform-style: preserve-3d;
-  background: linear-gradient(135deg, rgba(255,255,255,.08) 0%, rgba(255,255,255,.03) 100%);
-  backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255,255,255,.10);
-  border-top: 1px solid rgba(255,255,255,.20);
+  background: rgba(255,255,255,.04);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,.08);
   border-radius: var(--r-md);
-  box-shadow: 0 4px 24px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.08);
+  box-shadow: 0 2px 16px rgba(0,0,0,.20);
   transition: background .3s var(--ease), transform .3s var(--ease), box-shadow .3s var(--ease);
 }
 .card-premium:hover {
-  background: linear-gradient(135deg, rgba(255,255,255,.13) 0%, rgba(255,255,255,.06) 100%);
+  background: rgba(255,255,255,.07);
   transform: translateY(-6px);
-  box-shadow: 0 24px 56px rgba(0,0,0,.40), inset 0 1px 0 rgba(255,255,255,.12);
+  box-shadow: 0 20px 48px rgba(0,0,0,.38);
 }
 .card-premium.pro {
-  border-color: rgba(255,255,255,.22);
-  border-top-color: rgba(255,255,255,.40);
-  box-shadow: 0 4px 32px rgba(0,0,0,.30), 0 0 0 1px rgba(255,255,255,.05), inset 0 1px 0 rgba(255,255,255,.15);
+  border-color: rgba(255,255,255,.16);
+  box-shadow: 0 2px 24px rgba(0,0,0,.28);
 }
 
 /* ── SHARED ELEMENTS ── */
@@ -492,7 +490,11 @@ section, footer { position: relative; z-index: 1; }
   justify-content: space-between; min-height: 180px;
 }
 .uc-card-top { display: flex; flex-direction: column; gap: 6px; }
-.uc-card h4 { font-size: 14px; font-weight: 500; color: var(--n100); }
+.uc-card h4 {
+  font-family: 'Alumni Sans SC', sans-serif;
+  font-size: 16px; font-weight: 400;
+  letter-spacing: 0.10em; color: var(--n100);
+}
 .uc-card p { font-size: 13px; color: var(--n400); line-height: 1.6; }
 
 .badge {
@@ -556,9 +558,19 @@ section, footer { position: relative; z-index: 1; }
   gap: 16px; max-width: 1100px; width: 100%;
 }
 .price-card { padding: 28px 24px; display: flex; flex-direction: column; gap: 12px; transform-style: preserve-3d; }
-.price-card.pro { border-color: rgba(255,255,255,.35); }
+.price-card.pro { border-color: rgba(255,255,255,.18); }
 
-.price-name { font-size: 16px; font-weight: 600; color: var(--n100); }
+.card-num {
+  display: block;
+  font-family: 'Alumni Sans SC', sans-serif;
+  font-size: 11px; letter-spacing: 0.22em;
+  color: var(--n500); margin-bottom: 2px;
+}
+.price-name {
+  font-family: 'Alumni Sans SC', sans-serif;
+  font-size: 20px; font-weight: 400;
+  letter-spacing: 0.12em; color: var(--n100);
+}
 .price-tag { font-size: 13px; color: var(--n400); }
 .price-amount-row { display: flex; align-items: baseline; gap: 2px; }
 .price-num { font-size: 36px; font-weight: 700; color: var(--n100); letter-spacing: -0.02em; }
