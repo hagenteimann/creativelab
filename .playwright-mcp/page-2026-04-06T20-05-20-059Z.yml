@@ -1,0 +1,236 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]: creativelab.de
+    - generic [ref=e6]:
+      - link "Leistungen" [ref=e7] [cursor=pointer]:
+        - /url: "#services"
+      - link "Projekte" [ref=e8] [cursor=pointer]:
+        - /url: "#portfolio"
+      - link "Preise" [ref=e9] [cursor=pointer]:
+        - /url: "#pricing"
+      - link "Über mich" [ref=e10] [cursor=pointer]:
+        - /url: "#about"
+      - link "Kontakt" [ref=e11] [cursor=pointer]:
+        - /url: "#contact"
+    - link "get in touch" [ref=e13] [cursor=pointer]:
+      - /url: "#contact"
+  - generic [ref=e16]:
+    - generic [ref=e17]:
+      - generic [ref=e18]: COMPLETE
+      - generic [ref=e19]: Creative
+      - generic [ref=e20]: Control
+    - generic [ref=e21]:
+      - paragraph [ref=e22]: Senior Content Creator. Video Editor. KI-Content-Stratege.
+      - paragraph [ref=e23]: Premium Content — ohne Agentur-Overhead.
+    - generic [ref=e24]:
+      - link "Jetzt anfragen" [ref=e25] [cursor=pointer]:
+        - /url: "#contact"
+      - link "Portfolio ansehen →" [ref=e26] [cursor=pointer]:
+        - /url: "#portfolio"
+  - generic [ref=e27]:
+    - generic [ref=e29]:
+      - img "Danilo" [ref=e31]
+      - generic [ref=e32]:
+        - paragraph [ref=e33]: The Director
+        - heading "Who I am" [level=2] [ref=e34]
+        - paragraph [ref=e35]: "Ich bin Danilo — Content Creator, Video Editor und Kreativstratege mit 5+ Jahren Erfahrung. Als Senior Content Creator bei ESN, Deutschlands #1 Supplements-Brand, habe ich gelernt, was Content wirklich bewegt. Heute helfe ich Fashion- und Lifestyle-Brands, online zu wachsen."
+        - link "get in touch" [ref=e37] [cursor=pointer]:
+          - /url: "#contact"
+    - generic [ref=e39]:
+      - paragraph [ref=e40]: Wie ich arbeite
+      - generic [ref=e41]:
+        - generic [ref=e42]:
+          - generic [ref=e44]: Vision
+          - paragraph [ref=e45]: Die Vision eines Unternehmens verstehen, bevor man kommuniziert. Ist die Grundlage erfolgreichen Marketings.
+        - generic [ref=e46]:
+          - generic [ref=e48]: Mission
+          - paragraph [ref=e49]: Aus der Mission ergeben sich die kommunikativen Ziele, die vermittelt werden sollen.
+        - generic [ref=e50]:
+          - generic [ref=e52]: Strategie
+          - paragraph [ref=e53]: Die Strategie bestimmt, ob die Zielgruppe die Vision des Unternehmens annimmt. Sprechen Unternehmen und Kunden nicht die gleiche Sprache, ist das Projekt zum Scheitern verurteilt.
+        - generic [ref=e54]:
+          - generic [ref=e56]: Skalierung
+          - paragraph [ref=e57]: Ist die Vision erfolgreich kommuniziert, wird die Content-Frequenz zum Erfolgshebel im digitalen Zeitalter.
+  - generic [ref=e58]:
+    - generic [ref=e60]:
+      - paragraph [ref=e61]: SELECTED WORK
+      - heading "Ausgewählte Projekte" [level=2] [ref=e62]
+    - generic [ref=e63]:
+      - img "Projekt 1" [ref=e65] [cursor=pointer]
+      - img "Projekt 2" [ref=e67] [cursor=pointer]
+      - img "Projekt 3" [ref=e69] [cursor=pointer]
+      - img "Projekt 4" [ref=e71] [cursor=pointer]
+  - generic [ref=e72]:
+    - generic [ref=e74]:
+      - paragraph [ref=e75]: LEISTUNGEN
+      - heading "Was ich mache" [level=2] [ref=e76]
+    - generic [ref=e77]:
+      - button "Social Media" [ref=e78] [cursor=pointer]
+      - button "Video Editing" [ref=e79] [cursor=pointer]
+      - button "KI-Content" [ref=e80] [cursor=pointer]
+      - button "Strategie" [ref=e81] [cursor=pointer]
+    - generic [ref=e82]:
+      - img "Social Media" [ref=e83]
+      - img "Video Editing"
+      - img "KI Content"
+      - img "Strategie"
+    - generic [ref=e84]:
+      - heading "Social Media Management" [level=3] [ref=e85]
+      - paragraph [ref=e86]: ✓ Strategie, Planung & tägliche Content-Produktion
+      - paragraph [ref=e87]: "✓ Plattform-native Formate: Reels, Stories, TikToks"
+      - paragraph [ref=e88]: ✓ Community Management & datenbasiertes Wachstum
+  - generic [ref=e89]:
+    - generic [ref=e91]:
+      - paragraph [ref=e92]: FÜR WEN
+      - heading "Für wen ich arbeite" [level=2] [ref=e93]
+    - generic [ref=e94]:
+      - generic [ref=e95]:
+        - generic [ref=e96]:
+          - heading "Fashion & Lifestyle" [level=4] [ref=e97]
+          - paragraph [ref=e98]: Premium Content, der deine Brand in die erste Reihe bringt.
+        - generic [ref=e99]: Fashion Labels
+      - generic [ref=e100]:
+        - generic [ref=e101]:
+          - heading "E-Commerce Brands" [level=4] [ref=e102]
+          - paragraph [ref=e103]: Content, der klickt, überzeugt und konvertiert — kein Spielraum für Mittelmäßigkeit.
+        - generic [ref=e104]: Online Shops
+      - generic [ref=e105]:
+        - generic [ref=e106]:
+          - heading "Personal Brands" [level=4] [ref=e107]
+          - paragraph [ref=e108]: Aufbau einer Präsenz, der Menschen langfristig folgen.
+        - generic [ref=e109]: Creator & Coaches
+      - generic [ref=e110]:
+        - generic [ref=e111]:
+          - heading "KMUs & Startups" [level=4] [ref=e112]
+          - paragraph [ref=e113]: Schlankes Team. Großer Auftritt. Content, der mehr leistet als er kostet.
+        - generic [ref=e114]: Wachsende Brands
+  - generic [ref=e115]:
+    - generic [ref=e117]:
+      - paragraph [ref=e118]: ZAHLEN & FAKTEN
+      - heading "Ergebnisse, die sprechen" [level=2] [ref=e119]
+    - generic [ref=e120]:
+      - generic [ref=e121]:
+        - generic [ref=e122]: 5+
+        - generic [ref=e123]: Jahre Erfahrung
+      - generic [ref=e124]:
+        - generic [ref=e125]: ESN
+        - generic [ref=e126]: DE-Marktführer Supplements
+      - generic [ref=e127]:
+        - generic [ref=e128]: 3×
+        - generic [ref=e129]: Ø Engagement-Uplift
+    - generic [ref=e131]:
+      - generic [ref=e134]:
+        - paragraph [ref=e135]: ❝
+        - paragraph [ref=e136]: High-End-Qualität, null Aufwand auf unserer Seite. Er kennt unsere Zielgruppe besser als wir selbst.
+        - paragraph [ref=e137]: ★★★★★
+        - paragraph [ref=e138]: Founder, Lifestyle Brand
+        - paragraph [ref=e139]: Thomas K.
+      - generic [ref=e142]:
+        - paragraph [ref=e143]: ❝
+        - paragraph [ref=e144]: Danilo liefert nicht nur Content — er denkt mit. Unsere Reichweite hat sich in 3 Monaten verdoppelt.
+        - paragraph [ref=e145]: ★★★★★
+        - paragraph [ref=e146]: Marketing Lead, E-Commerce Brand
+        - paragraph [ref=e147]: Sarah M.
+    - paragraph [ref=e148]: → scroll for more
+  - generic [ref=e149]:
+    - generic [ref=e151]:
+      - paragraph [ref=e152]: PRICING
+      - heading "Transparent. Keine Überraschungen." [level=2] [ref=e153]
+    - generic [ref=e154]:
+      - generic [ref=e155]:
+        - paragraph [ref=e156]: Essentials
+        - generic [ref=e157]:
+          - generic [ref=e158]: $29
+          - generic [ref=e159]: /mo
+        - paragraph [ref=e160]: Für Brands, die starten
+        - paragraph [ref=e161]: ✓ 3 Plattformen (Instagram, TikTok, LinkedIn)
+        - paragraph [ref=e162]: ✓ 12 Posts/Monat inkl. Texte
+        - paragraph [ref=e163]: ✓ Monatliches Reporting
+        - paragraph [ref=e164]: ✓ E-Mail-Support
+        - link "Jetzt starten" [ref=e166] [cursor=pointer]:
+          - /url: "#contact"
+      - generic [ref=e167]:
+        - generic [ref=e168]: POPULAR
+        - paragraph [ref=e169]: Growth
+        - generic [ref=e170]:
+          - generic [ref=e171]: $79
+          - generic [ref=e172]: /mo
+        - paragraph [ref=e173]: Für Brands, die skalieren
+        - paragraph [ref=e174]: ✓ Alle Plattformen
+        - paragraph [ref=e175]: ✓ 30 Posts/Monat + Reels
+        - paragraph [ref=e176]: ✓ Video Editing inklusive
+        - paragraph [ref=e177]: ✓ Strategie-Call monatlich
+        - paragraph [ref=e178]: ✓ KI-Content auf Anfrage
+        - link "Jetzt wachsen" [ref=e180] [cursor=pointer]:
+          - /url: "#contact"
+      - generic [ref=e181]:
+        - paragraph [ref=e182]: Custom
+        - paragraph [ref=e183]: Individuelles Angebot
+        - paragraph [ref=e184]: Komplexere Projekte, Kampagnen oder dauerhafte Zusammenarbeit — ich erstelle dir ein Angebot, das passt.
+        - link "Anfrage stellen" [ref=e186] [cursor=pointer]:
+          - /url: "#contact"
+  - generic [ref=e187]:
+    - generic [ref=e189]: Erstgespräch kostenlos
+    - heading "Bereit, deinen Content auf das nächste Level zu bringen?" [level=2] [ref=e190]
+    - paragraph [ref=e191]: Für Brands, die Content nicht als Aufgabe sehen — sondern als Wachstumshebel.
+    - generic [ref=e192]:
+      - link "Jetzt anfragen" [ref=e193] [cursor=pointer]:
+        - /url: "#contact"
+      - link "Portfolio ansehen" [ref=e194] [cursor=pointer]:
+        - /url: "#portfolio"
+    - paragraph [ref=e195]: Kein Commitment. Kein Bullshit. Nur Ergebnisse.
+  - generic [ref=e196]:
+    - paragraph [ref=e198]: CONTACT
+    - heading "Lass uns arbeiten." [level=2] [ref=e199]
+    - generic [ref=e200]:
+      - generic [ref=e201]:
+        - paragraph [ref=e202]: Pricing-Fragen, individuelles Angebot oder du willst einfach schauen, ob wir zusammenpassen? Meld dich — ich antworte innerhalb von 24 Stunden.
+        - generic [ref=e203]:
+          - generic [ref=e204]: ✉
+          - generic [ref=e205]: hello@creativelab.de
+        - generic [ref=e206]:
+          - generic [ref=e207]: 💬
+          - generic [ref=e208]: Live Chat · Mo–Fr, 9–18 Uhr
+        - generic [ref=e209]:
+          - generic [ref=e210]: 📞
+          - generic [ref=e211]: +49 (0) 800 123 456
+      - generic [ref=e212]:
+        - generic [ref=e213]:
+          - generic [ref=e214]:
+            - generic [ref=e215]: Name
+            - textbox "Dein Name" [ref=e216]
+          - generic [ref=e217]:
+            - generic [ref=e218]: E-Mail
+            - textbox "deine@email.de" [ref=e219]
+        - generic [ref=e220]:
+          - generic [ref=e221]: Betreff
+          - textbox "Worum geht es?" [ref=e222]
+        - generic [ref=e223]:
+          - generic [ref=e224]: Nachricht
+          - textbox "Erzähl mir von deinem Projekt ..." [ref=e225]
+        - button "Nachricht senden" [ref=e226] [cursor=pointer]
+        - paragraph [ref=e227]: Mit dem Absenden stimmst du unserer Datenschutzerklärung zu.
+  - contentinfo [ref=e228]:
+    - generic [ref=e230]: creativelab.de
+    - generic [ref=e231]:
+      - generic [ref=e232]:
+        - generic [ref=e233]: Leistungen
+        - link "Social Media" [ref=e234] [cursor=pointer]:
+          - /url: "#services"
+        - link "Video Editing" [ref=e235] [cursor=pointer]:
+          - /url: "#services"
+        - link "KI-Content" [ref=e236] [cursor=pointer]:
+          - /url: "#services"
+        - link "Strategie" [ref=e237] [cursor=pointer]:
+          - /url: "#services"
+      - generic [ref=e238]:
+        - generic [ref=e239]: Connect
+        - link "About" [ref=e240] [cursor=pointer]:
+          - /url: "#about"
+        - link "Instagram" [ref=e241] [cursor=pointer]:
+          - /url: https://instagram.com
+        - link "LinkedIn" [ref=e242] [cursor=pointer]:
+          - /url: https://linkedin.com
+        - link "Kontakt" [ref=e243] [cursor=pointer]:
+          - /url: "#contact"
+    - paragraph [ref=e244]: © 2025 Danilo · creativelab.de

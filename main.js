@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initContactForm();
     initSparks();
     initSoundToggle();
+    initMagneticButtons();
 });
 
 // ── PAGE LOAD FADE IN
@@ -400,4 +401,34 @@ function initSoundToggle() {
     }, { threshold: 0.5 });
 
     videos.forEach(v => observer.observe(v));
+}
+
+// ── MAGNETIC BUTTONS
+function initMagneticButtons() {
+    // Only enable on desktop (hover:hover media query)
+    if (!window.matchMedia('(hover:hover)').matches) return;
+
+    const buttons = document.querySelectorAll('.btn-primary, .nav-cta');
+
+    buttons.forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            // Mouse position relative to button center
+            const deltaX = e.clientX - rect.left - centerX;
+            const deltaY = e.clientY - rect.top - centerY;
+
+            // Apply subtle magnetic effect (25% of delta)
+            const translateX = deltaX * 0.25;
+            const translateY = deltaY * 0.25;
+
+            btn.style.transform = `translate(${translateX}px, ${translateY}px)`;
+        });
+
+        btn.addEventListener('mouseleave', () => {
+            btn.style.transform = 'translate(0, 0)';
+        });
+    });
 }
