@@ -442,7 +442,16 @@ function initCardTilt() {
     const cards = document.querySelectorAll('.price-card, .port-slot');
 
     cards.forEach(card => {
+        let isHovering = false;
+        let tiltX = 0, tiltY = 0;
+
+        card.addEventListener('mouseenter', () => {
+            isHovering = true;
+        });
+
         card.addEventListener('mousemove', (e) => {
+            if (!isHovering) return;
+            
             const rect = card.getBoundingClientRect();
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
@@ -453,13 +462,26 @@ function initCardTilt() {
 
             // Calculate rotation in degrees (max ±8 degrees)
             const maxRotation = 8;
-            const rotateX = (deltaY / centerY) * maxRotation;
-            const rotateY = (deltaX / centerX) * maxRotation;
+            tiltX = -(deltaY / centerY) * maxRotation;
+            tiltY = (deltaX / centerX) * maxRotation;
 
-            card.style.transform = `perspective(600px) rotateX(${-rotateX}deg) rotateY(${rotateY}deg)`;
+            // Combine 3D tilt with any existing hover transforms from CSS
+            // For .price-card (card-premium): also include translateY(-6px)
+            // For .port-slot: also include scale(1.02)
+            let baseTransform = '';
+            if (card.classList.contains('card-premium')) {
+                baseTransform = 'translateY(-6px)';
+            } else if (card.classList.contains('port-slot')) {
+                baseTransform = 'scale(1.02)';
+            }
+
+            // Combine transforms
+            const transform = `perspective(600px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) ${baseTransform}`;
+            card.style.transform = transform;
         });
 
         card.addEventListener('mouseleave', () => {
+            isHovering = false;
             card.style.transform = '';
         });
     });
