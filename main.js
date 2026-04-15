@@ -29,7 +29,27 @@ function initPageFade() {
     }
 }
 
-// ── SMOOTH SCROLLING
+// ── SMOOTH SCROLLING (ease-out cubic)
+function scrollToTarget(target, duration = 800) {
+    const navHeight = document.getElementById('nav')?.offsetHeight || 70;
+    const start = window.scrollY;
+    const end = target.getBoundingClientRect().top + window.scrollY - navHeight;
+    const distance = end - start;
+    let startTime = null;
+
+    const easeOutCubic = t => 1 - Math.pow(1 - t, 3);
+
+    const step = (timestamp) => {
+        if (!startTime) startTime = timestamp;
+        const elapsed = timestamp - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        window.scrollTo(0, start + distance * easeOutCubic(progress));
+        if (progress < 1) requestAnimationFrame(step);
+    };
+
+    requestAnimationFrame(step);
+}
+
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
@@ -38,7 +58,7 @@ function initSmoothScroll() {
             if (!target) return;
 
             e.preventDefault();
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            scrollToTarget(target);
             history.pushState(null, '', '#' + id);
         });
     });
