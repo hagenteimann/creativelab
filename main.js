@@ -469,7 +469,7 @@ function initCardTilt() {
             // For .price-card (card-premium): also include translateY(-6px)
             // For .port-slot: also include scale(1.02)
             let baseTransform = '';
-            if (card.classList.contains('card-premium')) {
+            if (card.classList.contains('price-card')) {
                 baseTransform = 'translateY(-6px)';
             } else if (card.classList.contains('port-slot')) {
                 baseTransform = 'scale(1.02)';
