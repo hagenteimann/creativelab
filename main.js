@@ -160,13 +160,39 @@ function initCounters() {
 function initScrollSpy() {
     const sections = ['hero', 'about', 'portfolio', 'services', 'use-cases', 'social-proof', 'pricing', 'contact'];
     const navLinks = document.querySelectorAll('.nav-links a');
-    
+    const navLinksContainer = document.querySelector('.nav-links');
+
+    // Sliding underline
+    const underline = document.createElement('span');
+    underline.className = 'nav-underline';
+    navLinksContainer?.appendChild(underline);
+
+    const sectionColors = {
+        about: '#ffffff', portfolio: '#f0f0f0',
+        services: '#e0e0e0', pricing: '#cccccc', contact: '#b0b0b0'
+    };
+
+    function moveUnderline(link) {
+        if (!navLinksContainer) return;
+        const cr = navLinksContainer.getBoundingClientRect();
+        const lr = link.getBoundingClientRect();
+        underline.style.transform = `translateX(${lr.left - cr.left}px)`;
+        underline.style.width = `${lr.width}px`;
+        underline.style.opacity = '1';
+    }
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 navLinks.forEach(a => a.classList.remove('active'));
                 const activeLink = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
-                if (activeLink) activeLink.classList.add('active');
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                    underline.style.background = sectionColors[entry.target.id] || '#ffffff';
+                    moveUnderline(activeLink);
+                } else {
+                    underline.style.opacity = '0';
+                }
             }
         });
     }, { threshold: 0.4 });
