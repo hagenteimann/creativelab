@@ -216,7 +216,7 @@ section, footer { position: relative; z-index: 1; }
   font-size: 13px; color: #fff; white-space: nowrap;
   transition: background .2s, transform .3s ease;
 }
-.nav-cta:hover { background: rgba(255,255,255,.12); transform: translateY(-1px); }
+.nav-cta:hover { background: rgba(255,255,255,.12); }
 
 /* Hamburger — hidden on desktop */
 .nav-burger { display: none; }
@@ -302,8 +302,8 @@ section, footer { position: relative; z-index: 1; }
   transition: background .2s, transform .2s, box-shadow .2s;
   white-space: nowrap;
 }
-.btn-primary { background: var(--n100); color: var(--s700); transition: background .2s, transform .3s ease; }
-.btn-primary:hover { background: var(--g100); transform: translateY(-2px); }
+.btn-primary { background: var(--n100); color: var(--s700); transition: background .2s, transform .3s ease, box-shadow .2s; }
+.btn-primary:hover { background: var(--g100); }
 
 .btn-ghost {
   background: rgba(255,255,255,.08); color: var(--n100);

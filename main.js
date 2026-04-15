@@ -428,7 +428,7 @@ function initMagneticButtons() {
         });
 
         btn.addEventListener('mouseleave', () => {
-            btn.style.transform = 'translate(0, 0)';
+            btn.style.transform = '';
         });
     });
 }
