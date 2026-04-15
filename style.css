@@ -130,6 +130,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .reveal.in.d3 { animation-delay: .24s; }
 .reveal.in.d4 { animation-delay: .32s; }
 
+@supports (animation-timeline: view()) {
+  .reveal {
+    animation: fadeUp .6s ease forwards;
+    animation-timeline: view();
+    animation-range: entry 0% entry 35%;
+  }
+}
+
 /* ── PROGRESS BAR ── */
 #progress-bar {
   position: fixed; top: 0; left: 0; height: 2px; width: 0%; z-index: 201;
