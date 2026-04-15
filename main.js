@@ -43,7 +43,7 @@ function scrollToTarget(target, duration = 800) {
         if (!startTime) startTime = timestamp;
         const elapsed = timestamp - startTime;
         const progress = Math.min(elapsed / duration, 1);
-        window.scrollTo(0, start + distance * easeOutCubic(progress));
+        window.scrollTo({ top: start + distance * easeOutCubic(progress), behavior: 'instant' });
         if (progress < 1) requestAnimationFrame(step);
     };
 
