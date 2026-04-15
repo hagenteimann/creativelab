@@ -1,1255 +1,382 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>creativelab.de — Danilo</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+SC:wght@400;700&family=Inter:wght@400;500;600;700&family=Playfair+Display+SC:wght@700&family=Sarpanch:wght@800&display=swap" rel="stylesheet">
-  <style>
-/* ── TOKENS ── */
-:root {
-  --bg:   #0c0c0c;
-  --s0:   #2a2a2a;
-  --s100: #222222;
-  --s200: #1c1c1c;
-  --s300: #141414;
-  --s400: #111111;
-  --s500: #0d0d0d;
-  --s700: #000000;
-  --n100: #f5f5f0;
-  --n300: #a8a8a0;
-  --n400: #8a8a82;
-  --n500: #5a5a55;
-  --g0:   #fdf8f0;
-  --g100: #f5ead5;
-  --g200: #edd9b5;
-  --g300: #e8c99a;
-  --g400: #d4a574;
-  --g500: #c9a96e;
-  --g600: #b8965a;
-  --g700: #8a6e3a;
-  --glow: 0 0 10.2px 0 #c9a96e;
-  --r-sm:   8px;
-  --r-md:   12px;
-  --r-lg:   16px;
-  --r-pill: 100px;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>creativelab.de — Danilo</title>
 
-/* ── RESET ── */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{overflow-x:hidden;width:100%}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--n100);width:100%;max-width:100vw;opacity:0;transition:opacity .5s ease}
-body.loaded{opacity:1}
-img{display:block}
-a{text-decoration:none;color:inherit}
-button{cursor:pointer;border:none;background:none;font-family:inherit}
+    <meta name="description" content="Senior Content Creator & Video Editor. Premium Content für Fashion- & Lifestyle-Brands — ohne Agentur-Overhead.">
 
-/* ── REVEAL ── */
-@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
-.reveal{opacity:0}
-.reveal.in{animation:fadeUp .65s ease forwards}
-.reveal.in.d1{animation-delay:.1s}
-.reveal.in.d2{animation-delay:.2s}
-.reveal.in.d3{animation-delay:.3s}
-.reveal.in.d4{animation-delay:.4s}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+SC:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-/* ── SHARED ── */
-.divider{max-width:768px;width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent);margin:0 auto;flex-shrink:0}
-.overline{font-size:12px;font-weight:500;letter-spacing:3px;color:var(--g300);text-transform:uppercase;text-align:center;line-height:1.3}
-.overline.neutral{color:var(--n300);text-transform:none}
-.sec-heading{font-size:clamp(28px, 3.5vw, 40px);font-weight:700;letter-spacing:-0.025em;line-height:1.15;color:var(--n100);text-align:center}
-.sec-header{display:flex;flex-direction:column;gap:8px;align-items:center;max-width:640px;width:100%}
-
-/* ── GLASS ── */
-.glass{
-  background:rgba(255,255,255,.08);
-  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:var(--r-md);
-}
-
-/* ── PROGRESS BAR ── */
-#progress-bar{position:fixed;top:0;left:0;height:2px;width:0%;z-index:201;
-  background:linear-gradient(90deg,var(--g700),var(--g500),var(--g300));
-  pointer-events:none;transition:width .08s linear}
-
-/* ── SPARKS ── */
-#sparks{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:1}
-#hero,#about,#portfolio,#services,#use-cases,#social-proof,#pricing,#cta,#contact,#footer{position:relative;z-index:1}
-
-/* ── CUSTOM CURSOR (desktop) ── */
-@media(hover:hover){
-  *{cursor:none!important}
-  #cursor{position:fixed;width:8px;height:8px;border-radius:50%;
-    background:var(--g400);pointer-events:none;z-index:9999;
-    transform:translate(-50%,-50%);opacity:0}
-  #cursor.visible{opacity:1}
-  #cursor-ring{position:fixed;width:32px;height:32px;border-radius:50%;
-    border:1px solid rgba(201,169,110,.45);pointer-events:none;z-index:9998;
-    transform:translate(-50%,-50%);transition:width .2s,height .2s,border-color .2s,opacity .2s;opacity:0}
-  #cursor-ring.visible{opacity:1}
-  #cursor-ring.hovering{width:52px;height:52px;border-color:var(--g300)}
-}
-
-/* ── NAV SCROLL SPY ── */
-.nav-links a.active{color:var(--g300)}
-
-/* ── PORT OVERLAY ── */
-.port-overlay{position:absolute;inset:0;display:flex;align-items:center;
-  justify-content:center;background:rgba(201,169,110,.1);
-  opacity:0;transition:opacity .3s ease;
-  font-size:13px;letter-spacing:2px;color:var(--g100);font-weight:500}
-.port-slot:hover .port-overlay{opacity:1}
-
-/* ── FORM SUCCESS ── */
-@keyframes checkDraw{from{stroke-dashoffset:50}to{stroke-dashoffset:0}}
-@keyframes circleFade{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:scale(1)}}
-.form-success-state{display:flex;flex-direction:column;align-items:center;
-  gap:16px;padding:48px;text-align:center;animation:fadeUp .4s ease forwards}
-.form-success-state svg{animation:circleFade .4s ease forwards}
-.form-success-state svg path{stroke-dasharray:50;stroke-dashoffset:50;
-  animation:checkDraw .5s .35s ease forwards}
-.form-success-state .success-title{font-size:18px;color:var(--g300);font-weight:600}
-.form-success-state .success-sub{font-size:14px;color:var(--n400);line-height:1.6}
-
-/* ── NAV ── */
-#nav{
-  position:fixed;top:0;left:0;right:0;width:100%;z-index:100;
-  height:70px;display:flex;align-items:center;
-  padding:0 48px;gap:10px;
-  background:rgba(255,255,255,0.05);
-  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-  transition:border-bottom .2s;
-  box-sizing:border-box;
-}
-.nav-logo{display:flex;align-items:center;gap:8px;flex:1}
-.nav-logo img{width:37.55px;height:24px;object-fit:contain}
-.nav-logo span{font-size:14px;color:#fff;line-height:1.6;white-space:nowrap}
-.nav-center{flex:1;display:flex;justify-content:center}
-.nav-links{
-  display:flex;gap:24px;align-items:center;
-  padding:8px 48px;border-radius:var(--r-pill);
-}
-.nav-links a{font-size:14px;color:#fff;line-height:1.6;white-space:nowrap;transition:color .2s}
-.nav-links a:hover{color:var(--g300)}
-.nav-right{flex:1;display:flex;justify-content:flex-end}
-.nav-cta{
-  background:var(--s500);padding:8px 24px;border-radius:var(--r-md);
-  font-size:14px;color:#fff;line-height:1.6;
-  white-space:nowrap;transition:box-shadow .2s,transform .2s;
-}
-.nav-cta:hover{box-shadow:0 8px 24px rgba(0,0,0,.4);transform:translateY(-1px)}
-
-/* ── HERO ── */
-#hero{
-  position:relative;min-height:100svh;
-  display:flex;flex-direction:column;align-items:center;
-  justify-content:flex-start;padding-top:clamp(120px, 14vw, 198px);overflow:hidden;
-}
-.hero-bg{
-  position:absolute;inset:0;z-index:0;
-  background:#000;
-}
-.hero-video{
-  position:absolute;inset:0;z-index:0;
-  width:100%;height:100%;object-fit:cover;
-}
-.hero-overlay{
-  position:absolute;inset:0;z-index:1;
-  background:linear-gradient(to bottom,rgba(0,0,0,.3) 0%,rgba(0,0,0,.7) 100%);
-}
-.hero-content{
-  position:relative;z-index:2;
-  display:flex;flex-direction:column;gap:24px;align-items:center;
-}
-.hero-title{display:flex;flex-direction:column;align-items:center}
-.hero-complete{
-  font-family:'Alumni Sans SC',sans-serif;font-size:clamp(44px, 9.7vw, 140px);font-weight:400;
-  letter-spacing:0.2em;line-height:normal;color:var(--g100);text-align:center;
-  filter:drop-shadow(0 0 13.6px rgba(102,136,170,.5));
-}
-.hero-creative{
-  font-family:'Playfair Display SC',serif;font-size:clamp(30px, 5.8vw, 84px);font-weight:700;
-  letter-spacing:0.2em;line-height:normal;color:var(--g200);text-align:center;
-}
-.hero-control{
-  font-family:'Sarpanch',sans-serif;font-size:clamp(24px, 4.7vw, 68px);font-weight:800;
-  letter-spacing:0.2em;line-height:normal;color:var(--n100);text-align:center;
-  text-shadow:0 0 14px var(--g500);
-}
-.hero-sub p{font-size:16px;color:var(--n300);line-height:1.6;text-align:center}
-.hero-btns{display:flex;gap:16px;margin-top:8px}
-/* ── BUTTONS ── */
-.btn{
-  padding:14px 24px;border-radius:var(--r-sm);
-  font-size:14px;line-height:1.6;
-  display:inline-block;transition:background .2s,transform .2s;
-}
-.btn-primary{background:var(--n100);color:var(--s500)}
-.btn-primary:hover{background:var(--g100);transform:translateY(-2px)}
-.btn-ghost{
-  background:rgba(255,255,255,.10);color:var(--n100);
-  border:1px solid rgba(255,255,255,.12);
-}
-.btn-ghost:hover{background:rgba(255,255,255,.16);transform:translateY(-2px)}
-.btn-outline{
-  background:transparent;color:var(--n100);
-  border:1px solid var(--s0);
-  transition:border-color .2s,color .2s,transform .2s;
-}
-.btn-outline:hover{border-color:var(--n100);color:var(--n100);transform:translateY(-2px)}
-.btn-glow{
-  background:var(--s500);padding:8px 24px;border-radius:var(--r-md);
-  box-shadow:0 4px 16px rgba(0,0,0,.3);font-size:14px;color:#fff;line-height:1.6;
-  display:inline-block;transition:box-shadow .2s,transform .2s;
-}
-.btn-glow:hover{box-shadow:0 8px 24px rgba(0,0,0,.5);transform:translateY(-1px)}
-
-/* ── ABOUT ── */
-#about{
-  padding:80px 0;display:flex;flex-direction:column;
-  gap:32px;align-items:center;border-top:1px solid rgba(255,255,255,.04);
-}
-.about-row{display:flex;gap:40px;align-items:flex-start;justify-content:center}
-.about-avatar{
-  width:206px;height:206px;border-radius:50%;
-  overflow:hidden;flex-shrink:0;
-}
-.about-avatar img{width:100%;height:100%;object-fit:cover}
-.about-text{display:flex;flex-direction:column;gap:8px;width:640px}
-.about-role{font-size:14px;color:var(--n300);line-height:1.6}
-.about-name{font-size:clamp(28px, 3.5vw, 40px);font-weight:700;letter-spacing:-0.025em;line-height:1.15;color:var(--n100)}
-.about-bio{font-size:14px;color:var(--n300);line-height:1.6}
-.about-cta{padding:8px 0}
-
-.work-cards{display:flex;gap:16px;align-items:stretch}
-.work-card{
-  width:265px;
-  padding:20px;display:flex;flex-direction:column;gap:8px;
-  transition:background .25s,transform .25s,box-shadow .25s;
-}
-.work-card:hover{background:rgba(255,255,255,.12);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.4)}
-.work-card-hd{display:flex;justify-content:space-between;align-items:center}
-.work-card-hd span{font-size:14px;color:var(--n100);line-height:1.6}
-.work-card-hd img{width:24px;height:24px;flex-shrink:0}
-.work-card p{font-size:14px;color:var(--n300);line-height:1.6}
-
-/* ── PORTFOLIO ── */
-#portfolio{
-  padding:48px 0;display:flex;flex-direction:column;
-  gap:36px;align-items:center;border-top:1px solid rgba(255,255,255,.04);
-}
-.port-grid{display:flex;gap:16px;padding:0 80px;justify-content:center}
-.port-slot{
-  width:307px;height:384px;border-radius:var(--r-md);
-  overflow:hidden;flex-shrink:0;cursor:pointer;
-  transition:transform .3s ease,box-shadow .3s ease;
-}
-.port-slot:hover{transform:scale(1.03);box-shadow:0 20px 50px rgba(0,0,0,.5)}
-.port-slot img{width:100%;height:100%;object-fit:cover}
-
-/* ── SERVICES ── */
-#services{
-  position:relative;background:var(--s700);
-  padding:80px 0;display:flex;flex-direction:column;
-  gap:64px;align-items:center;overflow:hidden;
-}
-.svc-wm{
-  position:absolute;width:712px;opacity:.06;pointer-events:none;
-}
-.svc-wm.tl{top:104px;left:6px}
-.svc-wm.br{bottom:80px;right:10px;transform:rotate(180deg)}
-.svc-wm img{width:100%}
-
-.tab-bar{
-  display:flex;gap:8px;align-items:center;
-  padding:4px 8px;background:#000;border-radius:var(--r-pill);
-}
-.tab-btn{
-  padding:8px 16px;border-radius:var(--r-pill);
-  font-size:12px;font-weight:500;letter-spacing:1px;line-height:1.3;
-  color:var(--n300);background:rgba(255,255,255,.10);
-  cursor:pointer;transition:background .2s,color .2s;white-space:nowrap;
-}
-.tab-btn.active{
-  background:rgba(255,255,255,.20);
-  border:1px solid var(--s0);color:var(--n100);
-}
-.tab-btn:hover:not(.active){background:rgba(255,255,255,.15);color:var(--n100)}
-
-.svc-preview{
-  width:100%;height:clamp(380px, 50vw, 700px);position:relative;overflow:hidden;
-}
-.svc-preview video{
-  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-}
-.svc-preview img{
-  position:absolute;inset:0;width:100%;height:100%;
-  object-fit:cover;transition:opacity .4s ease;
-}
-.svc-preview img.hidden{opacity:0;pointer-events:none}
-
-.svc-detail{
-  display:flex;flex-direction:column;gap:8px;
-  max-width:500px;width:100%;text-align:left;align-items:flex-start;
-}
-.svc-detail h3{font-size:24px;font-weight:600;line-height:1.15;color:var(--n100)}
-.svc-detail p{font-size:14px;color:var(--n300);line-height:1.6}
-
-/* ── USE CASES ── */
-#use-cases{
-  padding:80px 0;display:flex;flex-direction:column;
-  gap:32px;align-items:center;border-top:1px solid rgba(255,255,255,.04);
-}
-.uc-grid{display:flex;gap:16px;max-width:1200px;width:100%;padding:0 40px}
-.uc-card{
-  flex:1;
-  padding:24px 16px;display:flex;flex-direction:column;
-  justify-content:space-between;min-height:200px;
-  transition:background .25s,transform .25s,box-shadow .25s;
-}
-.uc-card:hover{background:rgba(255,255,255,.12);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.4)}
-.uc-card-top{display:flex;flex-direction:column;gap:8px}
-.uc-card h4{font-size:14px;font-weight:400;color:var(--n100);line-height:1.6}
-.uc-card p{font-size:14px;color:var(--n300);line-height:1.6}
-/* ── BADGE ── */
-.badge{
-  display:inline-flex;align-items:center;justify-content:center;
-  padding:4px 8px;border-radius:var(--r-pill);
-  font-size:12px;font-weight:500;width:fit-content;
-}
-.uc-badge{
-  border:1px solid var(--n300);background:#000;
-  letter-spacing:1px;color:var(--n300);
-  white-space:nowrap;margin-top:16px;
-  transition:border-color .2s,color .2s;
-}
-.uc-card:first-child .uc-badge{border-color:var(--n100);color:var(--n100)}
-.uc-card:hover .uc-badge{border-color:var(--n100);color:var(--n100)}
-
-/* ── SOCIAL PROOF ── */
-#social-proof{
-  padding:80px 0;display:flex;flex-direction:column;
-  gap:32px;align-items:center;border-top:1px solid rgba(255,255,255,.04);
-}
-.stats-row{display:flex;max-width:900px;width:100%;text-align:center}
-.stat-item{flex:1;display:flex;flex-direction:column;gap:4px;align-items:center}
-.stat-num{font-size:clamp(40px, 4.5vw, 56px);font-weight:700;letter-spacing:-0.035em;line-height:1.15;color:var(--n100)}
-.stat-lbl{font-size:14px;color:var(--n300);line-height:1.6}
-.testi-row{display:flex;gap:24px;max-width:1200px;width:100%;padding:0 40px}
-.testi-card{
-  flex:1;
-  overflow:hidden;display:flex;gap:17px;align-items:center;
-  transition:transform .25s,box-shadow .25s;
-}
-.testi-card:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.4)}
-.testi-accent{width:3px;align-self:stretch;flex-shrink:0;background:rgba(255,255,255,.12)}
-.testi-body{padding:24px 24px 24px 0;display:flex;flex-direction:column;gap:11px}
-.testi-q{font-size:24px;font-weight:600;color:var(--g300);line-height:1.15}
-.testi-text{font-size:14px;color:var(--n100);line-height:1.6}
-.testi-stars{font-size:14px;color:var(--n300)}
-.testi-role{font-size:14px;color:var(--n300)}
-.testi-name{font-size:14px;color:var(--n100)}
-.scroll-hint{font-size:14px;color:var(--n500)}
-
-/* ── PRICING ── */
-#pricing{
-  background:var(--s500);padding:80px 0;
-  display:flex;flex-direction:column;gap:40px;align-items:center;
-}
-.price-cards{display:flex;gap:24px;align-items:stretch}
-.price-card{
-  width:346px;
-  padding:24px;display:flex;flex-direction:column;gap:12px;
-  transition:transform .25s,box-shadow .25s;
-}
-.price-card:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.4)}
-.price-card.pro{
-  border:1px solid rgba(201,169,110,.45);
-}
-.price-name{font-size:18px;font-weight:500;line-height:1.15;color:var(--n100)}
-.price-amount-row{display:flex;align-items:flex-end}
-.price-num{font-size:40px;font-weight:700;letter-spacing:-1px;line-height:1.15;color:var(--n100)}
-.price-per{font-size:16px;color:var(--n300);line-height:1.6;margin-left:3px}
-.price-tag{font-size:14px;color:var(--n300);line-height:1.6}
-.price-feat{
-  font-size:14px;color:var(--n100);line-height:1.6;
-  display:flex;gap:8px;align-items:flex-start;
-}
-.price-feat::before{
-  content:'✓';flex-shrink:0;
-  color:var(--g400);margin-top:1px;
-}
-.price-custom-lbl{font-size:16px;color:var(--n100);line-height:1.6}
-.price-custom-desc{font-size:14px;color:var(--n300);line-height:1.6;flex:1}
-.price-cta-wrap{flex:1;display:flex;flex-direction:column;justify-content:flex-end;margin-top:8px}
-.price-btn{
-  width:100%;padding:8px;border-radius:var(--r-sm);
-  font-size:14px;line-height:1.6;text-align:center;
-  display:block;transition:background .2s,transform .2s;
-}
-.price-btn-dark,.price-btn-gold{background:#000;border:1px solid var(--s0);color:var(--n100)}
-.price-btn-dark:hover{background:var(--s400)}
-.price-btn-gold:hover{background:var(--g700)}
-.popular-badge{
-  background:var(--s300);border:1px solid var(--s0);
-  letter-spacing:3px;color:var(--n300);
-}
-
-/* ── FINAL CTA ── */
-#cta{
-  padding:80px 0;display:flex;flex-direction:column;
-  gap:32px;align-items:center;overflow:hidden;border-top:1px solid rgba(255,255,255,.04);
-}
-.cta-badge{
-  background:var(--s200);border:1px solid var(--s0);
-  border-radius:var(--r-sm);padding:7px 16px;
-  font-size:12px;font-weight:500;letter-spacing:1px;color:var(--n300);
-}
-.cta-h{
-  font-size:clamp(28px, 3.5vw, 48px);font-weight:700;letter-spacing:-0.025em;
-  line-height:1.15;color:var(--n100);text-align:center;max-width:860px;
-}
-.cta-sub{font-size:16px;color:var(--n300);line-height:1.6;text-align:center}
-.cta-btns{display:flex;gap:16px;align-items:center}
-.cta-note{font-size:14px;color:var(--n500);text-align:center}
-
-/* ── CONTACT ── */
-#contact{
-  padding:98px 86px;display:flex;flex-direction:column;
-  gap:24px;align-items:center;border-top:1px solid rgba(255,255,255,.04);
-}
-.contact-row{display:flex;gap:90px;align-items:center;padding:24px 0}
-.contact-info{width:480px;display:flex;flex-direction:column;gap:15px}
-.contact-info-desc{font-size:14px;color:var(--n400);line-height:1.6}
-.contact-info-row{display:flex;gap:12px;align-items:center}
-.contact-icon{
-  width:36px;height:36px;flex-shrink:0;
-  background:var(--s400);border:1px solid var(--s100);
-  border-radius:var(--r-sm);display:flex;align-items:center;
-  justify-content:center;font-size:14px;
-}
-.contact-info-text{font-size:14px;color:var(--n400);line-height:1.6}
-.contact-form{
-  width:664px;
-  padding:48px 24px;display:flex;flex-direction:column;gap:10px;
-}
-.form-row{display:flex;gap:8px}
-.field{flex:1;display:flex;flex-direction:column;gap:15px}
-.field label{font-size:14px;color:var(--n500);line-height:1.6}
-.field input,.field textarea{
-  background:rgba(255,255,255,.10);border:1px solid var(--s100);
-  border-radius:var(--r-sm);padding:13px 12px;
-  font-size:14px;color:var(--n100);line-height:1.6;
-  font-family:inherit;outline:none;
-  transition:border-color .2s;width:100%;
-}
-.field textarea{height:174px;resize:none}
-.field input::placeholder,.field textarea::placeholder{color:rgba(245,245,240,.35)}
-.field input:focus,.field textarea:focus{border-color:rgba(102,136,170,.6)}
-/* kein backdrop-filter — bewusst kein blur auf Submit-Buttons */
-.form-submit{
-  width:100%;padding:14px 24px;border-radius:var(--r-sm);
-  background:rgba(255,255,255,.08);
-  font-size:14px;color:#fff;line-height:1.6;text-align:center;
-  cursor:pointer;border:none;font-family:inherit;
-  transition:opacity .2s,transform .2s;
-}
-.form-submit:hover{opacity:.8;transform:translateY(-1px)}
-.form-legal{font-size:14px;color:rgba(255,255,255,.4);text-align:center;line-height:1.6}
-
-/* ── FOOTER ── */
-#footer{
-  background:#000;padding:48px 150px;
-  display:flex;flex-direction:column;gap:24px;
-}
-.footer-logo{display:flex;gap:8px;align-items:center}
-.footer-logo img{width:37.55px;height:24px;object-fit:contain}
-.footer-logo span{font-size:14px;color:#fff;line-height:1.6}
-.footer-nav{display:flex;gap:16px}
-.footer-col{display:flex;flex-direction:column;gap:9px}
-.footer-col-title{font-size:14px;color:var(--n100);line-height:1.6}
-.footer-col a{font-size:14px;color:var(--n300);line-height:1.6;transition:color .2s}
-.footer-col a:hover{color:var(--n100)}
-.footer-copy{font-size:14px;color:var(--n500)}
-/* ── SMOOTH SCROLL OFFSET (fixed nav) ── */
-html{scroll-padding-top:78px}
-
-/* ── MOBILE NAV TOGGLE ── */
-.nav-burger{
-  display:none;flex-direction:column;gap:5px;
-  cursor:pointer;padding:4px;
-}
-.nav-burger span{
-  display:block;width:24px;height:2px;
-  background:#fff;border-radius:2px;
-  transition:transform .3s,opacity .3s;
-}
-.nav-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.nav-burger.open span:nth-child(2){opacity:0}
-.nav-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-
-.nav-mobile{
-  display:none;
-  position:fixed;top:70px;left:0;right:0;z-index:99;
-  background:rgba(12,12,12,.97);backdrop-filter:blur(12px);
-  padding:24px 24px 32px;
-  flex-direction:column;gap:0;
-  border-top:1px solid var(--s0);
-  transform:translateY(-12px);opacity:0;
-  transition:transform .25s ease,opacity .25s ease;
-  pointer-events:none;
-}
-.nav-mobile.open{
-  display:flex;transform:translateY(0);opacity:1;pointer-events:all;
-}
-.nav-mobile a{
-  font-size:18px;color:var(--n100);line-height:1.6;
-  padding:14px 0;border-bottom:1px solid var(--s0);
-  transition:color .2s;
-}
-.nav-mobile a:last-child{border-bottom:none}
-.nav-mobile a:hover{color:var(--n100)}
-
-/* ────────────────────────────────────────
-   TABLET  ≤ 1100px
-──────────────────────────────────────── */
-@media(max-width:1100px){
-  .uc-grid{padding:0 24px}
-  .testi-row{padding:0 24px;flex-direction:column}
-  .price-cards{padding:0 24px}
-  .port-grid{padding:0 24px;flex-wrap:wrap;justify-content:center}
-  .port-slot{width:calc(50% - 8px);height:260px}
-  .about-row{padding:0 40px}
-  .about-text{width:auto;flex:1}
-  .work-cards{flex-wrap:wrap;justify-content:center;padding:0 24px}
-  .work-card{width:calc(50% - 8px)}
-  .sec-header{width:100%;padding:0 24px}
-  .divider{width:calc(100% - 80px)}
-  .svc-detail{width:100%;padding:0 48px;text-align:center;align-items:center}
-  .contact-row{flex-direction:column;gap:48px;width:100%;padding:0 40px}
-  .contact-info{width:100%}
-  .contact-form{width:100%}
-  /* Nav etwas kompakter */
-  #nav{padding:0 24px;gap:8px}
-  .nav-links{padding:8px 24px;gap:16px}
-}
-
-/* ────────────────────────────────────────
-   NAV → Hamburger ab ≤ 960px
-──────────────────────────────────────── */
-@media(max-width:960px){
-  #nav{padding:0 20px;height:60px}
-  .nav-center,.nav-right{display:none}
-  .nav-burger{display:flex}
-  html{scroll-padding-top:68px}
-}
-
-/* ────────────────────────────────────────
-   MOBILE  ≤ 768px
-──────────────────────────────────────── */
-@media(max-width:768px){
-
-  /* FIXED-WIDTH ELEMENTE RESPONSIVE MACHEN */
-  .divider{width:calc(100% - 40px)!important;max-width:100%!important}
-  .sec-header{width:100%!important}
-  .stats-row{width:100%!important}
-
-  /* HERO */
-  #hero{min-height:560px}
-  .hero-sub p{font-size:14px}
-  .hero-btns{flex-direction:column;align-items:center;gap:12px}
-  .hero-btns a{width:220px;text-align:center}
-
-  /* ABOUT */
-  #about{padding:60px 20px;gap:24px}
-  .about-row{flex-direction:column;align-items:center;padding:0}
-  .about-text{width:100%;text-align:left}
-  .work-cards{flex-direction:column;padding:0;width:100%}
-  .work-card{width:100%}
-
-  /* PORTFOLIO */
-  #portfolio{padding:48px 20px}
-  .port-grid{padding:0;flex-direction:column;align-items:center;width:100%}
-  .port-slot{width:100%;height:280px;flex-shrink:0}
-
-  /* SERVICES */
-  #services{padding:60px 0;gap:40px}
-  .svc-wm{display:none}
-  .tab-bar{flex-wrap:wrap;justify-content:center;border-radius:var(--r-lg);padding:8px}
-  .svc-preview{height:380px}
-  .svc-detail{padding:0 20px;text-align:left;align-items:flex-start;width:100%}
-
-  /* USE CASES */
-  #use-cases{padding:60px 20px}
-  .uc-grid{flex-direction:column;width:100%;padding:0}
-
-  /* SOCIAL PROOF */
-  #social-proof{padding:60px 20px}
-  .stats-row{flex-direction:column;gap:32px;width:100%;align-items:center}
-  .stat-item{width:100%;border-bottom:1px solid var(--s0);padding-bottom:24px}
-  .stat-item:last-child{border-bottom:none;padding-bottom:0}
-  .testi-row{flex-direction:column;width:100%;padding:0;gap:16px}
-  .divider{width:calc(100% - 40px)}
-
-  /* PRICING */
-  #pricing{padding:60px 20px}
-  .price-cards{flex-direction:column;align-items:center;padding:0;width:100%}
-  .price-card{width:100%;max-width:400px}
-
-  /* CTA */
-  #cta{padding:60px 20px}
-  .cta-btns{flex-direction:column;align-items:center;gap:12px}
-  .cta-btns a{width:220px;text-align:center}
-
-  /* CONTACT */
-  #contact{padding:60px 20px}
-  .contact-row{flex-direction:column;gap:40px;padding:0;width:100%}
-  .contact-info{width:100%}
-  .contact-form{width:100%;padding:32px 16px}
-  .form-row{flex-direction:column}
-  .sec-header{padding:0}
-
-  /* FOOTER */
-  #footer{padding:40px 20px}
-  .footer-nav{flex-wrap:wrap;gap:24px}
-}
-  </style>
+    <link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
-<canvas id="sparks"></canvas>
+    <canvas id="sparks"></canvas>
 
-<!-- NAV -->
-<div id="progress-bar"></div>
-<div id="cursor"></div>
-<div id="cursor-ring"></div>
-<nav id="nav">
-  <a href="#hero" class="nav-logo" aria-label="Nach oben">
-    <img src="image/icons/nav/nav/logo-icon.svg" alt="">
-    <span>creativelab.de</span>
-  </a>
-  <div class="nav-center">
-    <div class="nav-links glass">
-      <a href="#about">Über mich</a>
-      <a href="#portfolio">Projekte</a>
-      <a href="#services">Leistungen</a>
-      <a href="#pricing">Preise</a>
-      <a href="#contact">Kontakt</a>
+    <div id="progress-bar"></div>
+    <div id="cursor"></div>
+    <div id="cursor-ring"></div>
+
+    <!-- NAV -->
+    <nav id="nav">
+        <a href="#hero" class="nav-logo" aria-label="Nach oben">
+            <img src="image/icons/nav/nav/logo-icon.svg" alt="creativelab logo">
+            <span>creativelab.de</span>
+        </a>
+        <div class="nav-center">
+            <div class="nav-links glass">
+                <a href="#about">Über mich</a>
+                <a href="#portfolio">Projekte</a>
+                <a href="#services">Leistungen</a>
+                <a href="#pricing">Preise</a>
+                <a href="#contact">Kontakt</a>
+            </div>
+        </div>
+        <div class="nav-right">
+            <button class="sound-toggle" id="sound-toggle" aria-label="Sound umschalten" title="Sound an/aus">
+                <svg class="icon-muted" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                    <line x1="23" y1="9" x2="17" y2="15"/>
+                    <line x1="17" y1="9" x2="23" y2="15"/>
+                </svg>
+                <svg class="icon-unmuted" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+                    <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                </svg>
+            </button>
+            <a href="#contact" class="nav-cta">get in touch</a>
+        </div>
+        <button class="nav-burger" id="burger" aria-label="Menü öffnen">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="nav-mobile" id="mobile-menu">
+        <a href="#about" class="mobile-link">Über mich</a>
+        <a href="#portfolio" class="mobile-link">Projekte</a>
+        <a href="#services" class="mobile-link">Leistungen</a>
+        <a href="#pricing" class="mobile-link">Preise</a>
+        <a href="#contact" class="mobile-link">Kontakt</a>
     </div>
-  </div>
-  <div class="nav-right">
-    <a href="#contact" class="nav-cta">get in touch</a>
-  </div>
-  <button class="nav-burger" id="burger" aria-label="Menü öffnen">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-<!-- MOBILE MENU -->
-<div class="nav-mobile" id="mobile-menu">
-  <a href="#about" class="mobile-link">Über mich</a>
-  <a href="#portfolio" class="mobile-link">Projekte</a>
-  <a href="#services" class="mobile-link">Leistungen</a>
-  <a href="#pricing" class="mobile-link">Preise</a>
-  <a href="#contact" class="mobile-link">Kontakt</a>
-  <a href="#contact" class="mobile-link" style="margin-top:8px">get in touch →</a>
-</div>
 
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-bg">
-    <video class="hero-video" autoplay muted loop playsinline>
-      <source src="image/videos/cinematic.mp4" type="video/mp4">
-      <img src="image/images/source/656711690_18576300511013412_5140793619973769633_n.jpg" alt="">
-    </video>
-  </div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <div class="hero-title">
-      <span class="hero-complete">COMPLETE</span>
-      <span class="hero-creative">Creative</span>
-      <span class="hero-control">Control</span>
-    </div>
-    <div class="hero-sub">
-      <p>Senior Content Creator. Video Editor. KI-Content-Stratege.</p>
-      <p>Premium Content — ohne Agentur-Overhead.</p>
-    </div>
-    <div class="hero-btns">
-      <a href="#contact" class="btn btn-primary">Jetzt anfragen</a>
-      <a href="#portfolio" class="btn btn-ghost">Portfolio ansehen →</a>
-    </div>
-  </div>
-</section>
+    <!-- HERO -->
+    <section id="hero">
+        <div class="hero-bg">
+            <video class="hero-video" autoplay muted loop playsinline>
+                <source src="image/videos/cinematic.mp4" type="video/mp4">
+                <img src="image/images/source/656711690_18576300511013412_5140793619973769633_n.jpg" alt="">
+            </video>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-title">
+                <span class="hero-complete">Content Creator</span>
+                <span class="hero-creative">& Kreativstratege</span>
+                <span class="hero-control">für Fashion & Lifestyle.</span>
+            </div>
+            <div class="hero-sub">
+                <p>5+ Jahre Erfahrung · Zuletzt Senior Creator bei ESN</p>
+            </div>
+            <div class="hero-btns">
+                <a href="#contact" class="btn btn-primary">Projekt starten</a>
+                <a href="#portfolio" class="btn btn-ghost">Arbeiten ansehen →</a>
+            </div>
+        </div>
+    </section>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="divider reveal"></div>
-  <div class="about-row reveal">
-    <div class="about-avatar">
-      <img src="image/images/about/about/about/profile-image.png" alt="Danilo" width="206" height="206">
-    </div>
-    <div class="about-text">
-      <p class="about-role">The Director</p>
-      <h2 class="about-name">Who I am</h2>
-      <p class="about-bio">Ich bin Danilo — Content Creator, Video Editor und Kreativstratege mit 5+ Jahren Erfahrung. Als Senior Content Creator bei ESN, Deutschlands #1 Supplements-Brand, habe ich gelernt, was Content wirklich bewegt. Heute helfe ich Fashion- und Lifestyle-Brands, online zu wachsen.</p>
-      <div class="about-cta">
-        <a href="#contact" class="btn-glow">get in touch</a>
-      </div>
-    </div>
-  </div>
-  <div class="divider reveal"></div>
-  <div style="display:flex;flex-direction:column;gap:10px;align-items:center">
-    <p class="overline neutral reveal">Wie ich arbeite</p>
-    <div class="work-cards">
-      <div class="work-card glass reveal d1">
-        <div class="work-card-hd"><span>Vision</span><img src="image/icons/check-square.svg" alt=""></div>
-        <p>Die Vision eines Unternehmens verstehen, bevor man kommuniziert. Ist die Grundlage erfolgreichen Marketings.</p>
-      </div>
-      <div class="work-card glass reveal d2">
-        <div class="work-card-hd"><span>Mission</span><img src="image/icons/check-square.svg" alt=""></div>
-        <p>Aus der Mission ergeben sich die kommunikativen Ziele, die vermittelt werden sollen.</p>
-      </div>
-      <div class="work-card glass reveal d3">
-        <div class="work-card-hd"><span>Strategie</span><img src="image/icons/check-square.svg" alt=""></div>
-        <p>Die Strategie bestimmt, ob die Zielgruppe die Vision des Unternehmens annimmt. Sprechen Unternehmen und Kunden nicht die gleiche Sprache, ist das Projekt zum Scheitern verurteilt.</p>
-      </div>
-      <div class="work-card glass reveal d4">
-        <div class="work-card-hd"><span>Skalierung</span><img src="image/icons/check-square.svg" alt=""></div>
-        <p>Ist die Vision erfolgreich kommuniziert, wird die Content-Frequenz zum Erfolgshebel im digitalen Zeitalter.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="divider reveal"></div>
+        <div class="about-row reveal">
+            <div class="about-avatar">
+                <img src="image/images/about/about/about/profile-image.png" alt="Danilo" width="206" height="206">
+            </div>
+            <div class="about-text">
+                <p class="about-role">The Director</p>
+                <h2 class="about-name">Danilo</h2>
+                <p class="about-bio">Content Creator und Kreativstratege. 5+ Jahre Erfahrung, u. a. als Senior Creator bei ESN — Deutschlands #1 Supplements-Brand. Heute mache ich Fashion- und Lifestyle-Brands online sichtbar.</p>
+                <div class="about-cta">
+                    <a href="#contact" class="btn-glow">get in touch</a>
+                </div>
+            </div>
+        </div>
 
-<!-- PORTFOLIO -->
-<section id="portfolio">
-  <div class="divider reveal"></div>
-  <div class="sec-header reveal">
-    <p class="overline">SELECTED WORK</p>
-    <h2 class="sec-heading">Ausgewählte Projekte</h2>
-  </div>
-  <div class="port-grid">
-    <div class="port-slot reveal d1"><img src="image/images/portfolio/portfolio/portfolio/portfolio/image-thumb-1.png" alt="Projekt 1" loading="lazy" width="307" height="384"><div class="port-overlay">ANSEHEN →</div></div>
-    <div class="port-slot reveal d2"><img src="image/images/portfolio/portfolio/portfolio/portfolio/image-thumb-2.png" alt="Projekt 2" loading="lazy" width="307" height="384"><div class="port-overlay">ANSEHEN →</div></div>
-    <div class="port-slot reveal d3"><img src="image/images/portfolio/portfolio/portfolio/portfolio/image-thumb-3.png" alt="Projekt 3" loading="lazy" width="307" height="384"><div class="port-overlay">ANSEHEN →</div></div>
-    <div class="port-slot reveal d4"><img src="image/images/portfolio/portfolio/portfolio/portfolio/image-thumb-4.png" alt="Projekt 4" loading="lazy" width="307" height="384"><div class="port-overlay">ANSEHEN →</div></div>
-  </div>
-</section>
+        <div class="divider reveal"></div>
 
-<!-- SERVICES -->
-<section id="services">
-  <div class="svc-wm tl"><img src="image/icons/nav/nav/logo-icon.svg" alt=""></div>
-  <div class="svc-wm br"><img src="image/icons/nav/nav/logo-icon.svg" alt=""></div>
-  <div class="divider reveal"></div>
-  <div class="sec-header reveal">
-    <p class="overline">LEISTUNGEN</p>
-    <h2 class="sec-heading">Was ich mache</h2>
-  </div>
-  <div class="tab-bar reveal">
-    <button class="tab-btn active" data-tab="social">Social Media</button>
-    <button class="tab-btn" data-tab="video">Video Editing</button>
-    <button class="tab-btn" data-tab="ki">KI-Content</button>
-    <button class="tab-btn" data-tab="strategie">Strategie</button>
-  </div>
-  <div class="svc-preview">
-    <!-- Video läuft immer als Hintergrund -->
-    <video autoplay muted loop playsinline preload="none">
-      <source src="image/cinematic-2.mp4" type="video/mp4">
-    </video>
-    <!-- Tab-Bilder überlagern das Video -->
-    <img src="image/images/source/image.png" data-tab-img="social" alt="Social Media" class="hidden">
-    <img src="image/images/source/656711690_18576300511013412_5140793619973769633_n.jpg" data-tab-img="video" alt="Video Editing" class="hidden">
-    <img src="image/images/source/image.png" data-tab-img="ki" alt="KI Content" class="hidden" style="filter:sepia(.15) hue-rotate(10deg)">
-    <img src="image/images/source/656711690_18576300511013412_5140793619973769633_n.jpg" data-tab-img="strategie" alt="Strategie" class="hidden" style="filter:brightness(.75)">
-  </div>
-  <div class="svc-detail reveal" id="svc-detail">
-    <h3 id="svc-title">Social Media Management</h3>
-    <p>Strategie, Planung &amp; tägliche Content-Produktion</p>
-    <p>Plattform-native Formate: Reels, Stories, TikToks</p>
-    <p>Community Management &amp; datenbasiertes Wachstum</p>
-  </div>
-</section>
+        <div class="work-section">
+            <p class="overline neutral reveal">Wie ich arbeite</p>
+            <div class="work-cards">
+                <div class="work-card card-premium reveal d1">
+                    <div class="work-card-hd"><span>Vision</span><img src="image/icons/check-square.svg" alt=""></div>
+                    <p>Deine Marke verstehen, bevor ich kommuniziere.</p>
+                </div>
+                <div class="work-card card-premium reveal d2">
+                    <div class="work-card-hd"><span>Mission</span><img src="image/icons/check-square.svg" alt=""></div>
+                    <p>Kommunikative Ziele ableiten, die wirklich zählen.</p>
+                </div>
+                <div class="work-card card-premium reveal d3">
+                    <div class="work-card-hd"><span>Strategie</span><img src="image/icons/check-square.svg" alt=""></div>
+                    <p>Content, der die Sprache deiner Zielgruppe spricht.</p>
+                </div>
+                <div class="work-card card-premium reveal d4">
+                    <div class="work-card-hd"><span>Skalierung</span><img src="image/icons/check-square.svg" alt=""></div>
+                    <p>Frequenz als Wachstumshebel — systematisch, nicht zufällig.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- USE CASES -->
-<section id="use-cases">
-  <div class="divider reveal"></div>
-  <div class="sec-header reveal">
-    <p class="overline">FÜR WEN</p>
-    <h2 class="sec-heading">Für wen ich arbeite</h2>
-  </div>
-  <div class="uc-grid">
-    <div class="uc-card glass reveal d1">
-      <div class="uc-card-top">
-        <h4>Fashion &amp; Lifestyle</h4>
-        <p>Premium Content, der deine Brand in die erste Reihe bringt.</p>
-      </div>
-      <span class="badge uc-badge">Fashion Labels</span>
-    </div>
-    <div class="uc-card glass reveal d2">
-      <div class="uc-card-top">
-        <h4>E-Commerce Brands</h4>
-        <p>Content, der klickt, überzeugt und konvertiert — kein Spielraum für Mittelmäßigkeit.</p>
-      </div>
-      <span class="badge uc-badge">Online Shops</span>
-    </div>
-    <div class="uc-card glass reveal d3">
-      <div class="uc-card-top">
-        <h4>Personal Brands</h4>
-        <p>Aufbau einer Präsenz, der Menschen langfristig folgen.</p>
-      </div>
-      <span class="badge uc-badge">Creator &amp; Coaches</span>
-    </div>
-    <div class="uc-card glass reveal d4">
-      <div class="uc-card-top">
-        <h4>KMUs &amp; Startups</h4>
-        <p>Schlankes Team. Großer Auftritt. Content, der mehr leistet als er kostet.</p>
-      </div>
-      <span class="badge uc-badge">Wachsende Brands</span>
-    </div>
-  </div>
-</section>
+    <!-- PORTFOLIO -->
+    <section id="portfolio">
+        <div class="divider reveal"></div>
+        <div class="sec-header reveal">
+            <p class="overline">SELECTED WORK</p>
+            <h2 class="sec-heading">Ausgewählte Projekte</h2>
+        </div>
+        <div class="port-grid">
+            <div class="port-slot reveal d1"><img src="image/images/portfolio/portfolio/portfolio/portfolio/image-thumb-1.png" alt="Projekt 1" loading="lazy" width="307" height="384"><div class="port-overlay">ANSEHEN →</div></div>
+            <div class="port-slot reveal d2"><img src="image/images/portfolio/portfolio/portfolio/portfolio/image-thumb-2.png" alt="Projekt 2" loading="lazy" width="307" height="384"><div class="port-overlay">ANSEHEN →</div></div>
+            <div class="port-slot reveal d3"><img src="image/images/portfolio/portfolio/portfolio/portfolio/image-thumb-3.png" alt="Projekt 3" loading="lazy" width="307" height="384"><div class="port-overlay">ANSEHEN →</div></div>
+            <div class="port-slot reveal d4"><img src="image/images/portfolio/portfolio/portfolio/portfolio/image-thumb-4.png" alt="Projekt 4" loading="lazy" width="307" height="384"><div class="port-overlay">ANSEHEN →</div></div>
+        </div>
+    </section>
 
-<!-- SOCIAL PROOF -->
-<section id="social-proof">
-  <div class="divider reveal"></div>
-  <div class="sec-header reveal">
-    <p class="overline">ZAHLEN &amp; FAKTEN</p>
-    <h2 class="sec-heading">Ergebnisse, die sprechen</h2>
-  </div>
-  <div class="stats-row">
-    <div class="stat-item reveal d1"><span class="stat-num" data-count="5" data-suffix="+">5+</span><span class="stat-lbl">Jahre Erfahrung</span></div>
-    <div class="stat-item reveal d2"><span class="stat-num">ESN</span><span class="stat-lbl">DE-Marktführer Supplements</span></div>
-    <div class="stat-item reveal d3"><span class="stat-num" data-count="3" data-suffix="×">3×</span><span class="stat-lbl">Ø Engagement-Uplift</span></div>
-  </div>
-  <div class="divider reveal"></div>
-  <div class="testi-row">
-    <div class="testi-card glass reveal d1">
-      <div class="testi-accent"></div>
-      <div class="testi-body">
-        <p class="testi-q">❝</p>
-        <p class="testi-text">High-End-Qualität, null Aufwand auf unserer Seite. Er kennt unsere Zielgruppe besser als wir selbst.</p>
-        <p class="testi-stars">★★★★★</p>
-        <p class="testi-role">Founder, Lifestyle Brand</p>
-        <p class="testi-name">Thomas K.</p>
-      </div>
-    </div>
-    <div class="testi-card glass reveal d2">
-      <div class="testi-accent"></div>
-      <div class="testi-body">
-        <p class="testi-q">❝</p>
-        <p class="testi-text">Danilo liefert nicht nur Content — er denkt mit. Unsere Reichweite hat sich in 3 Monaten verdoppelt.</p>
-        <p class="testi-stars">★★★★★</p>
-        <p class="testi-role">Marketing Lead, E-Commerce Brand</p>
-        <p class="testi-name">Sarah M.</p>
-      </div>
-    </div>
-  </div>
-  <p class="scroll-hint reveal">→ scroll for more</p>
-</section>
+    <!-- SERVICES -->
+    <section id="services">
+        <div class="svc-wm tl"><img src="image/icons/nav/nav/logo-icon.svg" alt=""></div>
+        <div class="svc-wm br"><img src="image/icons/nav/nav/logo-icon.svg" alt=""></div>
+        <div class="divider reveal"></div>
+        <div class="sec-header reveal">
+            <p class="overline">LEISTUNGEN</p>
+            <h2 class="sec-heading">Was ich mache</h2>
+        </div>
+        <div class="tab-bar reveal">
+            <button class="tab-btn active" data-tab="social">Social Media</button>
+            <button class="tab-btn" data-tab="video">Video Editing</button>
+            <button class="tab-btn" data-tab="ki">KI-Content</button>
+            <button class="tab-btn" data-tab="strategie">Strategie</button>
+        </div>
+        <div class="svc-preview">
+            <video autoplay muted loop playsinline preload="none">
+                <source src="image/videos/Video 2.mp4" type="video/mp4">
+            </video>
+            <img src="image/images/source/image.png" data-tab-img="social" alt="Social Media" class="hidden">
+            <img src="image/images/source/656711690_18576300511013412_5140793619973769633_n.jpg" data-tab-img="video" alt="Video Editing" class="hidden">
+            <img src="image/images/source/image.png" data-tab-img="ki" alt="KI Content" class="hidden" style="filter:sepia(.15) hue-rotate(10deg)">
+            <img src="image/images/source/656711690_18576300511013412_5140793619973769633_n.jpg" data-tab-img="strategie" alt="Strategie" class="hidden" style="filter:brightness(.75)">
+        </div>
+        <div class="svc-detail reveal" id="svc-detail">
+            <h3 id="svc-title">Social Media Management</h3>
+            <p>Strategie, Planung & tägliche Produktion</p>
+            <p>Reels, Stories, TikToks — plattformnativ</p>
+            <p>Community Management & datenbasiertes Wachstum</p>
+        </div>
+    </section>
 
-<!-- PRICING -->
-<section id="pricing">
-  <div class="divider reveal"></div>
-  <div class="sec-header reveal">
-    <p class="overline">PRICING</p>
-    <h2 class="sec-heading">Transparent. Keine Überraschungen.</h2>
-  </div>
-  <div class="price-cards">
-    <div class="price-card glass reveal d1">
-      <p class="price-name">Essentials</p>
-      <div class="price-amount-row">
-        <span class="price-num">€990</span><span class="price-per">/mo</span>
-      </div>
-      <p class="price-tag">Für Brands, die sichtbar werden</p>
-      <p class="price-feat">2 Plattformen (Instagram + TikTok)</p>
-      <p class="price-feat">12 Beiträge/Monat inkl. Captions</p>
-      <p class="price-feat">Professionelle Bildbearbeitung</p>
-      <p class="price-feat">Monatliches Performance-Reporting</p>
-      <p class="price-feat">E-Mail-Support</p>
-      <div class="price-cta-wrap">
-        <a href="#contact" class="price-btn price-btn-dark">Jetzt starten</a>
-      </div>
-    </div>
-    <div class="price-card pro glass reveal d2">
-      <span class="badge popular-badge">POPULAR</span>
-      <p class="price-name">Growth</p>
-      <div class="price-amount-row">
-        <span class="price-num">€2.490</span><span class="price-per">/mo</span>
-      </div>
-      <p class="price-tag">Für Brands, die skalieren</p>
-      <p class="price-feat">Alle Plattformen (auch YouTube & LinkedIn)</p>
-      <p class="price-feat">30 Beiträge/Monat + Reels & Short-Videos</p>
-      <p class="price-feat">Professionelles Video Editing</p>
-      <p class="price-feat">Monatlicher Strategie-Call (60 Min.)</p>
-      <p class="price-feat">KI-gestützte Content-Planung</p>
-      <p class="price-feat">Priority Support</p>
-      <div class="price-cta-wrap">
-        <a href="#contact" class="price-btn price-btn-gold">Jetzt wachsen</a>
-      </div>
-    </div>
-    <div class="price-card glass reveal d3">
-      <p class="price-name">Premium</p>
-      <p class="price-custom-lbl">Ab €4.900 / Monat</p>
-      <p class="price-custom-desc">Vollständige Content-Betreuung, Shooting vor Ort, individuelle Kampagnen und langfristige Markenstrategie — maßgeschneidert für dein Business.</p>
-      <div class="price-cta-wrap">
-        <a href="#contact" class="price-btn price-btn-dark">Anfrage stellen</a>
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- USE CASES -->
+    <section id="use-cases">
+        <div class="divider reveal"></div>
+        <div class="sec-header reveal">
+            <p class="overline">FÜR WEN</p>
+            <h2 class="sec-heading">Für wen ich arbeite</h2>
+        </div>
+        <div class="uc-grid">
+            <div class="uc-card card-premium reveal d1">
+                <div class="uc-card-top">
+                    <h4>Fashion & Lifestyle</h4>
+                    <p>Content, der deine Brand in die erste Reihe bringt.</p>
+                </div>
+                <span class="badge uc-badge">Fashion Labels</span>
+            </div>
+            <div class="uc-card card-premium reveal d2">
+                <div class="uc-card-top">
+                    <h4>E-Commerce</h4>
+                    <p>Content, der klickt und konvertiert.</p>
+                </div>
+                <span class="badge uc-badge">Online Shops</span>
+            </div>
+            <div class="uc-card card-premium reveal d3">
+                <div class="uc-card-top">
+                    <h4>Personal Brands</h4>
+                    <p>Präsenz aufbauen, der Menschen folgen.</p>
+                </div>
+                <span class="badge uc-badge">Creator & Coaches</span>
+            </div>
+            <div class="uc-card card-premium reveal d4">
+                <div class="uc-card-top">
+                    <h4>KMUs & Startups</h4>
+                    <p>Großer Auftritt. Schlankes Setup.</p>
+                </div>
+                <span class="badge uc-badge">Wachsende Brands</span>
+            </div>
+        </div>
+    </section>
 
-<!-- FINAL CTA -->
-<section id="cta">
-  <div class="divider reveal"></div>
-  <span class="cta-badge reveal">Erstgespräch kostenlos</span>
-  <h2 class="cta-h reveal">Bereit, deinen Content auf das nächste Level zu bringen?</h2>
-  <p class="cta-sub reveal">Für Brands, die Content nicht als Aufgabe sehen — sondern als Wachstumshebel.</p>
-  <div class="cta-btns reveal">
-    <a href="#contact" class="btn btn-primary">Jetzt anfragen</a>
-    <a href="#portfolio" class="btn btn-outline">Portfolio ansehen</a>
-  </div>
-  <p class="cta-note reveal">Kein Commitment. Kein Bullshit. Nur Ergebnisse.</p>
-</section>
+    <!-- SOCIAL PROOF -->
+    <section id="social-proof">
+        <div class="divider reveal"></div>
+        <div class="sec-header reveal">
+            <p class="overline">ERGEBNISSE</p>
+            <h2 class="sec-heading">Zahlen, die sprechen</h2>
+        </div>
+        <div class="stats-row">
+            <div class="stat-item reveal d1"><span class="stat-num" data-count="5" data-suffix="+">5+</span><span class="stat-lbl">Jahre Erfahrung</span></div>
+            <div class="stat-item reveal d2"><span class="stat-num">ESN</span><span class="stat-lbl">DE #1 Supplements</span></div>
+            <div class="stat-item reveal d3"><span class="stat-num" data-count="3" data-suffix="×">3×</span><span class="stat-lbl">Engagement-Uplift</span></div>
+        </div>
+        <div class="divider reveal"></div>
+        <div class="testi-row">
+            <div class="testi-card card-premium reveal d1">
+                <div class="testi-accent"></div>
+                <div class="testi-body">
+                    <p class="testi-q">❝</p>
+                    <p class="testi-text">High-End-Qualität, null Aufwand auf unserer Seite.</p>
+                    <p class="testi-stars">★★★★★</p>
+                    <p class="testi-role">Founder, Lifestyle Brand</p>
+                    <p class="testi-name">Thomas K.</p>
+                </div>
+            </div>
+            <div class="testi-card card-premium reveal d2">
+                <div class="testi-accent"></div>
+                <div class="testi-body">
+                    <p class="testi-q">❝</p>
+                    <p class="testi-text">Reichweite verdoppelt in 3 Monaten. Er denkt mit.</p>
+                    <p class="testi-stars">★★★★★</p>
+                    <p class="testi-role">Marketing Lead, E-Commerce</p>
+                    <p class="testi-name">Sarah M.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- CONTACT -->
-<section id="contact">
-  <div class="divider reveal"></div>
-  <p class="overline reveal">CONTACT</p>
-  <h2 class="sec-heading reveal">Lass uns arbeiten.</h2>
-  <div class="contact-row">
-    <div class="contact-info reveal">
-      <p class="contact-info-desc">Pricing-Fragen, individuelles Angebot oder du willst einfach schauen, ob wir zusammenpassen? Meld dich — ich antworte innerhalb von 24 Stunden.</p>
-      <div class="contact-info-row">
-        <span class="contact-icon">✉</span>
-        <span class="contact-info-text">hello@creativelab.de</span>
-      </div>
-      <div class="contact-info-row">
-        <span class="contact-icon">💬</span>
-        <span class="contact-info-text">Live Chat · Mo–Fr, 9–18 Uhr</span>
-      </div>
-      <div class="contact-info-row">
-        <span class="contact-icon">📞</span>
-        <span class="contact-info-text">+49 (0) 800 123 456</span>
-      </div>
-    </div>
-    <form class="contact-form glass reveal d1" onsubmit="handleForm(event)">
-      <div class="form-row">
-        <div class="field"><label>Name</label><input type="text" name="name" placeholder="Dein Name" required></div>
-        <div class="field"><label>E-Mail</label><input type="email" name="email" placeholder="deine@email.de" required></div>
-      </div>
-      <div class="field"><label>Betreff</label><input type="text" name="subject" placeholder="Worum geht es?"></div>
-      <div class="field"><label>Nachricht</label><textarea name="message" placeholder="Erzähl mir von deinem Projekt ..."></textarea></div>
-      <button type="submit" class="form-submit">Nachricht senden</button>
-      <p class="form-legal">Mit dem Absenden stimmst du unserer Datenschutzerklärung zu.</p>
-    </form>
-  </div>
-</section>
+    <!-- PRICING -->
+    <section id="pricing">
+        <div class="divider reveal"></div>
+        <div class="sec-header reveal">
+            <p class="overline">PRICING</p>
+            <h2 class="sec-heading">Transparent. Fair.</h2>
+        </div>
+        <div class="price-cards">
+            <div class="price-card card-premium reveal d1">
+                <p class="price-name">Essentials</p>
+                <div class="price-amount-row">
+                    <span class="price-num">€990</span><span class="price-per">/mo</span>
+                </div>
+                <p class="price-tag">Sichtbar werden</p>
+                <p class="price-feat">Instagram + TikTok</p>
+                <p class="price-feat">12 Beiträge / Monat</p>
+                <p class="price-feat">Professionelle Bildbearbeitung</p>
+                <p class="price-feat">Performance-Reporting</p>
+                <p class="price-feat">E-Mail-Support</p>
+                <div class="price-cta-wrap">
+                    <a href="#contact" class="price-btn">Jetzt starten</a>
+                </div>
+            </div>
+            <div class="price-card card-premium pro reveal d2">
+                <span class="badge popular-badge">POPULAR</span>
+                <p class="price-name">Growth</p>
+                <div class="price-amount-row">
+                    <span class="price-num">€2.490</span><span class="price-per">/mo</span>
+                </div>
+                <p class="price-tag">Skalieren</p>
+                <p class="price-feat">Alle Plattformen</p>
+                <p class="price-feat">30 Beiträge + Reels & Shorts</p>
+                <p class="price-feat">Video Editing</p>
+                <p class="price-feat">Strategie-Call (60 Min. / Monat)</p>
+                <p class="price-feat">KI-gestützte Planung</p>
+                <p class="price-feat">Priority Support</p>
+                <div class="price-cta-wrap">
+                    <a href="#contact" class="price-btn">Jetzt wachsen</a>
+                </div>
+            </div>
+            <div class="price-card card-premium reveal d3">
+                <p class="price-name">Premium</p>
+                <p class="price-custom-lbl">Ab €4.900 / Monat</p>
+                <p class="price-custom-desc">Full-Service: Shootings, Kampagnen, Markenstrategie — maßgeschneidert.</p>
+                <div class="price-cta-wrap">
+                    <a href="#contact" class="price-btn">Anfrage stellen</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- FOOTER -->
-<footer id="footer">
-  <div class="footer-logo">
-    <img src="image/icons/footer/footer/logo-icon.svg" alt="">
-    <span>creativelab.de</span>
-  </div>
-  <div class="footer-nav">
-    <div class="footer-col">
-      <span class="footer-col-title">Leistungen</span>
-      <a href="#services">Social Media</a>
-      <a href="#services">Video Editing</a>
-      <a href="#services">KI-Content</a>
-      <a href="#services">Strategie</a>
-    </div>
-    <div class="footer-col">
-      <span class="footer-col-title">Connect</span>
-      <a href="#about">About</a>
-      <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="#contact">Kontakt</a>
-    </div>
-  </div>
-  <p class="footer-copy">© 2025 Danilo · creativelab.de</p>
-</footer>
+    <!-- CTA -->
+    <section id="cta">
+        <div class="divider reveal"></div>
+        <span class="cta-badge reveal">Erstgespräch kostenlos</span>
+        <h2 class="cta-h reveal">Content auf dem nächsten Level.</h2>
+        <p class="cta-sub reveal">Für Brands, die Content als Wachstumshebel verstehen.</p>
+        <div class="cta-btns reveal">
+            <a href="#contact" class="btn btn-primary">Projekt starten</a>
+            <a href="#portfolio" class="btn btn-outline">Arbeiten ansehen</a>
+        </div>
+        <p class="cta-note reveal">Kein Commitment. Nur Ergebnisse.</p>
+    </section>
 
-<script>
-// ── PAGE LOAD FADE IN
-window.addEventListener('load', () => document.body.classList.add('loaded'));
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="divider reveal"></div>
+        <p class="overline reveal">KONTAKT</p>
+        <h2 class="sec-heading reveal">Lass uns arbeiten.</h2>
+        <div class="contact-row">
+            <div class="contact-info reveal">
+                <p class="contact-info-desc">Fragen, Angebote oder einfach schauen, ob wir zusammenpassen — ich antworte innerhalb von 24h.</p>
+                <div class="contact-info-row">
+                    <span class="contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></span>
+                    <span class="contact-info-text">hello@creativelab.de</span>
+                </div>
+                <div class="contact-info-row">
+                    <span class="contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></span>
+                    <span class="contact-info-text">Mo–Fr, 9–18 Uhr</span>
+                </div>
+                <div class="contact-info-row">
+                    <span class="contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></span>
+                    <span class="contact-info-text">+49 (0) 800 123 456</span>
+                </div>
+            </div>
+            <form class="contact-form card-premium reveal d1">
+                <div class="form-row">
+                    <div class="field"><label>Name</label><input type="text" name="name" placeholder="Dein Name" required></div>
+                    <div class="field"><label>E-Mail</label><input type="email" name="email" placeholder="deine@email.de" required></div>
+                </div>
+                <div class="field"><label>Betreff</label><input type="text" name="subject" placeholder="Worum geht es?"></div>
+                <div class="field"><label>Nachricht</label><textarea name="message" placeholder="Erzähl mir von deinem Projekt ..."></textarea></div>
+                <button type="submit" class="form-submit">Nachricht senden</button>
+                <p class="form-legal">Mit dem Absenden stimmst du der Datenschutzerklärung zu.</p>
+            </form>
+        </div>
+    </section>
 
-// ── SMOOTH SCROLL mit easeOutQuart (schnell → langsam)
-function smoothScroll(target, duration) {
-  const navH = document.getElementById('nav').offsetHeight;
-  const from = window.scrollY;
-  const to   = target.getBoundingClientRect().top + from - navH;
-  const dist  = to - from;
-  let start = null;
-  const easeOutQuart = t => 1 - Math.pow(1 - t, 4);
-  function step(ts) {
-    if (!start) start = ts;
-    const progress = Math.min((ts - start) / duration, 1);
-    window.scrollTo(0, from + dist * easeOutQuart(progress));
-    if (progress < 1) requestAnimationFrame(step);
-  }
-  requestAnimationFrame(step);
-}
+    <!-- FOOTER -->
+    <footer id="footer">
+        <div class="footer-logo">
+            <img src="image/icons/footer/footer/logo-icon.svg" alt="">
+            <span>creativelab.de</span>
+        </div>
+        <div class="footer-nav">
+            <div class="footer-col">
+                <span class="footer-col-title">Leistungen</span>
+                <a href="#services">Social Media</a>
+                <a href="#services">Video Editing</a>
+                <a href="#services">KI-Content</a>
+                <a href="#services">Strategie</a>
+            </div>
+            <div class="footer-col">
+                <span class="footer-col-title">Connect</span>
+                <a href="#about">About</a>
+                <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="#contact">Kontakt</a>
+            </div>
+        </div>
+        <p class="footer-copy">© 2025 Danilo · creativelab.de</p>
+    </footer>
 
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const id = a.getAttribute('href').slice(1);
-    const target = document.getElementById(id);
-    if (!target) return;
-    e.preventDefault();
-    const dist = Math.abs(target.getBoundingClientRect().top);
-    const duration = Math.min(Math.max(dist * 0.4, 500), 1100);
-    smoothScroll(target, duration);
-    history.pushState(null, '', '#' + id);
-  });
-});
-
-// ── PROGRESS BAR
-const progressBar = document.getElementById('progress-bar');
-window.addEventListener('scroll', () => {
-  const pct = scrollY / (document.body.scrollHeight - innerHeight) * 100;
-  progressBar.style.width = Math.min(pct, 100) + '%';
-}, { passive: true });
-
-// ── CUSTOM CURSOR
-const cur = document.getElementById('cursor');
-const ring = document.getElementById('cursor-ring');
-let mx = -100, my = -100, rx = -100, ry = -100;
-if (window.matchMedia('(hover:hover)').matches) {
-  document.addEventListener('mousemove', e => {
-    mx = e.clientX; my = e.clientY;
-    cur.classList.add('visible');
-    ring.classList.add('visible');
-  });
-  const hoverEls = 'a,button,.port-slot,.tab-btn,.price-card,.testi-card';
-  document.querySelectorAll(hoverEls).forEach(el => {
-    el.addEventListener('mouseenter', () => ring.classList.add('hovering'));
-    el.addEventListener('mouseleave', () => ring.classList.remove('hovering'));
-  });
-  (function animCursor() {
-    if (!document.hidden) {
-      cur.style.left = mx + 'px'; cur.style.top = my + 'px';
-      rx += (mx - rx) * .12; ry += (my - ry) * .12;
-      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-    }
-    requestAnimationFrame(animCursor);
-  })();
-}
-
-// ── SCROLL REVEAL
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-  });
-}, { threshold: 0.1 });
-document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-// ── COUNTER ANIMATION
-const counterObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (!e.isIntersecting) return;
-    const el = e.target;
-    const target = +el.dataset.count;
-    const suffix = el.dataset.suffix || '';
-    let start = 0;
-    const step = target / 40;
-    const tick = () => {
-      start = Math.min(start + step, target);
-      el.textContent = Math.floor(start) + suffix;
-      if (start < target) requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
-    counterObs.unobserve(el);
-  });
-}, { threshold: 0.5 });
-document.querySelectorAll('.stat-num[data-count]').forEach(el => counterObs.observe(el));
-
-// ── SCROLL SPY
-const sections = ['hero','about','portfolio','services','use-cases','social-proof','pricing','cta','contact'];
-const navLinks = document.querySelectorAll('.nav-links a');
-const spyObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      navLinks.forEach(a => a.classList.remove('active'));
-      const active = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
-      if (active) active.classList.add('active');
-    }
-  });
-}, { threshold: 0.35 });
-sections.forEach(id => { const s = document.getElementById(id); if (s) spyObs.observe(s); });
-
-// ── NAV BORDER ON SCROLL
-window.addEventListener('scroll', () => {
-  document.getElementById('nav').style.borderBottom =
-    scrollY > 40 ? '1px solid rgba(255,255,255,.07)' : 'none';
-}, { passive: true });
-
-// ── HAMBURGER MENU
-const burger = document.getElementById('burger');
-const mobileMenu = document.getElementById('mobile-menu');
-burger.addEventListener('click', () => {
-  burger.classList.toggle('open');
-  mobileMenu.classList.toggle('open');
-  document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
-});
-document.querySelectorAll('.mobile-link').forEach(link => {
-  link.addEventListener('click', () => {
-    burger.classList.remove('open');
-    mobileMenu.classList.remove('open');
-    document.body.style.overflow = '';
-  });
-});
-
-// ── SERVICES TABS
-const tabData = {
-  social: {
-    title: 'Social Media Management',
-    items: [
-      'Strategie, Planung &amp; tägliche Content-Produktion',
-      'Plattform-native Formate: Reels, Stories, TikToks',
-      'Community Management &amp; datenbasiertes Wachstum'
-    ]
-  },
-  video: {
-    title: 'Video Editing',
-    items: [
-      'Cinematic Reels &amp; hochwertige Produktionsschnitte',
-      'Color Grading, Motion Graphics &amp; Sound Design',
-      'Schnelle Turnaround-Zeit für Social-First-Formate'
-    ]
-  },
-  ki: {
-    title: 'KI-Content',
-    items: [
-      'AI-gestütztes Scripting &amp; Textoptimierung',
-      'KI-Bildgenerierung &amp; visuelle Konzepte',
-      'Automatisierte Content-Workflows für maximale Effizienz'
-    ]
-  },
-  strategie: {
-    title: 'Content-Strategie',
-    items: [
-      'Plattform-Analyse &amp; Zielgruppen-Research',
-      'Redaktionsplan &amp; Content-Kalender',
-      'KPI-Tracking &amp; monatliche Strategie-Calls'
-    ]
-  }
-};
-
-document.querySelectorAll('.tab-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const tab = btn.dataset.tab;
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    document.querySelectorAll('[data-tab-img]').forEach(img =>
-      img.classList.toggle('hidden', img.dataset.tabImg !== tab)
-    );
-    const d = tabData[tab];
-    document.getElementById('svc-title').textContent = d.title;
-    const detail = document.getElementById('svc-detail');
-    detail.querySelectorAll('p').forEach(p => p.remove());
-    d.items.forEach(txt => {
-      const p = document.createElement('p');
-      p.innerHTML = txt;
-      detail.appendChild(p);
-    });
-  });
-});
-
-// ── CONTACT FORM
-// Formspree: Konto auf formspree.io anlegen → neue Form erstellen → ID hier eintragen
-const FORMSPREE_ID = 'DEINE_FORM_ID';
-
-function showFormSuccess(form) {
-  form.innerHTML = `
-    <div class="form-success-state">
-      <svg width="64" height="64" viewBox="0 0 64 64">
-        <circle cx="32" cy="32" r="28" stroke="var(--g500)" stroke-width="2" fill="none" opacity=".3"/>
-        <path d="M20 32 l9 9 l15-18" stroke="var(--g400)" stroke-width="2.5" fill="none"
-          stroke-linecap="round" stroke-linejoin="round"
-          stroke-dasharray="50" stroke-dashoffset="50"
-          style="animation:checkDraw .5s .3s ease forwards"/>
-      </svg>
-      <p class="success-title">Nachricht gesendet!</p>
-      <span class="success-sub">Ich melde mich in der Regel innerhalb von 24 Stunden.<br>Bis bald.</span>
-    </div>`;
-}
-
-async function handleForm(e) {
-  e.preventDefault();
-  const form = e.target;
-  const btn = form.querySelector('button[type="submit"]');
-  btn.disabled = true;
-  btn.textContent = 'Wird gesendet…';
-  try {
-    const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
-      method: 'POST',
-      headers: { 'Accept': 'application/json' },
-      body: new FormData(form)
-    });
-    if (res.ok) {
-      showFormSuccess(form);
-    } else {
-      btn.disabled = false;
-      btn.textContent = 'Nachricht senden';
-      alert('Fehler beim Senden. Bitte versuche es erneut.');
-    }
-  } catch {
-    btn.disabled = false;
-    btn.textContent = 'Nachricht senden';
-    alert('Netzwerkfehler. Bitte versuche es erneut.');
-  }
-}
-
-/* ── SPARKS ── */
-(function(){
-  var canvas=document.getElementById('sparks');
-  if(!canvas)return;
-  var ctx=canvas.getContext('2d');
-  var particles=[];
-
-  function resize(){canvas.width=window.innerWidth;canvas.height=window.innerHeight}
-  resize();
-  window.addEventListener('resize',resize);
-
-  function spawn(){
-    // Tiefe: zufällig — manche weit (klein, sehr transparent) manche nah (größer, sichtbarer)
-    var depth=Math.random(); // 0=weit, 1=nah
-    particles.push({
-      x:Math.random()*window.innerWidth,
-      y:window.innerHeight+10,           // starten unten, steigen auf
-      r:0.8+depth*2.2,                   // 0.8–3px je nach Tiefe
-      vy:-(0.15+depth*0.25),             // 0.15–0.4px/frame (langsam)
-      a:(0.06+depth*0.35)                // 0.06–0.41 alpha (tiefe = blass)
-    });
-    if(particles.length>60)particles=particles.slice(-60);
-  }
-
-  var paused=false;
-  document.addEventListener('visibilitychange',function(){paused=document.hidden;});
-
-  // Alle 600ms ein neues Partikel spawnen
-  var spawnInterval=setInterval(function(){if(!paused)spawn();},600);
-
-  function draw(){
-    if(!paused){
-      ctx.clearRect(0,0,canvas.width,canvas.height);
-      particles=particles.filter(function(p){return p.a>0&&p.y>-10;});
-      for(var i=0;i<particles.length;i++){
-        var p=particles[i];
-        ctx.beginPath();
-        ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-        ctx.fillStyle='rgba(201,169,110,'+p.a.toFixed(3)+')';
-        ctx.fill();
-        p.y+=p.vy;
-        p.a-=0.0005;
-      }
-    }
-    requestAnimationFrame(draw);
-  }
-  draw();
-})();
-</script>
+    <script src="main.js?v=3"></script>
 </body>
 </html>
