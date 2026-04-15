@@ -383,7 +383,7 @@ section, footer { position: relative; z-index: 1; }
    SERVICES
 ══════════════════════════════════════════ */
 #services {
-  position: relative; background: var(--s700);
+  position: relative; background: rgba(0,0,0,.8);
   padding: var(--sp-section) 0;
   display: flex; flex-direction: column;
   gap: 48px; align-items: center; overflow: hidden;
