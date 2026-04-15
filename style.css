@@ -539,7 +539,7 @@ section, footer { position: relative; z-index: 1; }
   grid-template-columns: repeat(3, 1fr);
   gap: 16px; max-width: 1100px; width: 100%;
 }
-.price-card { padding: 28px 24px; display: flex; flex-direction: column; gap: 12px; }
+.price-card { padding: 28px 24px; display: flex; flex-direction: column; gap: 12px; transform-style: preserve-3d; }
 .price-card.pro { border-color: rgba(255,255,255,.35); }
 
 .price-name { font-size: 16px; font-weight: 600; color: var(--n100); }
