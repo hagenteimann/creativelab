@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initContactForm();
     initSparks();
     initSoundToggle();
+    initCardTilt();
     initMagneticButtons();
 });
 
@@ -429,6 +430,37 @@ function initMagneticButtons() {
 
         btn.addEventListener('mouseleave', () => {
             btn.style.transform = '';
+        });
+    });
+}
+
+// ── 3D CARD TILT EFFECT
+function initCardTilt() {
+    // Only enable on desktop (hover:hover media query)
+    if (!window.matchMedia('(hover:hover)').matches) return;
+
+    const cards = document.querySelectorAll('.price-card, .port-slot');
+
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            // Mouse position relative to card center
+            const deltaX = e.clientX - rect.left - centerX;
+            const deltaY = e.clientY - rect.top - centerY;
+
+            // Calculate rotation in degrees (max ±8 degrees)
+            const maxRotation = 8;
+            const rotateX = (deltaY / centerY) * maxRotation;
+            const rotateY = (deltaX / centerX) * maxRotation;
+
+            card.style.transform = `perspective(600px) rotateX(${-rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = '';
         });
     });
 }
