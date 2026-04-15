@@ -31,22 +31,14 @@ function initPageFade() {
 
 // ── SMOOTH SCROLLING
 function initSmoothScroll() {
-    const navHeight = document.getElementById('nav')?.offsetHeight || 70;
-    
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const id = this.getAttribute('href').slice(1);
             const target = document.getElementById(id);
             if (!target) return;
-            
+
             e.preventDefault();
-            const targetTop = target.getBoundingClientRect().top + window.scrollY - navHeight;
-            
-            window.scrollTo({
-                top: targetTop,
-                behavior: 'smooth'
-            });
-            
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             history.pushState(null, '', '#' + id);
         });
     });
