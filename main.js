@@ -251,7 +251,9 @@ function initTabs() {
             // Update images
             tabImages.forEach(img => img.classList.toggle('hidden', img.dataset.tabImg !== tabKey));
 
-            // Update text content
+            // Update text content with fade animation
+            svcDetail.classList.remove('tab-animating');
+            void svcDetail.offsetWidth; // reflow to restart animation
             svcTitle.textContent = data.title;
             svcDetail.querySelectorAll('p').forEach(p => p.remove());
             data.items.forEach(item => {
@@ -259,6 +261,7 @@ function initTabs() {
                 p.innerHTML = item;
                 svcDetail.appendChild(p);
             });
+            svcDetail.classList.add('tab-animating');
         });
     });
 }
