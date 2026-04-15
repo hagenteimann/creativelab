@@ -383,7 +383,7 @@ section, footer { position: relative; z-index: 1; }
    SERVICES
 ══════════════════════════════════════════ */
 #services {
-  position: relative; background: rgba(0,0,0,.8);
+  position: relative; background: rgba(0,0,0,.5);
   padding: var(--sp-section) 0;
   display: flex; flex-direction: column;
   gap: 48px; align-items: center; overflow: hidden;
@@ -504,7 +504,7 @@ section, footer { position: relative; z-index: 1; }
    PRICING
 ══════════════════════════════════════════ */
 #pricing {
-  background: var(--s700); padding: var(--sp-section) var(--sp-page);
+  background: rgba(0,0,0,.5); padding: var(--sp-section) var(--sp-page);
   display: flex; flex-direction: column; gap: 40px; align-items: center;
 }
 
