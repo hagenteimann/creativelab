@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initSoundToggle();
     initCardTilt();
     initMagneticButtons();
+    initThemeToggle();
 });
 
 // ── PAGE LOAD FADE IN
@@ -522,5 +523,44 @@ function initCardTilt() {
             isHovering = false;
             card.style.transform = '';
         });
+    });
+}
+
+// ── THEME TOGGLE (Light / Dark)
+function initThemeToggle() {
+    const btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+
+    const iconSun = btn.querySelector('.icon-sun');
+    const iconMoon = btn.querySelector('.icon-moon');
+    const body = document.body;
+
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    
+    // Light is default (already in HTML), check if we need to switch to DARK
+    if (savedTheme === 'dark') {
+        body.classList.remove('light-theme');
+        if (iconSun) iconSun.style.display = 'block';
+        if (iconMoon) iconMoon.style.display = 'none';
+    } else {
+        // Explicitly ensure light state for first load or saved light preference
+        if (iconSun) iconSun.style.display = 'none';
+        if (iconMoon) iconMoon.style.display = 'block';
+    }
+
+    btn.addEventListener('click', () => {
+        const isLight = body.classList.toggle('light-theme');
+        
+        // Icon swap
+        if (iconSun) iconSun.style.display = isLight ? 'none' : 'block';
+        if (iconMoon) iconMoon.style.display = isLight ? 'block' : 'none';
+        
+        // Save preference
+        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        
+        // Visual feedback
+        btn.classList.add('active');
+        setTimeout(() => btn.classList.remove('active'), 200);
     });
 }

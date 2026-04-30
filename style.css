@@ -39,6 +39,187 @@
   --sp-page:    clamp(20px, 5vw, 80px);
 }
 
+/* ── LIGHT THEME OVERRIDES ── */
+body.light-theme {
+  --bg:   #ffffff;
+  --s0:   #f5f5f5;
+  --s100: #eeeeee;
+  --s200: #e0e0e0;
+  --s300: #d5d5d5;
+  --s400: #cccccc;
+  --s500: #f9f9f9;
+  --s700: #ffffff;
+
+  --n100: #0c0c0c;
+  --n300: #4a4a4a;
+  --n400: #6a6a6a;
+  --n500: #8a8a8a;
+
+  --g0:   #000000;
+  --g100: #1a1a1a;
+  --g200: #333333;
+  --g300: #4d4d4d;
+  --g400: #666666;
+  --g500: #808080;
+  --g600: #999999;
+  --g700: #b3b3b3;
+
+  --glow: 0 0 10.2px 0 rgba(0,0,0,.08);
+}
+
+/* Mixed Mode: Force certain sections to stay dark even in light theme */
+body.light-theme #hero,
+body.light-theme #services,
+body.light-theme #pricing,
+body.light-theme #footer {
+  background: #0c0c0c !important;
+  color: #f5f5f5;
+}
+
+body.light-theme #services .tab-bar,
+body.light-theme #pricing .price-card,
+body.light-theme #footer .footer-col a {
+  border-color: rgba(255,255,255,.1) !important;
+}
+
+body.light-theme #services .sec-header .overline,
+body.light-theme #services .sec-header .sec-heading,
+body.light-theme #services .tab-btn,
+body.light-theme #services .svc-detail h3,
+body.light-theme #pricing .price-name,
+body.light-theme #pricing .price-num,
+body.light-theme #footer .footer-logo span {
+  color: #fff !important;
+}
+
+body.light-theme #services .tab-btn:not(.active) {
+  color: #a8a8a8 !important;
+}
+
+body.light-theme #services .tab-btn.active {
+  background: rgba(255,255,255,.12) !important;
+  color: #fff !important;
+}
+
+body.light-theme #services .svc-detail p,
+body.light-theme #pricing .price-tag,
+body.light-theme #pricing .price-per,
+body.light-theme #footer .footer-col a {
+  color: #a8a8a8 !important;
+}
+
+body.light-theme .glass {
+  background: rgba(0,0,0,.03);
+  border-color: rgba(0,0,0,.06);
+}
+
+body.light-theme .card-premium {
+  background: rgba(0,0,0,.02);
+  border-color: rgba(0,0,0,.06);
+  box-shadow: 0 2px 16px rgba(0,0,0,.05);
+}
+
+/* body.light-theme .hero-overlay removed to keep it dark */
+
+body.light-theme .nav-logo img,
+body.light-theme .work-card-hd img {
+  filter: invert(1);
+}
+
+body.light-theme #pricing .price-btn,
+body.light-theme #contact .form-submit {
+  background: #f5f5f5 !important;
+  color: #0c0c0c !important;
+  border-color: #f5f5f5 !important;
+}
+
+body.light-theme #pricing .price-btn:hover,
+body.light-theme #contact .form-submit:hover {
+  background: #ffffff !important;
+}
+
+body.light-theme .field input, 
+body.light-theme .field textarea {
+  background: #f9f9f9 !important;
+  border-color: #eeeeee !important;
+  color: #0c0c0c !important;
+}
+
+body.light-theme .field input::placeholder,
+body.light-theme .field textarea::placeholder {
+  color: #a8a8a8 !important;
+}
+
+body.light-theme .field label {
+  color: #666666 !important;
+}
+
+/* ── NAV LIGHT MODE DYNAMIC ── */
+body.light-theme #nav {
+  background: transparent;
+  border-bottom: none;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  transition: background .3s, border-color .3s, box-shadow .3s;
+}
+
+/* Elements on Dark Hero (Not Scrolled) */
+body.light-theme #nav:not(.scrolled) .nav-logo span,
+body.light-theme #nav:not(.scrolled) .nav-right .theme-toggle,
+body.light-theme #nav:not(.scrolled) .nav-right .sound-toggle {
+  color: #ffffff !important;
+}
+body.light-theme #nav:not(.scrolled) .nav-logo img {
+  filter: none !important;
+}
+body.light-theme #nav:not(.scrolled) .nav-cta {
+  background: rgba(255,255,255,.1) !important;
+  color: #ffffff !important;
+  border-color: rgba(255,255,255,.2) !important;
+}
+body.light-theme #nav:not(.scrolled) .nav-links {
+  background: rgba(255,255,255,.08) !important;
+  border-color: rgba(255,255,255,.1) !important;
+}
+body.light-theme #nav:not(.scrolled) .nav-links a {
+  color: rgba(255,255,255,.7) !important;
+}
+body.light-theme #nav:not(.scrolled) .nav-links a:hover {
+  color: #ffffff !important;
+}
+
+/* Elements on White Sections (Scrolled) */
+body.light-theme #nav.scrolled {
+  background: #ffffff !important;
+  border-bottom: 1px solid #eeeeee !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+}
+body.light-theme #nav.scrolled .nav-logo span,
+body.light-theme #nav.scrolled .nav-right .theme-toggle,
+body.light-theme #nav.scrolled .nav-right .sound-toggle {
+  color: var(--n100) !important;
+}
+body.light-theme #nav.scrolled .nav-logo img {
+  filter: invert(1) !important;
+}
+body.light-theme #nav.scrolled .nav-cta {
+  background: var(--n100) !important;
+  color: #ffffff !important;
+  border-color: var(--n100) !important;
+}
+body.light-theme #nav.scrolled .nav-links {
+  background: rgba(0,0,0,.04) !important;
+  border-color: rgba(0,0,0,.08) !important;
+}
+body.light-theme #nav.scrolled .nav-links a {
+  color: var(--n400) !important;
+}
+body.light-theme #nav.scrolled .nav-links a:hover {
+  color: var(--n100) !important;
+}
+
 /* ── RESET ── */
 *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -143,6 +324,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   background: linear-gradient(90deg, var(--g700), var(--g500), var(--g300));
   pointer-events: none; transition: width .08s linear;
 }
+body.light-theme #progress-bar { display: none; } /* Remove the gray line at the top in Light Mode */
 
 /* ── SPARKS ── */
 #sparks { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
@@ -184,7 +366,7 @@ section, footer { position: relative; z-index: 1; }
 
 .nav-logo { display: flex; align-items: center; gap: 8px; flex: 1; }
 .nav-logo img { width: 37.55px; height: 24px; object-fit: contain; }
-.nav-logo span { font-family: 'Alumni Sans SC', sans-serif; font-size: 15px; letter-spacing: 0.12em; color: #fff; white-space: nowrap; }
+.nav-logo span { font-family: 'Alumni Sans SC', sans-serif; font-size: 15px; letter-spacing: 0.12em; color: var(--n100); white-space: nowrap; }
 
 .nav-center { flex: 1; display: flex; justify-content: center; }
 .nav-links {
@@ -193,7 +375,7 @@ section, footer { position: relative; z-index: 1; }
 }
 .nav-links { position: relative; }
 .nav-links a {
-  font-size: 13px; color: rgba(255,255,255,.7);
+  font-size: 13px; color: var(--n400);
   white-space: nowrap; transition: color .25s;
 }
 .nav-links a:hover { color: var(--g300); }
@@ -215,26 +397,51 @@ section, footer { position: relative; z-index: 1; }
 
 .nav-right { flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 14px; }
 
-.sound-toggle {
-  display: flex; align-items: center; justify-content: center;
-  width: 26px; height: 26px; border-radius: 50%;
-  background: transparent; border: 1px solid rgba(255,255,255,.12);
+.sound-toggle, .theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,.12);
   color: rgba(255,255,255,.4);
   transition: background .2s, color .2s, transform .2s;
 }
-.sound-toggle svg { width: 14px; height: 14px; }
-.sound-toggle:hover { background: rgba(255,255,255,.08); color: #fff; transform: scale(1.05); }
-.sound-toggle.active { color: #fff; border-color: rgba(255,255,255,.3); }
+
+body.light-theme .sound-toggle,
+body.light-theme .theme-toggle {
+  border-color: rgba(0,0,0,.12);
+  color: rgba(0,0,0,.4);
+}
+
+.sound-toggle svg, .theme-toggle svg { width: 14px; height: 14px; }
+
+.sound-toggle:hover, .theme-toggle:hover { 
+  background: var(--n100); 
+  color: var(--bg); 
+  transform: scale(1.05); 
+}
+
+body.light-theme .sound-toggle:hover,
+body.light-theme .theme-toggle:hover {
+  background: rgba(0,0,0,.05);
+  color: #000;
+}
+
+.sound-toggle.active, .theme-toggle.active { color: var(--n100); border-color: var(--n300); }
 .nav-cta {
-  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
+  background: var(--n100); border: 1px solid var(--n100);
   padding: 7px 20px; border-radius: var(--r-pill);
-  font-size: 13px; color: #fff; white-space: nowrap;
+  font-size: 13px; color: var(--bg); white-space: nowrap;
   transition: background .2s, transform .3s ease;
 }
-.nav-cta:hover { background: rgba(255,255,255,.12); }
+.nav-cta:hover { background: var(--g100); }
 
 /* Hamburger — hidden on desktop */
 .nav-burger { display: none; }
+.nav-mobile { display: none; }
 
 /* ══════════════════════════════════════════
    HERO
@@ -273,7 +480,7 @@ section, footer { position: relative; z-index: 1; }
   line-height: 0.82;
   text-align: center;
   padding-bottom: 0.06em;
-  background: linear-gradient(90deg, #c8c8c8 0%, #ffffff 35%, #e8e8e8 50%, #ffffff 65%, #c8c8c8 100%);
+  background: linear-gradient(90deg, var(--g600) 0%, var(--g0) 35%, var(--g400) 50%, var(--g0) 65%, var(--g600) 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
@@ -301,6 +508,22 @@ section, footer { position: relative; z-index: 1; }
   text-shadow: 0 0 20px rgba(255,255,255,.10);
 }
 
+/* Force Light Hero Text even in Light Theme */
+body.light-theme #hero .hero-creative { color: #ccc; }
+body.light-theme #hero .hero-control { color: #aaa; }
+body.light-theme #hero .hero-sub p { color: #a8a8a8; }
+body.light-theme #hero .btn-ghost { 
+  background: rgba(255,255,255,.08); 
+  color: #f5f5f5; 
+  border-color: rgba(255,255,255,.10);
+}
+body.light-theme #hero .hero-complete {
+  background: linear-gradient(90deg, #c8c8c8 0%, #ffffff 35%, #e8e8e8 50%, #ffffff 65%, #c8c8c8 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
 .hero-sub { text-align: center; }
 .hero-sub p {
   font-size: clamp(13px, 1.4vw, 16px);
@@ -321,16 +544,16 @@ section, footer { position: relative; z-index: 1; }
 .btn-primary:hover { background: var(--g100); }
 
 .btn-ghost {
-  background: rgba(255,255,255,.08); color: var(--n100);
-  border: 1px solid rgba(255,255,255,.10);
+  background: var(--s100); color: var(--n100);
+  border: 1px solid var(--s300);
 }
-.btn-ghost:hover { background: rgba(255,255,255,.14); transform: translateY(-2px); }
+.btn-ghost:hover { background: var(--s200); transform: translateY(-2px); }
 
 .btn-outline {
   background: transparent; color: var(--n100);
-  border: 1px solid rgba(255,255,255,.15);
+  border: 1px solid var(--n400);
 }
-.btn-outline:hover { border-color: var(--n100); transform: translateY(-2px); }
+.btn-outline:hover { border-color: var(--n100); background: var(--s100); transform: translateY(-2px); }
 
 .btn-glow {
   background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.10);
@@ -566,6 +789,7 @@ section, footer { position: relative; z-index: 1; }
   font-size: 11px; letter-spacing: 0.22em;
   color: var(--n500); margin-bottom: 2px;
 }
+body.light-theme #pricing .card-num { color: #666; }
 .price-name {
   font-family: 'Alumni Sans SC', sans-serif;
   font-size: 20px; font-weight: 400;
@@ -597,6 +821,11 @@ section, footer { position: relative; z-index: 1; }
 .popular-badge {
   background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.2);
   letter-spacing: 2px; color: var(--g400);
+}
+
+body.light-theme #pricing .popular-badge {
+  background: rgba(255,255,255,.1);
+  color: #fff;
 }
 
 /* ══════════════════════════════════════════
@@ -676,6 +905,7 @@ section, footer { position: relative; z-index: 1; }
 .form-submit:hover { background: rgba(255,255,255,.10); transform: translateY(-1px); }
 
 .form-legal { font-size: 11px; color: rgba(255,255,255,.25); text-align: center; line-height: 1.5; }
+body.light-theme .form-legal { color: #888; }
 
 /* ── FORM SUCCESS ── */
 @keyframes checkDraw { from { stroke-dashoffset: 50; } to { stroke-dashoffset: 0; } }
