@@ -119,11 +119,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 /* ── REVEAL ── */
-@keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+@keyframes revealIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
 @keyframes shimmer { to { background-position: 200% center; } }
 @keyframes tabFadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 .reveal { opacity: 0; }
-.reveal.in { animation: fadeUp .6s ease forwards; }
+.reveal.in { animation: revealIn .6s ease forwards; }
 .reveal.in.d1 { animation-delay: .08s; }
 .reveal.in.d2 { animation-delay: .16s; }
 .reveal.in.d3 { animation-delay: .24s; }
@@ -131,10 +131,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 @supports (animation-timeline: view()) {
   .reveal {
-    animation: fadeUp .6s ease forwards;
+    animation: revealIn .6s ease forwards;
     animation-timeline: view();
     animation-range: entry 0% entry 35%;
   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal.in { animation: none; opacity: 1; }
 }
 
 /* ── PROGRESS BAR ── */
@@ -176,7 +180,9 @@ section, footer { position: relative; z-index: 1; }
   backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid transparent;
   transition: background .3s, border-color .3s;
+  animation: navFadeIn .4s ease both;
 }
+@keyframes navFadeIn { from { opacity: 0; } to { opacity: 1; } }
 #nav.scrolled {
   background: rgba(12,12,12,.92);
   border-bottom-color: rgba(255,255,255,.06);
