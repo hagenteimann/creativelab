@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>creativelab.de | CD Manual & Style Guide</title>
+    <meta name="description" content="Official Corporate Design Manual for creativelab.de. Documenting foundations, components, and brand standards.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+SC:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styleguide.css">
+</head>
+<body class="styleguide light-theme">
+
+    <nav class="sg-nav">
+        <div class="sg-nav-logo">
+            <img src="image/icons/nav/nav/logo-icon.svg" alt="" style="height: 20px;">
+            creativelab
+        </div>
+        <div class="sg-nav-links">
+            <a href="#vision" class="sg-nav-link">Vision</a>
+            <a href="#logo" class="sg-nav-link">Logo</a>
+            <a href="#foundations" class="sg-nav-link">Foundations</a>
+            <a href="#colors" class="sg-nav-link">Colors</a>
+            <a href="#light-mode" class="sg-nav-link">Light Mode</a>
+            <a href="#typography" class="sg-nav-link">Typography</a>
+            <a href="#components" class="sg-nav-link">Components</a>
+            <a href="#motion" class="sg-nav-link">Motion</a>
+            <a href="#icons" class="sg-nav-link">Icons</a>
+            <a href="#voice-tone" class="sg-nav-link">Voice & Tone</a>
+            <a href="#scannability" class="sg-nav-link">Scannability</a>
+        </div>
+    </nav>
+
+    <main class="sg-content">
+        <header class="sg-header">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+            <div>
+                <h1>creativelab.de</h1>
+                <p>Corporate Design Manual v1.2.0 — Design Systems & Brand Standards</p>
+            </div>
+            <div style="font-size: var(--fs-xs); color: var(--clr-neutral-600); text-align: right;">
+                LETZTES UPDATE: 30. APRIL 2026<br>
+                STATUS: FINAL
+            </div>
+        </div>
+    </header>
+
+    <!-- 00 BRAND VISION -->
+    <section class="sg-section" id="vision">
+        <h2>00 Brand Vision</h2>
+        <div class="glass-card">
+            <h3 style="font-family: var(--font-accent); color: var(--clr-neutral-0); margin-bottom: var(--space-2);">Premium Content. Ohne Overhead.</h3>
+            <p style="color: var(--clr-neutral-300); max-width: 800px;">creativelab.de steht für High-End Videografie und Content-Strategie im Fashion- und Lifestyle-Segment. Unsere visuelle Sprache ist minimalistisch, präzise und wertig. Dieses Manual definiert die Regeln, um diese Ästhetik über alle Touchpoints hinweg konsistent zu halten.</p>
+        </div>
+    </section>
+
+    <!-- 01 LOGO -->
+    <section class="sg-section" id="logo">
+        <h2>01 Logo & Branding</h2>
+        <div class="sg-subsection">
+            <h3>Das Kern-Logo</h3>
+            <p>Unser Logo ist das zentrale Identitätsmerkmal. Es sollte immer mit ausreichend Weißraum (Clear Space) platziert werden.</p>
+            
+            <div class="demo-row" style="margin-top: var(--space-6); display: flex; flex-direction: column; gap: var(--space-8);">
+                <div class="demo-item" style="width: 100%;">
+                    <span class="demo-label">Negativ (Standard) — Full Background</span>
+                    <div style="background: var(--clr-neutral-1000); padding: var(--space-16) var(--space-8); border-radius: var(--radius-md); border: 1px solid var(--clr-neutral-900); display: flex; justify-content: center; align-items: center; width: 100%;">
+                        <img src="image/LOGO_C.svg" alt="creativelab logo" style="height: 80px;">
+                    </div>
+                </div>
+                <div class="demo-item" style="width: 100%;">
+                    <span class="demo-label">Positiv — Light Background</span>
+                    <div style="background: var(--clr-neutral-0); padding: var(--space-12) var(--space-8); border-radius: var(--radius-md); border: 1px solid var(--clr-neutral-200); display: flex; justify-content: center; align-items: center; width: 100%;">
+                        <img src="image/LOGO_C.svg" alt="creativelab logo" style="height: 80px; filter: invert(1);">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="spec-container" style="margin-top: var(--space-6);">
+                <div class="spec-item"><span class="spec-key">Minimale Breite</span><span class="spec-val">24px (Digital) / 10mm (Print)</span></div>
+                <div class="spec-item"><span class="spec-key">Clear Space</span><span class="spec-val">Mindestens 50% der Logo-Breite rundherum</span></div>
+                <div class="spec-item"><span class="spec-key">Farbvariante</span><span class="spec-val">Ausschließlich Weiß oder Schwarz (Invertiert)</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 02 FOUNDATIONS -->
+    <section class="sg-section" id="foundations">
+        <h2>02 Foundations</h2>
+        <div class="sg-subsection">
+            <h3>8pt Grid System</h3>
+            <p>The 8pt grid is our standard for consistent spacing, sizing, and alignment across all interfaces.</p>
+            <div class="grid-demo" style="margin-top: var(--space-4);">
+                <div class="grid-item" style="height: var(--space-1);"><span class="grid-label">--space-1</span><span class="grid-label">8px</span></div>
+                <div class="grid-item" style="height: var(--space-2);"><span class="grid-label">--space-2</span><span class="grid-label">16px</span></div>
+                <div class="grid-item" style="height: var(--space-3);"><span class="grid-label">--space-3</span><span class="grid-label">24px</span></div>
+                <div class="grid-item" style="height: var(--space-4);"><span class="grid-label">--space-4</span><span class="grid-label">32px</span></div>
+                <div class="grid-item" style="height: var(--space-8);"><span class="grid-label">--space-8</span><span class="grid-label">64px</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 03 COLORS -->
+    <section class="sg-section" id="colors">
+        <h2>03 Color Palette</h2>
+        <div class="sg-subsection">
+            <h3>Neutrals (Quantitative Sheets)</h3>
+            <p>A strictly defined range of grays for backgrounds, borders, and text hierarchy.</p>
+            <div class="color-grid" style="margin-top: var(--space-4);">
+                <div class="color-swatch"><div class="color-preview" style="background: var(--clr-neutral-950);"></div><div class="color-info"><span class="color-name">BG / 950</span><span class="color-hex">#0c0c0c</span></div></div>
+                <div class="color-swatch"><div class="color-preview" style="background: var(--clr-neutral-900);"></div><div class="color-info"><span class="color-name">Surface / 900</span><span class="color-hex">#171717</span></div></div>
+                <div class="color-swatch"><div class="color-preview" style="background: var(--clr-neutral-0);"></div><div class="color-info"><span class="color-name">Highlight / 0</span><span class="color-hex">#ffffff</span></div></div>
+            </div>
+        </div>
+        <div class="sg-subsection" style="margin-top: var(--space-8);">
+            <h3>Semantic Colors</h3>
+            <p>Functional colors used for feedback and state indication.</p>
+            <div class="color-grid" style="margin-top: var(--space-4);">
+                <div class="color-swatch"><div class="color-preview" style="background: var(--clr-success-500);"></div><div class="color-info"><span class="color-name">Success</span><span class="color-hex">#22c55e</span></div></div>
+                <div class="color-swatch"><div class="color-preview" style="background: var(--clr-error-500);"></div><div class="color-info"><span class="color-name">Error</span><span class="color-hex">#ef4444</span></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 04 LIGHT MODE -->
+    <section class="sg-section" id="light-mode">
+        <h2>04 Light Mode Accessibility</h2>
+        <div class="sg-subsection">
+            <h3>Mixed Mode Strategy</h3>
+            <p>Um eine "Premium Cinematic" Ästhetik zu wahren, bleiben Schlüssel-Sektionen (Hero, Services, Pricing, Footer) auch im Light Mode **vollständig dunkel**.</p>
+            <div class="spec-container" style="margin-top: var(--space-4);">
+                <div class="spec-item"><span class="spec-key">Default Theme</span><span class="spec-val">Light Mode (Positiv)</span></div>
+                <div class="spec-item"><span class="spec-key">Dark Sections</span><span class="spec-val">Hero, Services, Pricing, Footer</span></div>
+                <div class="spec-item"><span class="spec-key">Light Sections</span><span class="spec-val">About, Portfolio, Use-Cases, Contact</span></div>
+            </div>
+        </div>
+        
+        <div class="sg-subsection" style="margin-top: var(--space-8);">
+            <h3>Readability Rules</h3>
+            <p>Um die Lesbarkeit im Light Mode zu gewährleisten, müssen adaptive Tokens verwendet werden, außer in "Dark Sections".</p>
+            <div class="spec-container" style="margin-top: var(--space-4);">
+                <div class="spec-item"><span class="spec-key">Inversion</span><span class="spec-val">Nav & Buttons invertieren nur außerhalb von Dark Sections</span></div>
+                <div class="spec-item"><span class="spec-key">Inputs</span><span class="spec-val">Light Background (#f9f9f9) + Border (#eeeeee)</span></div>
+                <div class="spec-item"><span class="spec-key">Contrast</span><span class="spec-val">Mindestens 4.5:1 (WCAG AA)</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 05 TYPOGRAPHY -->
+    <section class="sg-section" id="typography">
+        <h2>05 Typography</h2>
+        <div class="sg-subsection">
+            <h3>Brand Fonts</h3>
+            <div class="spec-container">
+                <div class="type-preview">
+                    <p class="spec-key">Accent / Alumni Sans SC</p>
+                    <h1 style="font-family: var(--font-accent); font-size: var(--fs-4xl); text-transform: uppercase;">ALUMNI SANS SC</h1>
+                    <p style="font-size: var(--fs-xs); color: var(--clr-neutral-500);">Modernität und Autorität für Headlines.</p>
+                </div>
+                <div class="type-preview">
+                    <p class="spec-key">Primary / Inter</p>
+                    <h1 style="font-family: var(--font-primary); font-size: var(--fs-4xl);">Inter Display</h1>
+                    <p style="font-size: var(--fs-xs); color: var(--clr-neutral-500);">Lesbarkeit und Neutralität für UI.</p>
+                </div>
+            </div>
+        </div>
+        <div class="sg-subsection" style="margin-top: var(--space-12);">
+            <h3>Experimental</h3>
+            <h2 class="exp-shimmer" style="font-family: var(--font-accent); font-size: var(--fs-3xl);">PREMIUM CONTENT</h2>
+        </div>
+    </section>
+
+    <!-- 06 COMPONENTS -->
+    <section class="sg-section" id="components">
+        <h2>06 Components</h2>
+        <div class="sg-subsection">
+            <h3>Buttons</h3>
+            <div class="demo-row">
+                <button class="btn btn-primary">Projekt starten</button>
+                <button class="btn btn-ghost">Arbeiten ansehen</button>
+            </div>
+        </div>
+        <div class="sg-subsection" style="margin-top: var(--space-8);">
+            <h3>Glassmorphism</h3>
+            <div class="demo-row">
+                <div class="glass-card" style="width: 350px;">
+                    <h4 style="font-family: var(--font-accent); margin-bottom: var(--space-2);">Premium Vision</h4>
+                    <p style="font-size: var(--fs-sm); color: var(--clr-neutral-400);">Minimalistisch und wertig.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 07 MOTION -->
+    <section class="sg-section" id="motion">
+        <h2>07 Motion & Interaction</h2>
+        <div class="sg-subsection">
+            <h3>Principles</h3>
+            <p>Bezier: Cubic-Bezier(0.4, 0, 0.2, 1) | Duration: 0.3s - 0.6s</p>
+        </div>
+    </section>
+
+    <!-- 08 ICONOGRAPHY -->
+    <section class="sg-section" id="icons">
+        <h2>08 Iconography</h2>
+        <div class="sg-subsection">
+            <p>Line Art, 1.5pt - 2pt Stroke.</p>
+            <div class="demo-row" style="margin-top: var(--space-4);">
+                <div style="background: var(--clr-neutral-900); padding: var(--space-4); border-radius: var(--radius-sm); display: flex; gap: var(--space-6);">
+                    <img src="image/icons/check-square.svg" alt="icon" style="width: 24px; filter: brightness(2);">
+                    <img src="image/icons/nav/nav/logo-icon.svg" alt="icon" style="width: 24px; filter: brightness(2);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 09 BRAND VOICE -->
+    <section class="sg-section" id="voice-tone">
+        <h2>09 Brand Voice</h2>
+        <p>Unsere Kommunikation ist direkt, selbstbewusst und fokussiert auf Ergebnisse.</p>
+    </section>
+
+    <!-- 10 SCANNABILITY -->
+    <section class="sg-section" id="scannability">
+        <h2>10 Agent Scannability</h2>
+        <p>Optimiert für AI-Agenten: Verwende --space-[1-20] und --clr-neutral-[0-1000].</p>
+    </section>
+
+    <!-- 11 NAVIGATION LOGIC -->
+    <section class="sg-section" id="navigation-logic">
+        <h2>11 Dynamic Navigation</h2>
+        <div class="sg-subsection">
+            <p>Die Navbar adaptiert ihren Zustand basierend auf der Scroll-Position und dem Hintergrund.</p>
+            <div class="spec-container" style="margin-top: var(--space-4);">
+                <div class="spec-item"><span class="spec-key">Hero-State</span><span class="spec-val">Vollständig transparent, weiße Elemente</span></div>
+                <div class="spec-item"><span class="spec-key">Scrolled-State</span><span class="spec-val">Solides Weiß (#fff), dunkle Elemente</span></div>
+                <div class="spec-item"><span class="spec-key">Link Plate</span><span class="spec-val">Zentrales Glass-Element bleibt als Anker bestehen</span></div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="margin-top: var(--space-12); padding: var(--space-8) 0; border-top: 1px solid var(--clr-neutral-800); text-align: center; font-size: var(--fs-xs); color: var(--clr-neutral-500); letter-spacing: 0.1em; text-transform: uppercase;">
+        &copy; 2025 creativelab.de | ALL RIGHTS RESERVED
+    </footer>
+
+    </main>
+
+    <script>
+        // Intersection Observer for Active Navigation
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.3
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    document.querySelectorAll('.sg-nav-link').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href').substring(1) === entry.target.id) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.sg-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Click to Copy Hex Codes
+        document.querySelectorAll('.color-swatch').forEach(swatch => {
+            swatch.style.cursor = 'pointer';
+            swatch.addEventListener('click', () => {
+                const hex = swatch.querySelector('.color-hex').textContent;
+                navigator.clipboard.writeText(hex).then(() => {
+                    const originalName = swatch.querySelector('.color-name').textContent;
+                    swatch.querySelector('.color-name').textContent = 'Kopiert!';
+                    swatch.querySelector('.color-name').style.color = 'var(--clr-success-500)';
+                    setTimeout(() => {
+                        swatch.querySelector('.color-name').textContent = originalName;
+                        swatch.querySelector('.color-name').style.color = '';
+                    }, 1000);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
