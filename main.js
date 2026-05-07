@@ -16,9 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
     initContactForm();
     initSparks();
     initSoundToggle();
-    initCardTilt();
+    // Card tilt disabled - using simple scale hover instead
     initMagneticButtons();
     initThemeToggle();
+    initHeroParallax();
 });
 
 // ── PAGE LOAD FADE IN
@@ -351,7 +352,7 @@ function initContactForm() {
     });
 }
 
-// ── SPARKS (Particle System)
+// ── SPARKS (Particle System) — Optimized
 function initSparks() {
     const canvas = document.getElementById('sparks');
     if (!canvas) return;
@@ -377,10 +378,10 @@ function initSparks() {
             velocity: -(0.15 + depth * 0.25),
             alpha: 0.06 + depth * 0.35
         });
-        if (particles.length > 60) particles.shift();
+        if (particles.length > 40) particles.shift(); // Reduced from 60
     };
 
-    setInterval(() => { if (!isPaused) spawn(); }, 600);
+    setInterval(() => { if (!isPaused) spawn(); }, 800); // Increased from 600ms
 
     const draw = () => {
         if (!isPaused) {
@@ -524,6 +525,36 @@ function initCardTilt() {
             card.style.transform = '';
         });
     });
+}
+
+// ── HERO PARALLAX (Subtile scroll-driven effect)
+function initHeroParallax() {
+    const hero = document.getElementById('hero');
+    const heroOverlay = hero?.querySelector('.hero-overlay');
+    const heroContent = hero?.querySelector('.hero-content');
+    if (!hero || !heroOverlay || !heroContent) return;
+
+    let ticking = false;
+
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                const scrollY = window.scrollY;
+                const heroHeight = hero.offsetHeight;
+                
+                // Only apply within hero section
+                if (scrollY < heroHeight) {
+                    // Overlay moves slower (parallax depth)
+                    heroOverlay.style.transform = `translateY(${scrollY * 0.3}px)`;
+                    // Content moves even slower for depth
+                    heroContent.style.transform = `translateY(${scrollY * 0.15}px)`;
+                    heroContent.style.opacity = 1 - (scrollY / heroHeight) * 0.6;
+                }
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }, { passive: true });
 }
 
 // ── THEME TOGGLE (Light / Dark)
