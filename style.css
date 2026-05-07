@@ -61,6 +61,11 @@
 
   /* Touch Targets (WCAG 2.5.5 / Material Design) */
   --touch-min: 48px;
+
+  /* Full-Width Layout (3-Column Standard) */
+  --container-max: 1440px;   /* globales Layout-Maximum */
+  --grid-3col: repeat(3, 1fr);
+  --grid-4col: repeat(4, 1fr); /* Bento-Portfolio behält 4 Spalten */
 }
 
 /* ── LIGHT THEME OVERRIDES ── */
@@ -665,11 +670,11 @@ body.light-theme #hero .hero-complete {
 /* Work cards */
 .work-section {
   display: flex; flex-direction: column; gap: 20px; align-items: center;
-  width: 100%; max-width: 1140px;
+  width: 100%; max-width: var(--container-max);
 }
 .work-cards {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: var(--grid-4col);
   gap: 16px; width: 100%;
 }
 .work-card { padding: 20px; display: flex; flex-direction: column; gap: 8px; }
@@ -689,11 +694,11 @@ body.light-theme #hero .hero-complete {
 
 .port-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: var(--grid-4col);
   grid-template-rows: auto auto;
   gap: 16px;
   padding: 0 var(--sp-page);
-  width: 100%; max-width: 1300px;
+  width: 100%; max-width: var(--container-max);
 }
 /* Bento: Hero slot spans 2 cols × 2 rows */
 .port-slot {
@@ -787,8 +792,8 @@ body.light-theme #hero .hero-complete {
 
 .uc-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px; max-width: 1200px; width: 100%;
+  grid-template-columns: var(--grid-4col); /* 4 Cards → 4 Spalten, kein verwaistes Element */
+  gap: 16px; max-width: var(--container-max); width: 100%;
 }
 .uc-card {
   padding: 24px 20px; display: flex; flex-direction: column;
@@ -834,7 +839,7 @@ body.light-theme #hero .hero-complete {
 
 .testi-row {
   display: flex; gap: 20px;
-  max-width: 1000px; width: 100%;
+  max-width: var(--container-max); width: 100%;
 }
 .testi-card {
   flex: 1; overflow: hidden; display: flex; gap: 0;
@@ -860,8 +865,8 @@ body.light-theme #hero .hero-complete {
 
 .price-cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px; max-width: 1100px; width: 100%;
+  grid-template-columns: var(--grid-3col);
+  gap: 20px; max-width: var(--container-max); width: 100%;
 }
 .price-card { padding: 32px 28px; display: flex; flex-direction: column; gap: 16px; transform-style: preserve-3d; }
 .price-card.pro { border-color: rgba(255,255,255,.18); }
@@ -948,7 +953,7 @@ body.light-theme #pricing .popular-badge {
 .contact-row {
   display: flex; gap: 48px;
   align-items: flex-start; justify-content: center;
-  max-width: 1100px; width: 100%;
+  max-width: var(--container-max); width: 100%;
 }
 .contact-info {
   flex: 1; max-width: 380px;
