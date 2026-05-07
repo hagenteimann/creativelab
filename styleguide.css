@@ -44,18 +44,17 @@
     --clr-info-500: #3b82f6; /* Soft Royal Blue */
     --clr-info-900: #1e3a8a;
 
-    /* ── SPACING (8pt Grid System) ── */
-    --space-1: 8px;
-    --space-2: 16px;
-    --space-3: 24px;
-    --space-4: 32px;
-    --space-5: 40px;
-    --space-6: 48px;
-    --space-8: 64px;
-    --space-10: 80px;
-    --space-12: 96px;
-    --space-16: 128px;
-    --space-20: 160px;
+    /* ── SPACING (4pt Grid System — 2026 Update) ── */
+    --space-1:  4px;
+    --space-2:  8px;
+    --space-3:  12px;
+    --space-4:  16px;
+    --space-5:  20px;
+    --space-6:  24px;
+    --space-8:  32px;
+    --space-10: 40px;
+    --space-12: 48px;
+    --space-16: 64px;
 
     /* ── TYPOGRAPHY ── */
     --font-primary: 'Inter', sans-serif;
@@ -79,12 +78,12 @@
     --lh-base:   1.5;
     --lh-relaxed: 1.75;
 
-    /* ── BORDERS & RADIUS ── */
-    --radius-sm:   4px;
-    --radius-md:   8px;
-    --radius-lg:   16px;
-    --radius-xl:   24px;
-    --radius-pill: 9999px;
+    /* ── BORDERS & RADIUS (4pt-aligned) ── */
+    --radius-sm:   8px;    /* --space-2 */
+    --radius-md:   16px;   /* --space-4 */
+    --radius-lg:   24px;   /* --space-6 */
+    --radius-xl:   32px;   /* --space-8 */
+    --radius-pill: 100px;
 
     /* ── EFFECTS ── */
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -94,7 +93,53 @@
     
     --glass-bg: rgba(255, 255, 255, 0.04);
     --glass-border: rgba(255, 255, 255, 0.08);
-    --glass-blur: blur(12px);
+    --glass-blur: blur(16px);        /* Liquid Glass: 16px per 2026 spec */
+    --glass-saturate: saturate(180%);
+}
+
+/* ── SEMANTIC TOKEN LAYER ──
+   Two-tier system: use semantic aliases in components, primitives for palette docs.
+   Decision: matches GitHub Primer / Radix standard. */
+:root {
+    /* Backgrounds */
+    --color-bg-base:        var(--clr-neutral-950);
+    --color-bg-surface:     var(--clr-neutral-900);
+    --color-bg-elevated:    var(--clr-neutral-800);
+    --color-bg-overlay:     var(--clr-neutral-700);
+
+    /* Text */
+    --color-text-primary:   var(--clr-neutral-0);
+    --color-text-secondary: var(--clr-neutral-400);
+    --color-text-muted:     var(--clr-neutral-600);
+    --color-text-disabled:  var(--clr-neutral-700);
+
+    /* Border */
+    --color-border-subtle:  var(--clr-neutral-800);
+    --color-border-default: var(--clr-neutral-700);
+    --color-border-strong:  var(--clr-neutral-500);
+
+    /* Feedback */
+    --color-status-success: var(--clr-success-500);
+    --color-status-warning: var(--clr-warning-500);
+    --color-status-error:   var(--clr-error-500);
+    --color-status-info:    var(--clr-info-500);
+
+    /* Motion Tiers — Blueprint (200-300ms) correct for micro.
+       Old "300-600ms" was too slow. Split into three tiers per Material + Apple HIG. */
+    --duration-micro:     150ms;   /* hover, click feedback */
+    --duration-component: 250ms;   /* dropdowns, tooltips, state changes */
+    --duration-page:      450ms;   /* panels, modals, page transitions */
+    --ease-standard: cubic-bezier(0.4, 0, 0.2, 1); /* Material standard */
+    --ease-enter:    cubic-bezier(0.0, 0, 0.2, 1);  /* decelerate — entering */
+    --ease-exit:     cubic-bezier(0.4, 0, 1, 1);    /* accelerate — exiting */
+
+    /* Fluid Section Spacing — clamp() for layout, no media queries */
+    --sp-section: clamp(80px, 10vw, 140px);
+    --sp-inner:   clamp(24px, 5vw, 56px);
+    --sp-page:    clamp(24px, 6vw, 100px);
+
+    /* Touch Targets — WCAG 2.5.5 + Material Design */
+    --touch-min: 48px;
 }
 
 /* ── LAYOUT ── */
