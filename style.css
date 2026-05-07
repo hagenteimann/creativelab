@@ -1147,3 +1147,612 @@ body.light-theme .form-legal { color: #888; }
   .contact-form { padding: 24px 16px; }
   .price-card { padding: 24px 20px; }
 }
+
+/* ── PROCESS SECTION ── */
+
+#process {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-inner);
+  padding: var(--sp-section) var(--sp-page);
+  max-width: var(--container-max);
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.process-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-inner);
+  width: 100%;
+}
+
+.process-track {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(16px, 2.5vw, 28px);
+  width: 100%;
+  align-items: stretch;
+}
+
+.process-connector {
+  position: absolute;
+  top: clamp(36px, 6vw, 52px);
+  left: calc(12.5% + 16px);
+  right: calc(12.5% + 16px);
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--g500) 15%,
+    var(--g500) 85%,
+    transparent
+  );
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.process-card {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding: var(--space-8) var(--space-6) var(--space-8);
+}
+
+.process-num {
+  font-family: 'Alumni Sans SC', sans-serif;
+  font-size: clamp(36px, 4.5vw, 56px);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--g500);
+  letter-spacing: -0.02em;
+  display: block;
+  transition: color var(--duration-component) var(--ease);
+}
+
+.process-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  flex: 1;
+}
+
+.process-title {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(15px, 1.4vw, 18px);
+  font-weight: 600;
+  color: var(--n100);
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.process-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(13px, 1.1vw, 15px);
+  font-weight: 400;
+  color: var(--n400);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.process-card:hover .process-num {
+  color: var(--g300);
+}
+
+body.light-theme #process .divider {
+  background: linear-gradient(90deg, transparent, rgba(0,0,0,.10), transparent);
+}
+
+body.light-theme .process-connector {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--n500) 15%,
+    var(--n500) 85%,
+    transparent
+  );
+  opacity: 0.2;
+}
+
+body.light-theme .process-num {
+  color: var(--g500);
+}
+
+body.light-theme .process-card:hover .process-num {
+  color: var(--n500);
+}
+
+body.light-theme .process-title {
+  color: var(--n100);
+}
+
+body.light-theme .process-desc {
+  color: var(--n400);
+}
+
+@media (max-width: 900px) {
+  .process-track {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .process-connector {
+    display: none;
+  }
+}
+
+@media (max-width: 540px) {
+  .process-track {
+    grid-template-columns: 1fr;
+  }
+  .process-card {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--space-5);
+    padding: var(--space-6);
+  }
+  .process-num {
+    font-size: 40px;
+    flex-shrink: 0;
+    width: 52px;
+  }
+  .process-card-body {
+    padding-top: 4px;
+  }
+}
+
+/* ── FAQ SECTION ── */
+
+#faq {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-12);
+  padding: var(--sp-section) var(--sp-page);
+  background: var(--bg);
+}
+
+.faq-list {
+  width: 100%;
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--s200);
+  transition:
+    background var(--duration-component) var(--ease),
+    border-color var(--duration-component) var(--ease);
+}
+
+.faq-item:first-child {
+  border-top: 1px solid var(--s200);
+}
+
+.faq-item summary {
+  list-style: none;
+}
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-6) 0;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  min-height: var(--touch-min);
+  transition: color var(--duration-component) var(--ease);
+}
+
+.faq-question:focus-visible {
+  outline: 2px solid var(--g400);
+  outline-offset: 4px;
+  border-radius: var(--r-sm);
+}
+
+.faq-question-text {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(15px, 1.6vw, 17px);
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--n100);
+  flex: 1;
+  transition: color var(--duration-component) var(--ease);
+}
+
+.faq-icon {
+  flex-shrink: 0;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  color: var(--g400);
+  transition: color var(--duration-component) var(--ease),
+              transform var(--duration-component) var(--ease);
+}
+
+.faq-icon::before,
+.faq-icon::after {
+  content: '';
+  position: absolute;
+  background: currentColor;
+  border-radius: 1px;
+  transition: transform var(--duration-component) var(--ease),
+              opacity var(--duration-component) var(--ease);
+}
+
+.faq-icon::before {
+  width: 14px;
+  height: 1.5px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.faq-icon::after {
+  width: 1.5px;
+  height: 14px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.faq-item[open] .faq-icon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+  opacity: 0;
+}
+
+.faq-item[open] .faq-icon {
+  color: var(--n100);
+}
+
+.faq-item[open] .faq-question-text {
+  color: var(--n100);
+}
+
+.faq-answer {
+  overflow: hidden;
+  padding-bottom: var(--space-6);
+}
+
+.faq-answer p {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(14px, 1.4vw, 15px);
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--n400);
+  max-width: 680px;
+}
+
+.faq-item:hover .faq-question-text {
+  color: var(--n100);
+}
+
+.faq-item:hover .faq-icon {
+  color: var(--n100);
+}
+
+body.light-theme .faq-item {
+  border-bottom-color: var(--s200);
+}
+
+body.light-theme .faq-item:first-child {
+  border-top-color: var(--s200);
+}
+
+body.light-theme .faq-question-text {
+  color: var(--n100);
+}
+
+body.light-theme .faq-icon {
+  color: var(--g500);
+}
+
+body.light-theme .faq-answer p {
+  color: var(--n400);
+}
+
+body.light-theme .faq-item[open] .faq-question-text {
+  color: var(--n100);
+}
+
+body.light-theme .faq-item[open] .faq-icon {
+  color: var(--g400);
+}
+
+body.light-theme .faq-item:hover .faq-question-text {
+  color: var(--n100);
+}
+
+body.light-theme #faq .divider {
+  background: linear-gradient(90deg, transparent, rgba(0,0,0,.10), transparent);
+}
+
+@keyframes faqSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.faq-item[open] .faq-answer {
+  animation: faqSlideDown var(--duration-component) var(--ease) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faq-question,
+  .faq-icon,
+  .faq-icon::before,
+  .faq-icon::after,
+  .faq-question-text {
+    transition: none;
+  }
+  .faq-item[open] .faq-answer {
+    animation: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .faq-question {
+    padding: var(--space-5) 0;
+  }
+  .faq-answer {
+    padding-bottom: var(--space-5);
+  }
+}
+
+/* ── SCARCITY BADGE ── */
+
+.sc-availability {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 7px;
+    margin-top: 14px;
+    padding: 0 4px;
+}
+
+.sc-dot {
+    display: inline-block;
+    flex-shrink: 0;
+    width: 7px;
+    height: 7px;
+    margin-top: 3px;
+    border-radius: 50%;
+    background-color: #4ade80;
+    opacity: 0.7;
+    animation: sc-pulse 2s ease-in-out infinite;
+}
+
+@keyframes sc-pulse {
+    0%, 100% { opacity: 0.7; transform: scale(1); }
+    50% { opacity: 0.35; transform: scale(0.75); }
+}
+
+.sc-text-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    text-align: left;
+}
+
+.sc-slots {
+    display: block;
+    font-family: 'Alumni Sans SC', 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    line-height: 1.3;
+    color: #c8c8c8;
+    opacity: 0.85;
+}
+
+.sc-next {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    line-height: 1.3;
+    color: #8a8a8a;
+    opacity: 0.8;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sc-dot {
+    animation: none;
+    opacity: 0.6;
+  }
+}
+
+/* ── PORTFOLIO MODAL ── */
+
+.pm-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  opacity: 0;
+  transition: opacity var(--duration-page, 450ms) var(--ease, cubic-bezier(0.4, 0, 0.2, 1));
+}
+
+.pm-overlay[hidden] {
+  display: flex !important;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.pm-overlay--visible {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.pm-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  max-height: calc(100dvh - 3rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: var(--bg, #0c0c0c);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--r-lg, 24px);
+  padding: 3rem 2.5rem 2.5rem;
+  transform: scale(0.95);
+  opacity: 0;
+  transition:
+    transform var(--duration-page, 450ms) var(--ease, cubic-bezier(0.4, 0, 0.2, 1)),
+    opacity   var(--duration-page, 450ms) var(--ease, cubic-bezier(0.4, 0, 0.2, 1));
+}
+
+.pm-overlay--visible .pm-container {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.pm-container::-webkit-scrollbar { width: 4px; }
+.pm-container::-webkit-scrollbar-track { background: transparent; }
+.pm-container::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 2px;
+}
+
+.pm-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--n300, #a8a8a8);
+  cursor: pointer;
+  transition:
+    background 200ms var(--ease, cubic-bezier(0.4, 0, 0.2, 1)),
+    color      200ms var(--ease, cubic-bezier(0.4, 0, 0.2, 1)),
+    border-color 200ms var(--ease, cubic-bezier(0.4, 0, 0.2, 1));
+}
+
+.pm-close:hover,
+.pm-close:focus-visible {
+  background: rgba(255, 255, 255, 0.10);
+  color: var(--n100, #f5f5f5);
+  border-color: rgba(255, 255, 255, 0.25);
+  outline: none;
+}
+
+.pm-close:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 2px;
+}
+
+.pm-number {
+  display: block;
+  font-family: 'Alumni Sans SC', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--n400, #8a8a8a);
+  margin-bottom: 0.75rem;
+}
+
+.pm-brand {
+  font-family: 'Alumni Sans SC', sans-serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.05;
+  color: var(--n100, #f5f5f5);
+  margin: 0 0 1.25rem;
+}
+
+.pm-platform-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--r-pill, 100px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.05);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--g400, #b0b0b0);
+  margin-bottom: 2rem;
+}
+
+.pm-result {
+  font-family: 'Alumni Sans SC', sans-serif;
+  font-size: clamp(2.25rem, 6vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: var(--n100, #f5f5f5);
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #ffffff 60%, rgba(255, 255, 255, 0.55));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.pm-description {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--n300, #a8a8a8);
+  margin: 0;
+}
+
+.port-slot[data-project] { cursor: pointer; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pm-overlay,
+  .pm-container {
+    transition: none;
+  }
+  .pm-overlay[hidden] {
+    display: none !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .pm-container {
+    padding: 2.5rem 1.5rem 2rem;
+    border-radius: var(--r-md, 16px);
+    max-height: calc(100dvh - 2rem);
+    max-width: 100%;
+  }
+  .pm-overlay {
+    padding: 1rem;
+    align-items: flex-end;
+  }
+}

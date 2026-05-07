@@ -13,7 +13,7 @@
 
     <style>#nav{opacity:0}#mobile-menu{display:none}</style>
     <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
-    <link rel="stylesheet" href="style.css?v=5">
+    <link rel="stylesheet" href="style.css?v=6">
 </head>
 <body class="light-theme">
     <canvas id="sparks"></canvas>
@@ -33,7 +33,9 @@
                 <a href="#about">Über mich</a>
                 <a href="#portfolio">Projekte</a>
                 <a href="#services">Leistungen</a>
+                <a href="#process">Prozess</a>
                 <a href="#pricing">Preise</a>
+                <a href="#faq">FAQ</a>
                 <a href="#contact">Kontakt</a>
             </div>
         </div>
@@ -149,10 +151,10 @@
             <h2 class="sec-heading">Ausgewählte Projekte</h2>
         </div>
         <div class="port-grid">
-            <div class="port-slot port-slot-hero reveal d1"><img src="image/images/portfolio/portfolio/portfolio/portfolio/image-thumb-1.webp" alt="Projekt 1" loading="lazy" width="614" height="778"><div class="port-overlay">ANSEHEN →</div></div>
-            <div class="port-slot reveal d2"><img src="image/images/portfolio/portfolio/portfolio/portfolio/image-thumb-2.webp" alt="Projekt 2" loading="lazy" width="307" height="384"><div class="port-overlay">ANSEHEN →</div></div>
-            <div class="port-slot reveal d3"><img src="image/images/portfolio/portfolio/portfolio/portfolio/image-thumb-3.webp" alt="Projekt 3" loading="lazy" width="307" height="384"><div class="port-overlay">ANSEHEN →</div></div>
-            <div class="port-slot reveal d4"><img src="image/images/portfolio/portfolio/portfolio/portfolio/image-thumb-4.webp" alt="Projekt 4" loading="lazy" width="307" height="384"><div class="port-overlay">ANSEHEN →</div></div>
+            <div class="port-slot port-slot-hero reveal d1" data-project="1"><img src="image/images/portfolio/portfolio/portfolio/portfolio/image-thumb-1.webp" alt="Projekt 1" loading="lazy" width="614" height="778"><div class="port-overlay">ANSEHEN →</div></div>
+            <div class="port-slot reveal d2" data-project="2"><img src="image/images/portfolio/portfolio/portfolio/portfolio/image-thumb-2.webp" alt="Projekt 2" loading="lazy" width="307" height="384"><div class="port-overlay">ANSEHEN →</div></div>
+            <div class="port-slot reveal d3" data-project="3"><img src="image/images/portfolio/portfolio/portfolio/portfolio/image-thumb-3.webp" alt="Projekt 3" loading="lazy" width="307" height="384"><div class="port-overlay">ANSEHEN →</div></div>
+            <div class="port-slot reveal d4" data-project="4"><img src="image/images/portfolio/portfolio/portfolio/portfolio/image-thumb-4.webp" alt="Projekt 4" loading="lazy" width="307" height="384"><div class="port-overlay">ANSEHEN →</div></div>
         </div>
     </section>
 
@@ -309,6 +311,15 @@
                 <div class="price-cta-wrap">
                     <a href="#contact" class="price-btn">Jetzt wachsen</a>
                 </div>
+                <!-- SCARCITY BADGE -->
+                <div class="sc-availability">
+                    <span class="sc-dot" aria-hidden="true"></span>
+                    <div class="sc-text-group">
+                        <span class="sc-slots">Aktuell 2 Plätze verfügbar</span>
+                        <span class="sc-next">Nächste freie Kapazität: Juni 2026</span>
+                    </div>
+                </div>
+                <!-- /SCARCITY BADGE -->
             </div>
             <div class="price-card card-premium reveal d3">
                 <span class="card-num">03</span>
@@ -322,27 +333,165 @@
         </div>
     </section>
 
+    <!-- PROCESS -->
+    <section id="process">
+
+      <div class="divider reveal"></div>
+
+      <div class="process-wrapper">
+
+        <div class="sec-header reveal">
+          <p class="overline">Der Prozess</p>
+          <h2 class="sec-heading">Von Idee zu Content.</h2>
+        </div>
+
+        <div class="process-track">
+
+          <!-- Connector line (desktop) -->
+          <div class="process-connector" aria-hidden="true"></div>
+
+          <!-- Step 01 -->
+          <article class="process-card card-premium reveal d1">
+            <span class="process-num" aria-hidden="true">01</span>
+            <div class="process-card-body">
+              <h3 class="process-title">Gespräch</h3>
+              <p class="process-desc">Wir lernen uns kennen, ich verstehe deine Marke.</p>
+            </div>
+          </article>
+
+          <!-- Step 02 -->
+          <article class="process-card card-premium reveal d2">
+            <span class="process-num" aria-hidden="true">02</span>
+            <div class="process-card-body">
+              <h3 class="process-title">Konzept</h3>
+              <p class="process-desc">Strategie, Formate und Redaktionsplan werden entwickelt.</p>
+            </div>
+          </article>
+
+          <!-- Step 03 -->
+          <article class="process-card card-premium reveal d3">
+            <span class="process-num" aria-hidden="true">03</span>
+            <div class="process-card-body">
+              <h3 class="process-title">Produktion</h3>
+              <p class="process-desc">Content-Erstellung, Schnitt, Freigabe — alles aus einer Hand.</p>
+            </div>
+          </article>
+
+          <!-- Step 04 -->
+          <article class="process-card card-premium reveal d4">
+            <span class="process-num" aria-hidden="true">04</span>
+            <div class="process-card-body">
+              <h3 class="process-title">Live</h3>
+              <p class="process-desc">Veröffentlichung, Analyse, Optimierung auf Basis echter Daten.</p>
+            </div>
+          </article>
+
+        </div><!-- /.process-track -->
+
+      </div><!-- /.process-wrapper -->
+
+      <div class="divider reveal"></div>
+
+    </section>
+
     <!-- CTA -->
     <section id="cta">
         <div class="divider reveal"></div>
-        <span class="cta-badge reveal">Erstgespräch kostenlos</span>
+        <span class="cta-badge reveal">Kostenloses 20-Min-Gespräch</span>
         <h2 class="cta-h reveal">Content auf dem nächsten Level.</h2>
         <p class="cta-sub reveal">Für Brands, die Content als Wachstumshebel verstehen.</p>
+        <p class="cta-trust reveal" style="font-size:0.85rem;opacity:0.6;margin-top:0.25rem;letter-spacing:0.02em;">Bisher über 30 Projekte. Keine Agentur-Bürokratie.</p>
         <div class="cta-btns reveal">
-            <a href="#contact" class="btn btn-primary">Projekt starten</a>
+            <a href="#contact" class="btn btn-primary">Erstgespräch buchen →</a>
             <a href="#portfolio" class="btn btn-outline">Arbeiten ansehen</a>
         </div>
-        <p class="cta-note reveal">Kein Commitment. Nur Ergebnisse.</p>
+        <p class="cta-note reveal">Kostenlos & unverbindlich. Antworte innerhalb von 24h.</p>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+        <div class="divider reveal"></div>
+
+        <div class="sec-header reveal">
+            <p class="overline">FAQ</p>
+            <h2 class="sec-heading">Häufige Fragen.</h2>
+        </div>
+
+        <div class="faq-list reveal d1" role="list">
+
+            <details class="faq-item" role="listitem">
+                <summary class="faq-question">
+                    <span class="faq-question-text">Bin ich zu klein für dich?</span>
+                    <span class="faq-icon" aria-hidden="true"></span>
+                </summary>
+                <div class="faq-answer">
+                    <p>Nein — ich arbeite mit Brands jeder Größe, solange der Fit stimmt. Entscheidend ist nicht dein aktuelles Follower-Volumen, sondern ob dein Produkt und deine Vision zu meinem Ansatz passen. Ruf einfach an, wir finden es gemeinsam heraus.</p>
+                </div>
+            </details>
+
+            <details class="faq-item" role="listitem">
+                <summary class="faq-question">
+                    <span class="faq-question-text">Wie schnell sehe ich erste Ergebnisse?</span>
+                    <span class="faq-icon" aria-hidden="true"></span>
+                </summary>
+                <div class="faq-answer">
+                    <p>Erste Inhalte gehen in Woche 2 live. Messbare Reichweite und Engagement-Daten liegen in der Regel nach 4–6 Wochen vor — abhängig von Plattform, Posting-Frequenz und deiner bisherigen Account-Basis.</p>
+                </div>
+            </details>
+
+            <details class="faq-item" role="listitem">
+                <summary class="faq-question">
+                    <span class="faq-question-text">Brauche ich selbst ein fertiges Konzept?</span>
+                    <span class="faq-icon" aria-hidden="true"></span>
+                </summary>
+                <div class="faq-answer">
+                    <p>Nein — das Konzept entwickeln wir gemeinsam im Onboarding-Gespräch. Du bringst dein Produkt und deine Ziele mit, ich bringe die kreative Strategie. Alles andere entsteht im Prozess.</p>
+                </div>
+            </details>
+
+            <details class="faq-item" role="listitem">
+                <summary class="faq-question">
+                    <span class="faq-question-text">Kann ich jederzeit kündigen?</span>
+                    <span class="faq-icon" aria-hidden="true"></span>
+                </summary>
+                <div class="faq-answer">
+                    <p>Monatlich kündbar nach dem ersten Monat. Kein Jahresvertrag, kein Kleingedrucktes. Ich setze auf langfristige Zusammenarbeit aus Überzeugung — nicht wegen Lock-in-Klauseln.</p>
+                </div>
+            </details>
+
+            <details class="faq-item" role="listitem">
+                <summary class="faq-question">
+                    <span class="faq-question-text">Was unterscheidet dich von einer Agentur?</span>
+                    <span class="faq-icon" aria-hidden="true"></span>
+                </summary>
+                <div class="faq-answer">
+                    <p>Kein Overhead, kein Junior-Team. Du arbeitest direkt mit mir — von der Konzeption bis zum fertigen Content. Das bedeutet schnellere Abstimmung, konsistentere Qualität und echtes kreatives Commitment statt Agentur-Prozesse.</p>
+                </div>
+            </details>
+
+            <details class="faq-item" role="listitem">
+                <summary class="faq-question">
+                    <span class="faq-question-text">Welche Plattformen deckst du ab?</span>
+                    <span class="faq-icon" aria-hidden="true"></span>
+                </summary>
+                <div class="faq-answer">
+                    <p>Instagram, TikTok, YouTube Shorts — plattformnativ für jede. Das bedeutet: kein einheitliches Format, das überall eingefügt wird, sondern Inhalte, die für den jeweiligen Algorithmus und die jeweilige Community gemacht sind.</p>
+                </div>
+            </details>
+
+        </div>
+
+        <div class="divider reveal"></div>
     </section>
 
     <!-- CONTACT -->
     <section id="contact">
         <div class="divider reveal"></div>
-        <p class="overline reveal">KONTAKT</p>
-        <h2 class="sec-heading reveal">Lass uns arbeiten.</h2>
+        <p class="overline reveal">ERSTGESPRÄCH</p>
+        <h2 class="sec-heading reveal">Lass uns sprechen.</h2>
         <div class="contact-row">
             <div class="contact-info reveal">
-                <p class="contact-info-desc">Fragen, Angebote oder einfach schauen, ob wir zusammenpassen — ich antworte innerhalb von 24h.</p>
+                <p class="contact-info-desc">Kein Pitch, keine Verpflichtung. 20 Minuten — wir schauen ob wir zusammenpassen.</p>
                 <div class="contact-info-row">
                     <span class="contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></span>
                     <span class="contact-info-text">hello@creativelab.de</span>
@@ -363,8 +512,8 @@
                 </div>
                 <div class="field"><label>Betreff</label><input type="text" name="subject" placeholder="Worum geht es?"></div>
                 <div class="field"><label>Nachricht</label><textarea name="message" placeholder="Erzähl mir von deinem Projekt ..."></textarea></div>
-                <button type="submit" class="form-submit">Nachricht senden</button>
-                <p class="form-legal">Mit dem Absenden stimmst du der Datenschutzerklärung zu.</p>
+                <button type="submit" class="form-submit">Gespräch anfragen →</button>
+                <p class="form-legal">Ich melde mich innerhalb von 24 Stunden. Mit dem Absenden stimmst du der Datenschutzerklärung zu.</p>
             </form>
         </div>
     </section>
@@ -395,5 +544,11 @@
     </footer>
 
     <script src="main.js?v=4"></script>
+    <script src="_patch_portfolio_modal.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            initPortfolioModal();
+        });
+    </script>
 </body>
 </html>
