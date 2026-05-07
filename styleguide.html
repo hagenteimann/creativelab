@@ -124,36 +124,53 @@
     <section class="sg-section" id="colors">
         <h2>03 Color Palette</h2>
         <div class="sg-subsection">
-            <h3>Tier 1 — Primitives (Neutral Scale 0–1000)</h3>
-            <p>Entscheidung: 0–1000 Skala (13 Stufen) bleibt. Blueprint's 0–700 ist zu grob für präzise Hierarchie. Tailwind bewies: mehr Stufen = mehr Kontrolle. Nie direkt in Komponenten verwenden — stattdessen Semantic Aliases (Tier 2) nutzen.</p>
+            <h3>G-Scale — UI Chrome & Grayscale</h3>
+            <p>Primäre Grau-Ramp der Website. Genutzt für Nav-States, Overlines, Borders, Icon-Tints. <strong>Website ist Source of Truth.</strong></p>
             <div class="color-grid" style="margin-top: var(--space-4);">
-                <div class="color-swatch"><div class="color-preview" style="background: var(--clr-neutral-0);"></div><div class="color-info"><span class="color-name">0</span><span class="color-hex">#ffffff</span></div></div>
-                <div class="color-swatch"><div class="color-preview" style="background: var(--clr-neutral-50);"></div><div class="color-info"><span class="color-name">50</span><span class="color-hex">#fafafa</span></div></div>
-                <div class="color-swatch"><div class="color-preview" style="background: var(--clr-neutral-100);"></div><div class="color-info"><span class="color-name">100</span><span class="color-hex">#f5f5f5</span></div></div>
-                <div class="color-swatch"><div class="color-preview" style="background: var(--clr-neutral-200);"></div><div class="color-info"><span class="color-name">200</span><span class="color-hex">#e5e5e5</span></div></div>
-                <div class="color-swatch"><div class="color-preview" style="background: var(--clr-neutral-300);"></div><div class="color-info"><span class="color-name">300</span><span class="color-hex">#d4d4d4</span></div></div>
-                <div class="color-swatch"><div class="color-preview" style="background: var(--clr-neutral-400);"></div><div class="color-info"><span class="color-name">400</span><span class="color-hex">#a3a3a3</span></div></div>
-                <div class="color-swatch"><div class="color-preview" style="background: var(--clr-neutral-500);"></div><div class="color-info"><span class="color-name">500</span><span class="color-hex">#737373</span></div></div>
-                <div class="color-swatch"><div class="color-preview" style="background: var(--clr-neutral-600);"></div><div class="color-info"><span class="color-name">600</span><span class="color-hex">#525252</span></div></div>
-                <div class="color-swatch"><div class="color-preview" style="background: var(--clr-neutral-700);"></div><div class="color-info"><span class="color-name">700</span><span class="color-hex">#404040</span></div></div>
-                <div class="color-swatch"><div class="color-preview" style="background: var(--clr-neutral-800);"></div><div class="color-info"><span class="color-name">800</span><span class="color-hex">#262626</span></div></div>
-                <div class="color-swatch"><div class="color-preview" style="background: var(--clr-neutral-900);"></div><div class="color-info"><span class="color-name">900</span><span class="color-hex">#171717</span></div></div>
-                <div class="color-swatch"><div class="color-preview" style="background: var(--clr-neutral-950);"></div><div class="color-info"><span class="color-name">950</span><span class="color-hex">#0c0c0c</span></div></div>
-                <div class="color-swatch"><div class="color-preview" style="background: var(--clr-neutral-1000); border: 1px solid var(--clr-neutral-800);"></div><div class="color-info"><span class="color-name">1000</span><span class="color-hex">#000000</span></div></div>
+                <div class="color-swatch"><div class="color-preview" style="background:#ffffff;"></div><div class="color-info"><span class="color-name">--g0</span><span class="color-hex">#ffffff</span></div></div>
+                <div class="color-swatch"><div class="color-preview" style="background:#f0f0f0;"></div><div class="color-info"><span class="color-name">--g100</span><span class="color-hex">#f0f0f0</span></div></div>
+                <div class="color-swatch"><div class="color-preview" style="background:#e0e0e0;"></div><div class="color-info"><span class="color-name">--g200</span><span class="color-hex">#e0e0e0</span></div></div>
+                <div class="color-swatch"><div class="color-preview" style="background:#cccccc;"></div><div class="color-info"><span class="color-name">--g300</span><span class="color-hex">#cccccc</span></div></div>
+                <div class="color-swatch"><div class="color-preview" style="background:#b0b0b0;"></div><div class="color-info"><span class="color-name">--g400</span><span class="color-hex">#b0b0b0</span></div></div>
+                <div class="color-swatch"><div class="color-preview" style="background:#999999;"></div><div class="color-info"><span class="color-name">--g500</span><span class="color-hex">#999999</span></div></div>
+                <div class="color-swatch"><div class="color-preview" style="background:#808080;"></div><div class="color-info"><span class="color-name">--g600</span><span class="color-hex">#808080</span></div></div>
+                <div class="color-swatch"><div class="color-preview" style="background:#666666;"></div><div class="color-info"><span class="color-name">--g700</span><span class="color-hex">#666666</span></div></div>
+            </div>
+        </div>
+        <div class="sg-subsection" style="margin-top: var(--space-8);">
+            <h3>N-Scale — Text & Content</h3>
+            <p>Text-Farbabstufungen. Invertieren sich im Light Mode automatisch via CSS-Override.</p>
+            <div class="color-grid" style="margin-top: var(--space-4);">
+                <div class="color-swatch"><div class="color-preview" style="background:#f5f5f5;"></div><div class="color-info"><span class="color-name">--n100</span><span class="color-hex">#f5f5f5 · primary text</span></div></div>
+                <div class="color-swatch"><div class="color-preview" style="background:#a8a8a8;"></div><div class="color-info"><span class="color-name">--n300</span><span class="color-hex">#a8a8a8 · secondary</span></div></div>
+                <div class="color-swatch"><div class="color-preview" style="background:#8a8a8a;"></div><div class="color-info"><span class="color-name">--n400</span><span class="color-hex">#8a8a8a · muted</span></div></div>
+                <div class="color-swatch"><div class="color-preview" style="background:#5a5a5a;"></div><div class="color-info"><span class="color-name">--n500</span><span class="color-hex">#5a5a5a · disabled</span></div></div>
+            </div>
+        </div>
+        <div class="sg-subsection" style="margin-top: var(--space-8);">
+            <h3>S-Scale — Dark Surfaces & Backgrounds</h3>
+            <div class="color-grid" style="margin-top: var(--space-4);">
+                <div class="color-swatch"><div class="color-preview" style="background:#0c0c0c; border: 1px solid #333;"></div><div class="color-info"><span class="color-name">--bg</span><span class="color-hex">#0c0c0c · page base</span></div></div>
+                <div class="color-swatch"><div class="color-preview" style="background:#2a2a2a;"></div><div class="color-info"><span class="color-name">--s0</span><span class="color-hex">#2a2a2a</span></div></div>
+                <div class="color-swatch"><div class="color-preview" style="background:#222222;"></div><div class="color-info"><span class="color-name">--s100</span><span class="color-hex">#222222</span></div></div>
+                <div class="color-swatch"><div class="color-preview" style="background:#1c1c1c;"></div><div class="color-info"><span class="color-name">--s200</span><span class="color-hex">#1c1c1c</span></div></div>
+                <div class="color-swatch"><div class="color-preview" style="background:#141414;"></div><div class="color-info"><span class="color-name">--s300</span><span class="color-hex">#141414</span></div></div>
+                <div class="color-swatch"><div class="color-preview" style="background:#111111;"></div><div class="color-info"><span class="color-name">--s400</span><span class="color-hex">#111111</span></div></div>
+                <div class="color-swatch"><div class="color-preview" style="background:#000000; border: 1px solid #333;"></div><div class="color-info"><span class="color-name">--s700</span><span class="color-hex">#000000 · pure black</span></div></div>
             </div>
         </div>
         <div class="sg-subsection" style="margin-top: var(--space-8);">
             <h3>Tier 2 — Semantic Aliases</h3>
-            <p>Diese Tokens werden in Komponenten verwendet. Sie zeigen auf Primitives und können pro Theme überschrieben werden (Light/Dark). Standard: GitHub Primer / Radix.</p>
+            <p>Semantische Schicht auf den Produktions-Tokens. In Komponenten diese Namen nutzen, nie direkte g/n/s-Tokens.</p>
             <div class="spec-container" style="margin-top: var(--space-4);">
-                <div class="spec-item"><span class="spec-key">--color-bg-base</span><span class="spec-val">→ neutral-950 · Haupt-Hintergrund</span></div>
-                <div class="spec-item"><span class="spec-key">--color-bg-surface</span><span class="spec-val">→ neutral-900 · Cards, Panels</span></div>
-                <div class="spec-item"><span class="spec-key">--color-bg-elevated</span><span class="spec-val">→ neutral-800 · Dropdowns, Tooltips</span></div>
-                <div class="spec-item"><span class="spec-key">--color-text-primary</span><span class="spec-val">→ neutral-0 · Haupttext</span></div>
-                <div class="spec-item"><span class="spec-key">--color-text-secondary</span><span class="spec-val">→ neutral-400 · Supporting text</span></div>
-                <div class="spec-item"><span class="spec-key">--color-text-muted</span><span class="spec-val">→ neutral-600 · Labels, Captions</span></div>
-                <div class="spec-item"><span class="spec-key">--color-border-subtle</span><span class="spec-val">→ neutral-800 · Divider, Container</span></div>
-                <div class="spec-item"><span class="spec-key">--color-border-default</span><span class="spec-val">→ neutral-700 · Inputs, Cards</span></div>
+                <div class="spec-item"><span class="spec-key">--color-bg-base</span><span class="spec-val">→ --bg (#0c0c0c) · Haupt-Hintergrund</span></div>
+                <div class="spec-item"><span class="spec-key">--color-bg-surface</span><span class="spec-val">→ --s100 (#222) · Cards, Panels</span></div>
+                <div class="spec-item"><span class="spec-key">--color-bg-elevated</span><span class="spec-val">→ --s0 (#2a2a2a) · Dropdowns, Tooltips</span></div>
+                <div class="spec-item"><span class="spec-key">--color-text-primary</span><span class="spec-val">→ --n100 (#f5f5f5) · Haupttext</span></div>
+                <div class="spec-item"><span class="spec-key">--color-text-secondary</span><span class="spec-val">→ --n400 (#8a8a8a) · Supporting text</span></div>
+                <div class="spec-item"><span class="spec-key">--color-text-muted</span><span class="spec-val">→ --n500 (#5a5a5a) · Labels, Captions</span></div>
+                <div class="spec-item"><span class="spec-key">--color-border-subtle</span><span class="spec-val">→ rgba(255,255,255,.07) · Glass-Borders</span></div>
+                <div class="spec-item"><span class="spec-key">--glow</span><span class="spec-val">0 0 10.2px 0 rgba(255,255,255,.15) · Standard Glow</span></div>
             </div>
         </div>
         <div class="sg-subsection" style="margin-top: var(--space-8);">
@@ -195,43 +212,99 @@
     <section class="sg-section" id="typography">
         <h2>05 Typography</h2>
         <div class="sg-subsection">
-            <h3>Brand Fonts</h3>
+            <h3>Brand Fonts — max. 2 (Blueprint-Regel)</h3>
             <div class="spec-container">
                 <div class="type-preview">
-                    <p class="spec-key">Accent / Alumni Sans SC</p>
+                    <p class="spec-key">Accent / Alumni Sans SC — Headlines, Nav, Cards</p>
                     <h1 style="font-family: var(--font-accent); font-size: var(--fs-4xl); text-transform: uppercase;">ALUMNI SANS SC</h1>
-                    <p style="font-size: var(--fs-xs); color: var(--clr-neutral-500);">Modernität und Autorität für Headlines.</p>
+                    <p style="font-size: var(--fs-xs); color: var(--clr-neutral-500);">Gewichte: 400 (Display/Shimmer) · 700 (Bold Subhead)</p>
                 </div>
-                <div class="type-preview">
-                    <p class="spec-key">Primary / Inter</p>
-                    <h1 style="font-family: var(--font-primary); font-size: var(--fs-4xl);">Inter Display</h1>
-                    <p style="font-size: var(--fs-xs); color: var(--clr-neutral-500);">Lesbarkeit und Neutralität für UI.</p>
+                <div class="type-preview" style="margin-top: var(--space-6);">
+                    <p class="spec-key">Primary / Inter — Body, UI, Labels</p>
+                    <h1 style="font-family: var(--font-primary); font-size: var(--fs-4xl);">Inter</h1>
+                    <p style="font-size: var(--fs-xs); color: var(--clr-neutral-500);">Gewichte: 400 (body) · 500 (UI) · 600 (labels) · 700 (headings)</p>
                 </div>
             </div>
         </div>
-        <div class="sg-subsection" style="margin-top: var(--space-12);">
-            <h3>Experimental</h3>
+        <div class="sg-subsection" style="margin-top: var(--space-8);">
+            <h3>Fluid Type Scale (Website — Source of Truth)</h3>
+            <p>Alle Hero- und Heading-Größen nutzen <code>clamp()</code> — keine fixed breakpoints.</p>
+            <div class="spec-container" style="margin-top: var(--space-4);">
+                <div class="spec-item"><span class="spec-key">Hero Line 1</span><span class="spec-val">clamp(36px, 7.5vw, 105px) · Alumni Sans SC · weight 400 · shimmer gradient</span></div>
+                <div class="spec-item"><span class="spec-key">Hero Line 2</span><span class="spec-val">clamp(24px, 5vw, 70px) · Alumni Sans SC · weight 700 · --g300</span></div>
+                <div class="spec-item"><span class="spec-key">Hero Line 3</span><span class="spec-val">clamp(16px, 3.2vw, 44px) · Alumni Sans SC · weight 400 · --g400</span></div>
+                <div class="spec-item"><span class="spec-key">.sec-heading</span><span class="spec-val">clamp(26px, 3.2vw, 38px) · Inter · weight 700 · letter-spacing -0.025em</span></div>
+                <div class="spec-item"><span class="spec-key">.stat-num</span><span class="spec-val">clamp(36px, 4vw, 52px) · Inter · weight 700</span></div>
+                <div class="spec-item"><span class="spec-key">Body / UI</span><span class="spec-val">13px fixed · Inter · weight 400–500</span></div>
+                <div class="spec-item"><span class="spec-key">Labels / Overline</span><span class="spec-val">11px fixed · weight 600 · letter-spacing 3.5px</span></div>
+            </div>
+        </div>
+        <div class="sg-subsection" style="margin-top: var(--space-8);">
+            <h3>Shimmer — Signature Effect</h3>
             <h2 class="exp-shimmer" style="font-family: var(--font-accent); font-size: var(--fs-3xl);">PREMIUM CONTENT</h2>
+            <div class="spec-container" style="margin-top: var(--space-4);">
+                <div class="spec-item"><span class="spec-key">Gradient</span><span class="spec-val">linear-gradient(90deg, --g600 0%, --g0 35%, --g400 50%, --g0 65%, --g600 100%)</span></div>
+                <div class="spec-item"><span class="spec-key">Animation</span><span class="spec-val">background-size: 200% · shimmer 5s linear infinite</span></div>
+                <div class="spec-item"><span class="spec-key">Einsatz</span><span class="spec-val">Nur Hero Line 1 und experimentelle Akzente — nie für Fließtext</span></div>
+            </div>
         </div>
     </section>
 
     <!-- 06 COMPONENTS -->
     <section class="sg-section" id="components">
         <h2>06 Components</h2>
+
         <div class="sg-subsection">
             <h3>Buttons</h3>
             <div class="demo-row">
                 <button class="btn btn-primary">Projekt starten</button>
                 <button class="btn btn-ghost">Arbeiten ansehen</button>
+                <button class="btn btn-outline">Portfolio</button>
+                <a class="btn-glow" href="#">get in touch</a>
+            </div>
+            <div class="spec-container" style="margin-top: var(--space-4);">
+                <div class="spec-item"><span class="spec-key">.btn-primary</span><span class="spec-val">bg: --n100 · text: --bg · hover: box-shadow glow · min-height: 48px</span></div>
+                <div class="spec-item"><span class="spec-key">.btn-ghost</span><span class="spec-val">bg: --s100 · border: --s300 · hover: --s200 + translateY(-2px)</span></div>
+                <div class="spec-item"><span class="spec-key">.btn-outline</span><span class="spec-val">transparent · border: --n400 · hover: border --n100 + bg --s100</span></div>
+                <div class="spec-item"><span class="spec-key">.btn-glow</span><span class="spec-val">Pill-Form · bg: rgba(255,255,255,.06) · hover: glow box-shadow · Für sekundäre CTAs</span></div>
+                <div class="spec-item"><span class="spec-key">Transition</span><span class="spec-val">var(--duration-micro) var(--ease) — alle Button-States</span></div>
             </div>
         </div>
+
         <div class="sg-subsection" style="margin-top: var(--space-8);">
-            <h3>Glassmorphism</h3>
-            <div class="demo-row">
-                <div class="glass-card" style="width: 350px;">
-                    <h4 style="font-family: var(--font-accent); margin-bottom: var(--space-2);">Premium Vision</h4>
-                    <p style="font-size: var(--fs-sm); color: var(--clr-neutral-400);">Minimalistisch und wertig.</p>
+            <h3>Glass & Card Premium</h3>
+            <div class="demo-row" style="gap: var(--space-6);">
+                <div class="glass-card" style="width: 300px;">
+                    <h4 style="font-family: var(--font-accent); margin-bottom: var(--space-2);">.glass-card</h4>
+                    <p style="font-size: var(--fs-sm); color: var(--clr-neutral-400);">Nav-Links, leichte Glasflächen.</p>
                 </div>
+            </div>
+            <div class="spec-container" style="margin-top: var(--space-4);">
+                <div class="spec-item"><span class="spec-key">.glass</span><span class="spec-val">bg rgba(255,255,255,.05) · blur(16px) saturate(160%) · border rgba(255,255,255,.08) · radius --r-md</span></div>
+                <div class="spec-item"><span class="spec-key">.card-premium</span><span class="spec-val">blur(16px) saturate(180%) · gradient refraction 135° · shadow 0 8px 32px rgba(0,0,0,.25) + inset highlight · hover: translateY(-6px)</span></div>
+                <div class="spec-item"><span class="spec-key">.card-premium.pro</span><span class="spec-val">border-color rgba(255,255,255,.16) — für hervorgehobene Karten (z.B. Growth-Plan)</span></div>
+                <div class="spec-item"><span class="spec-key">Transition</span><span class="spec-val">var(--duration-component) var(--ease)</span></div>
+            </div>
+        </div>
+
+        <div class="sg-subsection" style="margin-top: var(--space-8);">
+            <h3>Reveal Animation</h3>
+            <p>Scroll-getriggerte Einblend-Animation für alle Sektionsinhalte. Nutzt <code>animation-timeline: view()</code> (progressive enhancement) mit JS-Fallback.</p>
+            <div class="spec-container" style="margin-top: var(--space-4);">
+                <div class="spec-item"><span class="spec-key">.reveal</span><span class="spec-val">opacity: 0 — wartet auf Viewport-Entry</span></div>
+                <div class="spec-item"><span class="spec-key">.reveal.in</span><span class="spec-val">revealIn 0.6s ease forwards — scale(0.95) → scale(1) + fade</span></div>
+                <div class="spec-item"><span class="spec-key">.d1 – .d4</span><span class="spec-val">Staggered delays: 80ms / 160ms / 240ms / 320ms</span></div>
+                <div class="spec-item"><span class="spec-key">Reduced Motion</span><span class="spec-val">@media prefers-reduced-motion → animation: none; opacity: 1</span></div>
+            </div>
+        </div>
+
+        <div class="sg-subsection" style="margin-top: var(--space-8);">
+            <h3>Badge & Overline</h3>
+            <div class="spec-container" style="margin-top: var(--space-4);">
+                <div class="spec-item"><span class="spec-key">.badge</span><span class="spec-val">11px · uppercase · letter-spacing 1px · pill-radius · padding 4px 10px</span></div>
+                <div class="spec-item"><span class="spec-key">.uc-badge</span><span class="spec-val">border rgba(255,255,255,.12) · transparent bg · hover: border + text --n100</span></div>
+                <div class="spec-item"><span class="spec-key">.overline</span><span class="spec-val">11px · weight 600 · letter-spacing 3.5px · color --g400 · uppercase</span></div>
+                <div class="spec-item"><span class="spec-key">.overline.neutral</span><span class="spec-val">color --n400 · no uppercase — für Fließtext-Kontexte</span></div>
             </div>
         </div>
     </section>
